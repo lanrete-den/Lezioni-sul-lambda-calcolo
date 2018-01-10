@@ -3031,70 +3031,66 @@ $\beta\eta$-normal form (not necessarily unique) in a finite sequence
 of $\eta$-reductions.
 
 \begin{exercise}
-  Prove the Church-Rosser theorem for $\beta$-reductions in the
-  $\lam^{\to,\times,1}$-calculus. Hint: use the same method that we
-  used in the untyped case.
+  Dimostrare il teorema di Church-Rosser per le $\beta$-riduzioni nel
+  $\lam^{\to,\times,1}$-calcolo. suggerimento: usa lo stesso metodo che abbiamo usato nel caso non tipizzato.
 \end{exercise}
 
-Another solution is to omit the type $1$ and the term $\unit$ from the
-language. In this case, the Church-Rosser property holds even for
-$\beta\eta$-reduction.
+Un'altra soluzione \`e quella di omettere il tipo $ 1 $ e il termine $ \ unit $ dal
+linguaggio. In questo caso, la propriet\`a di Church-Rosser vale anche per
+$\beta\eta$-riduzioni.
 
 \begin{exercise}
-  Prove the Church-Rosser theorem for $\beta\eta$-reduction in the
-  $\lam^{\to,\times}$-calculus, i.e., the simply-typed lambda calculus
-  without $1$ and $\unit$.
+  Dimostrare il teorema di Church-Rosser per le $\beta$-riduzioni nel
+  $\lam^{\to,\times}$-calculus, i.e., il lambda calcolo symple-typed(semplice-tipizzato) 
+ senza $1$ e $\unit$.
 \end{exercise}
 
 % ----------------------------------------------------------------------
-\subsection{Reduction as proof simplification}
+\subsection{Riduzione come prova di semplificazione}
 
-Having made a one-to-one correspondence between simply-typed lambda
-terms and derivations in intuitionistic natural deduction, we may now
-ask what $\beta$- and $\eta$-reductions correspond to under this
-correspondence. It turns out that these reductions can be thought of
-as ``proof simplification steps''. 
+Avendo fatto una corrispondenza uno-a-uno tra lambda termini simply-typed
+e derivazioni nella deduzione naturale intuizionista, possiamo ora chiedere 
+quali $\beta$- e $\eta$ -riduzioni gli equivalgono sotto questa corrispondenza.
+Si scopre che queste riduzioni possono essere pensate come `` prova semplificazione passi ''.
 
-Consider for example the $\beta$-reduction $\proj1\pair{M,N} \to M$.
-If we translate the left-hand side and the right-hand side via the
-Curry-Howard isomorphism (here we use the first notation for natural
-deduction), we get
+Prendiamo ad esempio $\beta$ -riduzione $\proj1\pair{M,N}\ su M $.
+Se traduciamo il lato sinistro e il lato destro attraverso l'isomorfismo di Curry-Howard 
+(qui usiamo la prima notazione per deduzione naturale), otteniamo
 \[ \trule{$\cand$-E$_1$}\deriv{\trule{$\cand$-I}\deriv{\ideriv{\Gamma}{A}\sep\ideriv{\Gamma}{B}}{A\cand B}}{A}
 \ssep\to\ssep \ideriv{\Gamma}{A}.
 \]
-We can see that the left derivation contains an introduction rule
-immediately followed by an elimination rule. This leads to an obvious
-simplification if we replace the left derivation by the right one.
+Possiamo vedere che la derivazione di sinistra contiene una regola di 
+introduzione immediatamente seguita da una regola di eliminazione. 
+Questo porta ad una ovvia semplificazione se sostituiamo la derivazione sinistra con quella destra.
 
-In general, $\beta$-redexes correspond to situations where an
-introduction rule is immediately followed by an elimination rule, and
-$\eta$-redexes correspond to situations where an elimination rule is
-immediately followed by an introduction rule. For example, consider
-the $\eta$-reduction $\pair{\proj1 M,\proj2 M} \to M$. This translates
-to:
+In generale, $\beta$ -redexes corrispondono a situazioni in cui
+una regola di introduzione \`e immediatamente seguita da una regola di 
+eliminazione, e $\eta$ -redexes corrispondono alle situazioni dove 
+una regola di eliminazione \`e immediatamente seguita da una regola di introduzione.
+Ad esempio,si considera $\eta$ -riduzione $\pair{\proj1 M,\proj2 M} \to $M$. 
+Questo si traduce come:
 \[
 \trule{$\cand$-I}\deriv{\trule{$\cand$-E$_1$}\deriv{\ideriv{\Gamma}{A\cand
       B}}{A}\sep\trule{$\cand$-E$_2$}\deriv{\ideriv{\Gamma}{A\cand
       B}}{B}}{A\cand B}
 \ssep\to\ssep \ideriv{\Gamma}{A\cand B}
 \]
-Again, this is an obvious simplification step, but it has a side
-condition: the left and right subderivation must be the same! This
-side condition corresponds to the fact that in the redex $\pair{\proj1
-  M,\proj2 M}$, the two subterms called $M$ must be equal. It is
-another characteristic of $\eta$-reductions that they often carry such
-side conditions.
+Ancora una volta, questo \`e un passo di semplificazione ovvio, ma ha una condizione secondaria: 
+la sottoderivazione sinistra e destra devono essere le stesse! 
+Questa condizione laterale corrisponde al fatto che nel redex $\pair{\proj1
+M,\proj2 M}$, i due sottotitoli chiamati $M$ devono essere uguali.
+\`E un'altra caratteristica delle $\eta$ -riduzioni che spesso vengono accompagnate 
+da condizioni secondarie.
 
-The reduction $M\to\unit$ translates as follows:
+La riduzione $M\to\unit$ si traduce nel seguente modo:
 \[
 \ideriv{\Gamma}{\ctrue} \ssep\to\ssep \trule{$\ctrue$-I}\deriv{\hspace{.5in}}{\ctrue}
 \]
-In other words, any derivation of $\ctrue$ can be replaced by the
-canonical such derivation.
+In altre parole, qualiasi derivazione di $\ctrue$ pu\`o essere rimpiazzata dalla canonica di tale derivazione
 
-More interesting is the case of the $(\beta_{\to})$ rule. Here, we
-have $(\lamabs{x}{A}.M)N \to \subst{M}{N}{x}$, which can be translated
-via the Curry-Howard Isomorphism as follows:
+Pi\`u interessante \`e il caso della regola $(\beta_{\to})$. In questo caso, abbiamo
+$(\lamabs{x}{A}.M)N \to \subst{M}{N}{x}$, che pu\`o essere tradotta tramite
+  l'Isomorfismo di Curry-Howardas nel seguente modo:
 \[
 \trule{$\to$-E}\ \deriv{\trule{$\to$-I}\ 
   \deriv{\ideriv{\Gamma,[\typ{x}{A}]}{B}}{A\to B} x
@@ -3102,20 +3098,20 @@ via the Curry-Howard Isomorphism as follows:
 \ssep\to \ssep 
 \ideriv{\Gamma,\ideriv{\Gamma}{A}}{B}.
 \]
-What is going on here is that we have a derivation $M$ of $B$ from
-assumptions $\Gamma$ and $A$, and we have another derivation $N$ of
-$A$ from $\Gamma$. We can directly obtain a derivation of $B$ from
-$\Gamma$ by stacking the second derivation on top of the first!
+Quello che sta succedendo \`e che abbiamo una derivazione $M$ di $B$ a partire
+dalle supposizioni $\Gamma$ e $A$, e abbiamo un'altra derivazione $N$ di
+$A$ da $\Gamma$. Possiamo ottenere direttamente una derivazione di $B$ da
+$\Gamma$ impilando la seconda derivazione al di sopra della prima!
 
-Notice that this last proof ``simplification'' step may not actually
-be a simplification. Namely, if the hypothesis labeled $x$ is used
-many times in the derivation $M$, then $N$ will have to be copied many
-times in the right-hand side term. This corresponds to the fact that
-if $x$ occurs several times in $M$, then $\subst{M}{N}{x}$ might be a
-longer and more complicated term than $(\lam x.M)N$.
+Notare che l'ultimo passo della dimostrazione ``semplificazione''  potrebbe in realt\`a 
+non essere una semplificazione.Vale a dire,se l'ipotesi chiamata $x$ \`e usata
+n volte nella derivazione $M$, allora $N$ dovr\`a essere copiata n volte
+nella parte destra del termine. Questo corrisponde al fatto che se
+$x$ si presenta varie volte in $M$, allora $\subst{M}{N}{x}$ potrebbe essere
+un pi\`u lungo e complicato termine di $(\lam x.M)N$.
 
-Finally, consider the $(\eta_{\to})$ rule $\lamabs{x}{A}.Mx \to M$,
-where $x\not\in\FV{M}$. This translates to derivations as follows:
+Infine, considerarela regola $(\eta_{\to})$  $\lamabs{x}{A}.Mx \to M$,
+dove $x\not\in\FV{M}$. Questo si traduce come derivazione nel seguente modo:
 \[
 \trule{$\to$-I}\ \deriv{\trule{$\to$-E}\ \deriv{\ideriv{\Gamma}{A\to
       B}\sep\trule{ax}\ \deriv{[\typ{x}{A}]}{A} x}{B}}{A\to B} x
@@ -3123,31 +3119,31 @@ where $x\not\in\FV{M}$. This translates to derivations as follows:
 \]
 
 % ----------------------------------------------------------------------
-\subsection{Getting mileage out of the Curry-Howard isomorphism}
+\subsection{Ottenere vantaggio dall'isomorfismo di Curry-Howard}
 
-The Curry-Howard isomorphism makes a connection between the lambda
-calculus and logic. We can think of it as a connection between
-``programs'' and ``proofs''. What is such a connection good for? Like
-any isomorphism, it allows us to switch back and forth and think in
-whichever system suits our intuition in a given situation. Moreover,
-we can save a lot of work by transferring theorems that were proved
-about the lambda calculus to logic, and vice versa. As an example, we
-will see in the next section how to add disjunctions to propositional
-intuitionistic logic, and then we will explore what we can learn about
-the lambda calculus from that.
+L'isomorfismo di Curry-Howard crea una connessione tra il lambda
+calcolo e la logica. Possiamo pensarlo come una connessione tra
+``programmi'' e ``dimostrazioni''. A cosa serve una tale connessione? come qualsiasi
+isomorfismo,  ci consente di passare avanti e indietro e di pensare in
+qualunque sistema si adatti al nostro intuito in una data situazione.  Inoltre,
+possiamo risparmiare molto lavoro trasferendo teoremi dimostrati
+nel lambda calcolo nella logica e viceversa. Ad esempio, noi
+vedremo nella prossima sezione come aggiungere disgiunzioni alla logica proposizionale
+intuizionista, e poi esploreremo ci\`o che possiamo imparare
+dal lambda calcolo.
 
 % ----------------------------------------------------------------------
-\subsection{Disjunction and sum types}
+\subsection{Disgiunzione e tipi di somma}
 
-To the BNF for formulas of propositional intuitionistic logic from
-Section~\ref{subsec-proplogic}, we add the following clauses:
+Per il BNF per formule della logica proposizionale intuzionistica dalla
+Section~\ref{subsec-proplogic}, aggiungiamo le seguenti proposizioni:
 \[ \mbox{Formulas:}\ssep A,B \bnf \ldots \bor A\cor B \bor \cfalse.
 \]
-Here, $A\cor B$ stands for disjunction, or ``or'', and $\cfalse$
-stands for falsity, which we can also think of as zero-ary
-disjunction.  The symbol $\cfalse$ is also known by the names of
-``bottom'', ``absurdity'', or ``contradiction''.  The rules for
-constructing derivations are extended by the following cases:
+Qui, $A\cor B$ sta per disgiunzione, o ``or'', e $\cfalse$
+sta per falsit\`a, che possiamo anche pensare come una disgiunzione 
+nullaria(0 ariet\`a). Il simbolo $\cfalse$ è anche conosciuto come
+``estremit\`a'', ``assurdit\`a'', o ``contraddizione''.  Le regole per
+ costruire derivazioni sono estese dai seguenti casi:
 \begin{enumerate}
 \resumeenumerate
 \item ($\cor$-introduction)
@@ -3162,46 +3158,45 @@ may conclude $A\cor B$.
   \sep \Gamma,\typ{x}{A}\tj C
   \sep \Gamma,\typ{y}{B}\tj C}{\Gamma\tj C}
 \]
-This is known as the ``principle of case distinction''. If we know
-$A\cor B$, and we wish to prove some formula $C$, then we may proceed
-by cases. In the first case, we assume $A$ holds and prove $C$. In the
-second case, we assume $B$ holds and prove $C$. In either case, we
-prove $C$, which therefore holds independently. 
+Questo \`e conosciuto come ``principio delle distinzioni dei casi''. Se sappiamo
+$A\cor B$, e desideriamo dimostrare qualche formula $C$, allora dovremmo procedere
+su casi. Nel primo caso, assumiamo $A$ \`e valido e dimostra $C$. Nel
+secondo caso, assumiamo $B$ \`e valido e dimostra $C$. In tutti i casi, 
+dimostriamo $C$, che quindi è valida indipendentemente. 
 
-Note that the $\cor$-elimination rule differs from all other rules we
-have considered so far, because it involves some arbitrary formula $C$
-that is not directly related to the principal formula $A\cor B$ being
-eliminated.
+Notare che la regola $\cor$-eliminazione differisce da tutte le altre regole che
+abbiamo considerato fino ad ora, perch\`e richiede qualche formula arbitraria $C$
+che non \`e direttamente collegata con la formula principale che viene eliminata $A\cor B$.
 \item ($\cfalse$-elimination)
 \[ \trule{$\cfalse$-E}\ \deriv{\Gamma\tj\cfalse}{\Gamma\tj C},
 \]
-for an arbitrary formula $C$. This rule formalizes the familiar
-principle ``ex falsum quodlibet'', which means that falsity implies
-anything.
+per una formula arbitraria $C$. Questa regola formalizza il familiare
+principio ``ex falsum quodlibet'', che significa che la falsità 
+implica qualsiasi cosa.
 \end{enumerate}
 
-There is no $\cfalse$-introduction rule. This is symmetric to the fact
-that there is no $\ctrue$-elimination rule.
+Non esiste regola $\cfalse$-introduzione . Questo \`e simmetrico al fatto 
+che non ci sono regole $\ctrue$-elimination.
 
-Having extended our logic with disjunctions, we can now ask what these
-disjunctions correspond to under the Curry-Howard isomorphism.
-Naturally, we need to extend the lambda calculus by as many new terms
-as we have new rules in the logic. It turns out that disjunctions
-correspond to a concept that is quite natural in programming: ``sum'' or
-``union'' types. 
+Avendo esteso la nostra logica con le disgiunzioni, ora possiamo chiederci
+a cosa  corrispondano queste disgiunzioni nell'isomorfismo di Curry-Howard.
+Naturalmente, abbiamo bisogno di estendere il lambda calcolo con altrettanti
+nuovi termini quante nuove regole abbiamo  nella logica. Si scopre che le
+disgiunzioni corrispondono a un concetto che \`e abbastanza naturale nella
+programmazione: tipi ``somma'' o ``unione'' . 
 
-To the lambda calculus, add type constructors $A+B$ and $0$.
+la lambda calcolo, si aggiungono i costruttori di tipo $A+B$ e $0$.
 \[ \mbox{Simple types:}\ssep A,B \bnf \ldots\bor A+B\bor 0.
 \]
-Intuitively, $A+B$ is the disjoint union of $A$ and $B$, as in set
-theory: an element of $A+B$ is either an element of $A$ or an element
-of $B$, together with an indication of which one is the case. In
-particular, if we consider an element of $A+A$, we can still tell
-whether it is in the left or right component, even though the two
-types are the same. In programming languages, this is sometimes known
-as a ``union'' or ``variant'' type. We call it a ``sum'' type here.
-The type $0$ is simply the empty type, corresponding to the empty set
-in set theory.
+Intuitivamente, $A+B$ \`e la disgiunzione unione di $A$ e $B$, come nella teoria
+degli insiemi: un elemento di $A+B$ pu\`o essere o un'elemento di $A$ o un elemento
+di $B$, assieme con un indicazione di quale dei casi si stia parlando. In
+particolare, se consideriamo un elemento di $A+A$, possiamo ancora dire se
+si trova nel componente destro o sinistro, anche se i due
+tipi sono gli stessi.Nei linguaggi di programmazione, questo è qualche volta conosciuto
+come un tipo ``unione'' o ``variante'' . Noi lo chiameremo tipo ``somma''.
+Il tipo  $0$ \`e semplicemente il tipo vuoto,corrispondente all'insieme vuoto
+nella teoria degli insiemi.
 
 What should the lambda terms be that go with these new types?  We know
 from our experience with the Curry-Howard isomorphism that we have to
