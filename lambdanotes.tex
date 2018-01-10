@@ -6,7 +6,7 @@
 
 \title{Lezioni sul lambda-calcolo}
 \author{Peter Selinger}
-\date{Dipartimento di matematica e statistic\\
+\date{Dipartimento di matematica e statistica\\
   Universit\`a di Dalhousie, Halifax, Canada}
 
 \usepackage[all]{xy}
@@ -48,10 +48,10 @@ $f(x)=g(x)$ per ogni $x\in X$. Questa viene chiamata vista {\em estensionale}
 delle funzioni, perché specifica che l'unica cosa osservabile 
 di una funzione \`e come associa gli input e gli output.
 
-A dire il vero, prima del 20esimo secolo, raramente le funzioni venivano
+A dire il vero, prima del ventesimo secolo, raramente le funzioni venivano
 viste in questo modo. UNa vecchia nozione di funzione \`e quella di ``funzioni come 
 regole''. In questa prospettiva, dare una funzione significa dare una regola di
-come la funzione dev'essere calcolata. Spesso, tale regola può essere data da
+come la funzione dev'essere calcolata. Spesso, tale regola pu\`o essere data da
 una formula, ad esempio, la tipica $f(x)=x^2$ o $g(x)=\sin(e^x)$
 del calcolo differenziale e integrale. Cos\`i come prima, due funzioni
 sono {em estensionalmente} uguali se hanno lo stesso comportamento di input-output;
@@ -65,15 +65,15 @@ ad esempio la funzione $f(x)=x$. Questa \`e, ovviamente, la funzione
 identit\`a. Potremmo trattarla come una funzione $f:X\to X$ per {\em qualunque} insieme $X$.
 
 In buona parte della matematica, il paradigma delle 
-``funzioni come grafici'' \`e il modo più elegante ed appropriato per lavorare con le funzioni. 
-I grafici definiscono una classe più generale delle funzioni, poiché include
+``funzioni come grafici'' \`e il modo pi\`u elegante ed appropriato per lavorare con le funzioni. 
+I grafici definiscono una classe pi\`u generale delle funzioni, poiché include
 funzioni che non sono necessariamente dettate da una regola. Quindi, quando
 proviamo un teorema matematico come ``qualsiasi funzione derivabile
 \`e continua'', in realt\`a intendiamo che questo \`e vero per {\em tutte} le funzioni
-(in senso matematico), non solo quelle funzioni per cui una regola può essere dettata.
+(in senso matematico), non solo quelle funzioni per cui una regola pu\`o essere dettata.
 
 D'altra parte, nella scienza del computer, il paradigma delle
-``funzioni come regole'' \`e spesso più appropriato. Basti pensare ad un programma 
+``funzioni come regole'' \`e spesso pi\`u appropriato. Basti pensare ad un programma 
 come la definizione di una funzione che associa l'input all'output. A molti programmatori
 (e utenti) non importa soltanto del comportamento estensionale di 
 un programma (i quali input sono associati ai corrispettivi output),
@@ -103,9 +103,9 @@ per esempio, scriviamo
 e non 
 \[   \mbox{assegno $w=x+y$, quindi assegno $u=z^2$, dopo assegno $A=w\times u$.}    
 \]
-La seconda indicazione sarebbe stancante e tediosa da manipolare.
+La seconda scrittura sarebbe stancante e tediosa da manipolare.
 
-Il lambda-calcolo eestende l'idea di un linguaggio di espressioni 
+Il lambda-calcolo estende l'idea di un linguaggio di espressioni 
 per calcolare funzioni. Mentre normalmente scriveremmo
 \[   \mbox{Indico $f$ come la funzione $x\mapsto x^2$. Dopo considero $A=f(5)$,}
 \]
@@ -114,7 +114,7 @@ nel lambda-calcolo scriviamo semplicemente
 \]
 L'espressione $\lam x.x^2$ sta per la funzione che associa $x$ a $x^2$ 
 (piuttosto che all'{\em affermazione} che $x$ \`e associata a
-$x^2$). Così come in aritmetica, usiamo le parentesi per raggruppare termini.
+$x^2$). Cos\`i come in aritmetica, usiamo le parentesi per raggruppare termini.
 
 Comprendiamo che la variabile $x$ \`e una variabile {\em locale} nel termine $\lam x.x^2$. 
 Di conseguenza, non fa alcuna differenza se invece scriviamo
@@ -131,7 +131,7 @@ la composizione di $f$ con se stessa. Nel lambda-calcolo, $f\cp f$ \`e scritto c
 e l'operazione che assegna $f$ a $f\cp f$ \`e scritta come
 \[         \lam f.\lam x.f(f(x)).
 \]
-Lo sviluppo di funzioni di ordine superiore può diventare abbastanza complesso;
+Lo sviluppo di funzioni di ordine superiore pu\`o diventare abbastanza complesso;
 per esempio, consideriamo la seguente espressione:
 \[         \left((\lam f.\lam x.f(f(x)))(\lam y.y^2)\right)(5)
 \]
@@ -151,12 +151,12 @@ Presto introdurremo delle convenzioni per ridurre il numero di
 parentesi in tali espressioni.
 
 % ----------------------------------------------------------------------
-\subsection{Untyped vs.\ typed lambda-calculi}
+\subsection{Lambda-calcolo tipato vs non tipato}
 
 Abbiamo gi\`a detto che, quando consideriamo le ``funzioni come regole'', 
 non \`e sempre necessario conoscere il dominio e il codominio
-di una funzione in anticipo. L'esempio più semplice \`e la funzione identit\`a
-$f = \lam x.x$, che può avere qualsiasi insieme $X$ come suo dominio e codominio,
+di una funzione in anticipo. L'esempio pi\`u semplice \`e la funzione identit\`a
+$f = \lam x.x$, che pu\`o avere qualsiasi insieme $X$ come suo dominio e codominio,
 finché questi sono uguali. Diciamo che
 $f$ \`e del {\em tipo} $X\to X$. Un altro esempio \`e la funzione $g = \lam f.\lam
 x.f(f(x))$ che abbiamo visto sopra. Possiamo controllare che $g$ si assegna 
@@ -191,7 +191,7 @@ situazioni dove proviamo ad applicare una funzione ad un argomento che
 non comprende.
 \item {\em Lambda-calcolo tipato semplice.} Nel lambda-calcolo tipato semplice,
 dobbiamo sempre specificato i tipo di ogni espressione.
-Ciò \`e molto simile alla situazione nella teoria degli insiemi. Non permettiamo
+Ci\`o \`e molto simile alla situazione nella teoria degli insiemi. Non permettiamo
 mai l'applicazione di una funzione ad un argomento a meno che il tipo
 dell'argomento \`e lo stesso del dominio della funzione. Di conseguenza,
 termini come $f(f)$ sono fuori questione, anche se $f$ \`e la funzione identit\`a.
@@ -205,193 +205,192 @@ Come vedremo, ognuna di queste alternative ha propriet\`a notevolmente
 diverse dalle altre.
 
 % ----------------------------------------------------------------------
-\subsection{Lambda calculus and computability}
+\subsection{Lambda-calcolo e computabilit\`a}
 
-In the 1930's, several people were interested in the question: what
-does it mean for a function $f:\N\to\N$ to be {\em computable}? An
-informal definition of computability is that there should be a
-pencil-and-paper method allowing a trained person to calculate $f(n)$,
-for any given $n$. The concept of a pencil-and-paper method is not so
-easy to formalize. Three different researchers attempted to do so,
-resulting in the following definitions of computability:
+Negli anni 30, diverse persone erano interessate alla domanda: cosa
+rende una funzione $f:\N\to\N$ {\em computabile}? Una
+definizione informale di computabilit\`a \`e che ci dovrebbe essere un metodo 
+carta e penna che permette ad una persona allenata di calcolare $f(n)$,
+dato un qualsiasi $n$. Il concetto di metodo matita e penna non \`e
+cos\`i facile da formalizzare. Tre diversi ricercatori tentarono di farlo,
+risultando nelle seguenti definizioni di computabilit\`a:
 
 \begin{enumerate}
-\item {\bf Turing} defined an idealized computer we now call a {\em
-    Turing machine}, and postulated that a function is computable (in
-  the intuitive sense) if and only if it can be computed by such a
-  machine.
-\item {\bf G\"odel} defined the class of {\em general recursive
-    functions} as the smallest set of functions containing all the
-  constant functions, the successor function, and closed under certain
-  operations (such as compositions and recursion). He postulated that
-    a function is computable (in the intuitive sense) if and only if
-    it is general recursive.
-\item {\bf Church} defined an idealized programming language called
-  the {\em lambda calculus}, and postulated that a function is
-  computable (in the intuitive sense) if and only if it can be
-  written as a lambda term.
+\item {\bf Turing} defin\`i un computer ideale che adesso chiamiamo 
+{\em Macchina di Turing}, e suppose che una funzione \`e computabile 
+(intuitivamente) se e solo se si pu\`o computare da una tale macchina.
+\item {\bf G\"odel} defin\`i la classe di {\em funzioni ricorsive} come il 
+pi\`u piccolo insieme di funzioni che contiene tutte le funzioni costanti, 
+la funzione successore, e chiusa entro certe operazioni (come la 
+composizione e la ricorsione). Suppose che una funzione \`e computabile 
+(intuitivamente) se e solo se \`e ricorsiva.
+\item {\bf Church} defin\`i un linguaggio di programmazione idealizzato 
+chiamato il {\em lambda-calcolo}, e suppose che una funzione
+\`e computabile (intuitivamente) se e solo se pu\`o
+essere scritta come un lambda-termine.
 \end{enumerate}
 
-It was proved by Church, Kleene, Rosser, and Turing that all three
-computational models were equivalent to each other, i.e., each model
-defines the same class of computable functions. Whether or not they
-are equivalent to the ``intuitive'' notion of computability is a
-question that cannot be answered, because there is no formal
-definition of ``intuitive computability''. The assertion that they are
-in fact equivalent to intuitive computability is known as the {\em
-  Church-Turing thesis}.
+\`E stato provato da Church, Kleene, Rosser, e Turing che tutti e
+tre i modelli computazionali sono equivalenti l'uno con l'altro, ossia che
+ogni modello definisce la stessa classe di funzioni computabili. Che siano o meno
+equivalenti alla nozione ``intuitiva'' di computabilit\`a \`e
+una domanda che non pu\`o avere risposta, poiché non c'\`e una definizione
+formale di ``computabilit\`a intuitiva''. L'asserzione che sono
+effettivamente equivalenti in computabilit\`a intuitiva \`e detta la
+{\em Tesi di Church-Turing}.
 
 % ----------------------------------------------------------------------
-\subsection{Connections to computer science}
+\subsection{Collegamento con la scienza dei computer}
 
-The lambda calculus is a very idealized programming language;
-arguably, it is the simplest possible programming language that is
-Turing complete. Because of its simplicity, it is a useful tool for
-defining and proving properties of programs.
+Il lambda-calcolo \`e un linguaggio di programmazione molto idealizzato;
+discutibilmente, \`e il pi\`u semplice linguaggio di programmazione
+Turing completo. Per via della sua semplicit\`a, \`e un utile strumento per
+definire e dimostrare propriet\`a di programmi.
 
-Many real-world programming languages can be regarded as extensions of
-the lambda calculus. This is true for all {\em functional programming
-  languages}, a class that includes Lisp, Scheme, Haskell, and ML.
-Such languages combine the lambda calculus with additional features,
-such as data types, input/output, side effects, updatable memory,
-object orientated features, etc. The lambda calculus provides a
-vehicle for studying such extensions, in isolation and jointly, to see
-how they will affect each other, and to prove properties of
-programming language (such as: a well-formed program will not crash).
+Molti linguaggi di programmazione attuali possono essere considerati come
+estensioni del lambda-calcolo. Questo \`e vero per tutti i 
+{\em linguaggi di programmazione funzionali}, una classe che include 
+Lisp, Scheme, Haskell, e ML. Tali linguaggi combinano il lambda-calcolo 
+con altre caratteristiche, come i tipi di dato, input/output, effetti 
+collaterali, memoria aggiornabile, funzioni orientate agli oggetti, ecc. 
+Il lambda-calcolo fornisce un mezzo per studiare tali estensioni, 
+insieme e separatamente, per vedere come si possono influenzare a vicenda, 
+e per dimostrare propriet\`a del linguaggio di programmazione 
+(come: un programma ben formato non pu\`o andare in crash).
 
-The lambda calculus is also a tool used in compiler construction, see
+Il lambda-calcolo \`e anche uno strumento usato nella costruzione di compilatori, vedi
 e.g. \cite{Pey87,App92}.
 
 % ----------------------------------------------------------------------
-\subsection{Connections to logic}
+\subsection{Collegamenti alla logica}
 
-In the 19th and early 20th centuries, there was a philosophical
-dispute among mathematicians about what a proof is. The so-called {\em
-  constructivists}, such as Brouwer and Heyting, believed that to prove
-that a mathematical object exists, one must be able to construct it
-explicitly. {\em Classical logicians}, such as Hilbert, held that it
-is sufficient to derive a contradiction from the assumption that it
-doesn't exist.
+Nel diciannovesimo e primo ventesimo secolo, c'era una disputa
+filosofica tra i matematici sulla definizione di dimostrazione. I noti
+{\em costruttivisti}, cos\`i come Brouwer e Heyting, credevano che per dimostrare
+l'esistenza di un oggetto matematico, bisogna essere in grado di costruirlo
+esplicitamente. {\em I logici matematici classici}, come Hilbert, credevano che
+\`e sufficiente derivare una contraddizione dal presupposto che non esiste.
 
-Ironically, one of the better-known examples of a proof that isn't
-constructive is Brouwer's proof of his own fixed point theorem,
-which states that every continuous function on the unit disk has a
-fixed point. The proof is by contradiction and does not give any
-information on the location of the fixed point.
+Ironicamente, uno degli esempi pi\`u conosciuti di dimostrazione che
+non \`e costruttiva \`e la dimostrazione di Brouwer del suo teorema del punto fisso,
+che afferma che ogni funzione continua sulla circonferenza unitaria ha
+un punto fisso. La dimostrazione \`e per contraddizione e non d\`a 
+nessuna informazione sulla posizione del punto fisso.
 
-The connection between lambda calculus and constructive logics is via
-the ``proofs-as-programs'' paradigm. To a constructivist, a proof (of
-an existence statement) must be a ``construction'', i.e., a program.
-The lambda calculus is a notation for such programs, and it can also
-be used as a notion for (constructive) proofs.
+Il collegamento tra il lambda-calcolo e la logica costruttiva \`e tramite 
+la corrispondenza tra dimostrazione e programma. Per un costruttivista, 
+una dimostrazione (di un'affermazione di esistenza) dev'essere una 
+``construzione'', ossia un programma.
+Il lambda-calcolo \`e una notazione per tali programmi, e pu\`o anche
+essere usata come nozione per dimostrazioni (costruttive).
 
-For the most part, constructivism has not prevailed as a philosophy in
-mainstream mathematics. However, there has been renewed interest in
-constructivism in the second half of the 20th century. The reason is
-that constructive proofs give more information than classical ones,
-and in particular, they allow one to compute solutions to problems (as
-opposed to merely knowing the existence of a solution). The resulting
-algorithms can be useful in computational mathematics, for instance in
-computer algebra systems.
-
-% ----------------------------------------------------------------------
-\subsection{Connections to mathematics}
-
-One way to study the lambda calculus is to give mathematical models of
-it, i.e., to provide spaces in which lambda terms can be given
-meaning.  Such models are constructed using methods from algebra,
-partially ordered sets, topology, category theory, and other areas of
-mathematics.
+Per la maggiorparte, il costruttivismo non ha prevalso come filosofia
+nella matematica tradizionale. Tuttavia, \`e sorto nuovamente un interesse
+nel costruttivismo nella seconda met\`a del ventesimo secolo. Il motivo \`e
+che le dimostrazioni costruttive danno pi\`u informazioni di quelle classiche,
+e in particolare, ci permettono di computare soluzioni a problemi (piuttosto
+che essere a conoscenza dell'esistenza di una soluzione). Gli algoritmi
+risultanti possono essere utili nella matematica computazione, per esempio
+nei sistemi di algebra computazionale.
 
 % ----------------------------------------------------------------------
-\section{The untyped lambda calculus}
+\subsection{Collegamenti con la matematica}
+
+Un modo per studiare il lambda-calcolo \`e di dare modelli matematici di
+esso, ossia, di fornire spazi nei quali i lambda-termini possono acquisire
+significato. Tali modelli sono costruiti usando metodi dall'algebra,
+dagli insiemi parzialmente ordinati, dalla topologia, dalla teoria delle 
+categorie, e da altre aree della matematica.
 
 % ----------------------------------------------------------------------
-\subsection{Syntax}
+\section{Il lambda-calcolo non tipato}
 
-The lambda calculus is a {\em formal language}. The expressions of the
-language are called {\em lambda terms}, and we will give rules for
-manipulating them.
+% ----------------------------------------------------------------------
+\subsection{Sintassi}
+
+Il lambda-calcolo \`e un {\em linguaggio formale}. Le espressioni del 
+linguaggio sono chiamate {\em lambda-termini}, e forniremo regole per
+poterli manipolare.
 
 \begin{definition}
-  Assume given an infinite set $\Vars$ of {\em variables}, denoted by
-  $x,y,z$ etc. The set of lambda terms is given by the following
-  Backus-Naur Form:
-  \[  \mbox{Lambda terms:}\ssep M,N \bnf x \bor (MN) \bor (\lam x.M)
+  Assumiamo dato un insieme infinito $\Vars$ di {\em variabili},
+  indicato da $x,y,z$ ecc. L'insieme dei lambda-termini \`e dato dalla
+  seguente forma di Backus-Naur:
+  \[  \mbox{Lambda-termini:}\ssep M,N \bnf x \bor (MN) \bor (\lam x.M)
   \]
 \end{definition}
 
-The above Backus-Naur Form (BNF) is a convenient abbreviation for the
-following equivalent, more traditionally mathematical definition:
+La forma Backus-Naur (BNF) soprastante \`e una comoda abbreviazione per
+la seguente, pi\`u tradizionale definizione matematica:
 
 \begin{definition}
-  Assume given an infinite set $\Vars$ of variables. Let $A$ be an
-  alphabet consisting of the elements of $\Vars$, and the special
-  symbols ``('', ``)'', ``$\lam$'', and ``.''. Let $A^*$ be the set of
-  strings (finite sequences) over the alphabet $A$.  The set of lambda
-  terms is the smallest subset $\Lambda\seq A^*$ such that:
+  Assumiamo dato un infinito insieme $\Vars$ di variabili. Indichiamo con $A$ un
+  alfabeto composto da elementi di $\Vars$, e i simboli
+  speciali ``('', ``)'', ``$\lam$'', e ``.''. Indichiamo con $A^*$ l'insieme di
+  stringhe (sequenze finite) sull'alfabeto $A$. L'insieme di
+  lambda-termini \`e il pi\`u piccolo sottoinsieme $\Lambda\seq A^*$ tale che:
   \begin{itemize}
-  \item Whenever $x\in\Vars$ then $x\in\Lambda$.
-  \item Whenever $M,N\in\Lambda$ then $(MN)\in\Lambda$.
-  \item Whenever $x\in\Vars$ and $M\in\Lambda$ then $(\lam x.M)\in\Lambda$.
+  \item Quando $x\in\Vars$ allora $x\in\Lambda$.
+  \item Quando $M,N\in\Lambda$ allora $(MN)\in\Lambda$.
+  \item Quando $x\in\Vars$ e $M\in\Lambda$ allora $(\lam x.M)\in\Lambda$.
   \end{itemize}
 \end{definition}
 
-Comparing the two equivalent definitions, we see that the Backus-Naur
-Form is a convenient notation because: (1) the definition of the
-alphabet can be left implicit, (2) the use of distinct meta-symbols
-for different syntactic classes ($x,y,z$ for variables and $M,N$ for
-terms) eliminates the need to explicitly quantify over the sets
-$\Vars$ and $\Lambda$. In the future, we will always present syntactic
-definitions in the BNF style.
+COmparando le due definizioni equivalenti, vediamo che la
+forma di Backus-Naur \`e una notazione conveniente perché: (1) la definizione
+dell'alfabeto pu\`o rimanere implicita, (2) l'uso di distinti meta-simboli
+per diverse classi sintattiche ($x,y,z$ per le variabili e $M,N$ per
+i termini) elimina il bisogno di quantificare esplicitamente sugli insiemi 
+$\Vars$ e $\Lambda$. Successivamente, presenteremo le 
+definizioni sintattiche nello stile BNF.
 
-The following are some examples of lambda terms:
+Di seguito vi sono alcuni esempi di lambda-termini:
 \[ (\lam x.x) \sep ((\lam x.(xx))(\lam y.(yy))) \sep (\lam f.(\lam x.(f(fx))))
 \]
-Note that in the definition of lambda terms, we have built in enough
-mandatory parentheses to ensure that every term $M\in\Lambda$ can be
-uniquely decomposed into subterms. This means, each term $M\in\Lambda$
-is of precisely one of the forms $x$, $(MN)$, $(\lam x.M)$. Terms of
-these three forms are called {\em variables}, {\em applications}, and
-{\em lambda abstractions}, respectively. 
+Nota che nella definire i lambda-termini, abbiamo messo abbastanza
+parentesi obbligatorie per assicurarci che ogni termine $M\in\Lambda$ possa essere
+scomposto in sottotermini. Questo significa che ogni termine $M\in\Lambda$
+\`e precisamente una delle forme $x$, $(MN)$, $(\lam x.M)$. Termini di
+queste tre forme sono chiamati {\em variabili}, {\em applicazioni}, e 
+{\em astrazioni lambda}, rispettivamente.
 
-We use the notation $(MN)$, rather than $M(N)$, to denote the
-application of a function $M$ to an argument $N$. Thus, in the lambda
-calculus, we write $(fx)$ instead of the more traditional $f(x)$. This
-allows us to economize more efficiently on the use of parentheses. To
-avoid having to write an excessive number of parentheses, we establish
-the following conventions for writing lambda terms:
+Usiamo la notazione $(MN)$, piuttosto che $M(N)$, per indicare
+l'applicazione di una funzione $M$ ad un argomento $N$. Quindi, nel
+lambda-calcolo, scriviamo $(fx)$ piuttosto che il pi\`u tradizionale $f(x)$. Questo
+ci permette di risparmiare efficientemente sull'uso delle parentesi.
+Per evitare di dover scrivere un eccessivo numero di parentesi, stabiliamo
+le seguenti convenzioni nella scrittura dei lambda-termini:
 
 \begin{convention}
   \begin{itemize}
-  \item We omit outermost parentheses. For instance, we write $MN$
-    instead of $(MN)$.
-  \item Applications associate to the left; thus, $MNP$ means
-    $(MN)P$. This is convenient when applying a function to a number
-    of arguments, as in $fxyz$, which means $((fx)y)z$. 
-  \item The body of a lambda abstraction (the part after the dot)
-    extends as far to the right as possible. In particular, $\lam
-    x.MN$ means $\lam x.(MN)$, and not $(\lam x.M)N$. 
-  \item Multiple lambda abstractions can be contracted; thus $\lam
-    xyz.M$ will abbreviate $\lam x.\lam y.\lam z.M$.
+  \item Omettiamo le parentesi pi\`u esterne. Per esempio, scriviamo $MN$
+    piuttosto che $(MN)$.
+  \item Le applicazioni sono associative a destra; quindi, $MNP$ significa
+    $(MN)P$. Ci\`o \`e conveniente quando si applica una funzione ad un
+    numero di argomenti, come in $fxyz$, che significa $((fx)y)z$. 
+  \item Il corpo di una lambda-astrazione (la parte dopo il punto)
+  si estende il pi\`u a destra possibile. In particolare, $\lam
+    x.MN$ significa $\lam x.(MN)$, e non $(\lam x.M)N$. 
+  \item Pi\`u astrazioni-lambda possono essere contratte; quindi $\lam
+    xyz.M$ si abbrevia in $\lam x.\lam y.\lam z.M$.
   \end{itemize}
 \end{convention}  
 
-It is important to note that this convention is only for notational
-convenience; it does not affect the ``official'' definition of lambda
-terms.
+\`a importante tenere presente che questa convenzione \`e soltanto 
+per convenienza notazionale; non influisce sulla definizione 
+``ufficiale'' dei lambda-termini.
 
 \begin{exercise}
   \begin{enumerate}\alphalabels
-  \item Write the following terms with as few parenthesis as possible,
-    without changing the meaning or structure of the terms: 
+  \item Scrivi i seguenti termini con meno parentesi possibile,
+  senza cambiare il significato o la struttura degli stessi:
     \begin{enumerate}
     \item[(i)] $(\lam x.(\lam y.(\lam z.((xz)(yz)))))$, 
     \item[(ii)] $(((ab)(cd))((ef)(gh)))$, 
     \item[(iii)] $(\lam x.((\lam y.(yx))(\lam v.v)z)u)(\lam w.w)$.
     \end{enumerate}
-  \item Restore all the dropped parentheses in the following terms,
-    without changing the meaning or structure of the terms: 
+  \item Ripristina tutte le parentesi tolte nei seguenti termini,
+  senza cambiare il significato e la struttura degli stessi:
     \begin{enumerate}
     \item[(i)] $xxxx$, 
     \item[(ii)] $\lam x.x\lam y.y$, 
