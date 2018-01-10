@@ -4,10 +4,10 @@
 \oddsidemargin 1in \topmargin 1in 
 \textwidth 4.5in \textheight 6.5in
 
-\title{Lecture Notes on the Lambda Calculus}
+\title{Lezioni sul lambda-calcolo}
 \author{Peter Selinger}
-\date{Department of Mathematics and Statistics\\
-  Dalhousie University, Halifax, Canada}
+\date{Dipartimento di matematica e statistic\\
+  Universit\`a di Dalhousie, Halifax, Canada}
 
 \usepackage[all]{xy}
 \SelectTips{cm}{}
@@ -20,9 +20,9 @@
 Questa \`e una serie di lezioni che hanno reso possibile dei corsi sul 
 lambda-calcolo che ho insegnato all'Universit\`a di Ottawa nel 2001 e 
 all'Universit\`a di Dalhousie nel 2007 e nel 2013. Gli argomenti trattati 
-in questi appunti includono il lambda-calcolo non tipizzato, il teorema 
-di Chruch-Rosser, algebra combinatoria, il lambda-calcolo semplicemente 
-temporizzato, l'isomorfismo di Curry-Howard, la normalizzazione debole 
+in questi appunti includono il lambda-calcolo non tipato, il teorema 
+di Chruch-Rosser, algebra combinatoria, il lambda-calcolo tipato semplice, 
+l'isomorfismo di Curry-Howard, la normalizzazione debole 
 e forte, il polimorfismo, l'inferenza di tipo, la semantica denotazionale, 
 gli ordini parziali completi, e il linguaggio PCF.
 \end{abstract}
@@ -32,21 +32,21 @@ gli ordini parziali completi, e il linguaggio PCF.
 \newpage
 
 % ----------------------------------------------------------------------
-\section{Introduction}\label{sec-intro}
+\section{Introduzione}\label{sec-intro}
 
 % ----------------------------------------------------------------------
-\subsection{Extensional vs. intensional view of functions}
+\subsection{Definizione di funzione: estensionale vs. intensionale}
 \label{subsec-intro1}
 
 Che cos'\`e una funzione? Nella matematica moderna, la nozione prevalente
 \`e quella di ``funzioni come grafici'': ogni funzione $f$ ha un suo dominio
-fisso $X$ e un codominio $Y$, e una funzione $f:X\to Y$ \`e una serie di coppie
+fisso $X$ e un codominio $Y$, e una funzione $f:X\to Y$ \`e una insieme di coppie
 $f\seq X\times Y$ cos\`i che per ognuno $x\in X$, ne esiste soltanto
 una $y\in Y$ tale che $(x,y)\in f$. Due funzioni $f,g:X\to Y$ si
 definiscono uguali se hanno lo stesso output ad ogni input, ad esempio,
 $f(x)=g(x)$ per ogni $x\in X$. Questa viene chiamata vista {\em estensionale}
 delle funzioni, perché specifica che l'unica cosa osservabile 
-di una funzione \`e come imposta gli input e gli output.
+di una funzione \`e come associa gli input e gli output.
 
 A dire il vero, prima del 20esimo secolo, raramente le funzioni venivano
 viste in questo modo. UNa vecchia nozione di funzione \`e quella di ``funzioni come 
@@ -62,7 +62,7 @@ stessa formula.
 Quando pensiamo alle funzioni come il risultato di una formula, non
 \`e sempre necessario sapere il dominio o il codominio di una funzione. Consideriamo
 ad esempio la funzione $f(x)=x$. Questa \`e, ovviamente, la funzione
-identit\`a. Potremmo trattarla come una funzione $f:X\to X$ per {\em qualunque} serie $X$.
+identit\`a. Potremmo trattarla come una funzione $f:X\to X$ per {\em qualunque} insieme $X$.
 
 In buona parte della matematica, il paradigma delle 
 ``funzioni come grafici'' \`e il modo più elegante ed appropriato per lavorare con le funzioni. 
@@ -74,9 +74,9 @@ proviamo un teorema matematico come ``qualsiasi funzione derivabile
 
 D'altra parte, nella scienza del computer, il paradigma delle
 ``funzioni come regole'' \`e spesso più appropriato. Basti pensare ad un programma 
-come la definizione di una funzione che imposta l'input all'output. A molti programmatori
+come la definizione di una funzione che associa l'input all'output. A molti programmatori
 (e utenti) non importa soltanto del comportamento estensionale di 
-un programma (i quali input sono impostati ai corrispettivi output),
+un programma (i quali input sono associati ai corrispettivi output),
 ma  anche di {\em come} l'output \`e calcolato: Quanto tempo richiede?
 Quanta memoria e spazio su disco \`e usata nel processo? Quanta larghezza di 
 banda di comunicazione \`e usata? Queste sono le domande ``intensionali'' che 
@@ -84,63 +84,62 @@ hanno a che fare con il modo particolare
 per cui una funzione \`e definita.
 
 % ----------------------------------------------------------------------
-\subsection{The lambda calculus}
+\subsection{Il lambda-calcolo}
 
-The lambda calculus is a theory of {\em functions as formulas}. It is
-a system for manipulating functions as {\em expressions}.  
+Il lambda-calcolo \`e una teoria che indica le {\em funzioni come formule}. \`E un
+sistema per manipolare funzioni come {\em espressioni}.
 
-Let us begin by looking at another well-known language of expressions,
-namely arithmetic. Arithmetic expressions are made up from variables
-($x,y,z\ldots$), numbers ($1,2,3,\ldots$), and operators (``$+$'',
-``$-$'', ``$\times$'' etc.). An expression such as $x+y$ stands for
-the {\em result} of an addition (as opposed to an {\em instruction} to
-add, or the {\em statement} that something is being added). The great
-advantage of this language is that expressions can be nested without
-any need to mention the intermediate results explicitly. So for
-instance, we write
+Iniziamo dal guardare un'altro noto linguaggio che tratta espressioni, ossia l'aritmetica. 
+Le espressioni aritmetiche sono fatte da variabili ($x,y,z\ldots$), 
+numeri ($1,2,3,\ldots$), e operatori (``$+$'', ``$-$'', ``$\times$'' ecc.). 
+Un espressione come $x+y$ sta per il {\em risultato} di un'addizione
+(piuttosto che come {\em istruzione} per aggiungere, o come {\em affermazione} 
+che qualcosa viene aggiunto). Il grande vantaggio di questo linguaggio 
+\`e che le espressioni possono essere nidificate senza alcun bisogno 
+di mentionare esplicitamente i risultati intermedi. Quindi
+per esempio, scriviamo
 \[   A = (x+y)\times z^2,   
 \]
-and not 
-\[   \mbox{let $w=x+y$, then let $u=z^2$, then let $A=w\times u$.}    
+e non 
+\[   \mbox{assegno $w=x+y$, quindi assegno $u=z^2$, dopo assegno $A=w\times u$.}    
 \]
-The latter notation would be tiring and cumbersome to manipulate. 
+La seconda indicazione sarebbe stancante e tediosa da manipolare.
 
-The lambda calculus extends the idea of an expression language to
-include functions. Where we normally write
-\[   \mbox{Let $f$ be the function $x\mapsto x^2$. Then consider $A=f(5)$,}
+Il lambda-calcolo eestende l'idea di un linguaggio di espressioni 
+per calcolare funzioni. Mentre normalmente scriveremmo
+\[   \mbox{Indico $f$ come la funzione $x\mapsto x^2$. Dopo considero $A=f(5)$,}
 \]
-in the lambda calculus we just write
+nel lambda-calcolo scriviamo semplicemente
 \[   A = (\lam x.x^2)(5)  .
 \]
-The expression $\lam x.x^2$ stands for the function that maps $x$ to
-$x^2$ (as opposed to the {\em statement} that $x$ is being mapped to
-$x^2$). As in arithmetic, we use parentheses to group terms.
+L'espressione $\lam x.x^2$ sta per la funzione che associa $x$ a $x^2$ 
+(piuttosto che all'{\em affermazione} che $x$ \`e associata a
+$x^2$). Così come in aritmetica, usiamo le parentesi per raggruppare termini.
 
-It is understood that the variable $x$ is a {\em local} variable in
-the term $\lam x.x^2$. Thus, it does not make any difference if we
-write $\lam y.y^2$ instead. A local variable is also called a {\em
-  bound} variable.
+Comprendiamo che la variabile $x$ \`e una variabile {\em locale} nel termine $\lam x.x^2$. 
+Di conseguenza, non fa alcuna differenza se invece scriviamo
+$\lam y.y^2$. Una variabile locale \`e anche chiamata una
+variabile {\em legata}.
 
-One advantage of the lambda notation is that it allows us to easily
-talk about {\em higher-order} functions, i.e., functions whose inputs
-and/or outputs are themselves functions. An example is the operation
-$f\mapsto f\cp f$ in mathematics, which takes a function $f$ and
-maps it to $f\cp f$, the composition of $f$ with itself. In the lambda
-calculus, $f\cp f$ is written as
+Un vantaggio della notazione lambda \`e che ci permette di parlare
+facilmente di funzioni di {\em ordine superiore}, come funzioni i quali input
+e/o output sono loro stesse funzioni. Un esempio \`e l'operazione
+$f\mapsto f\cp f$ in matematica, che prende una funzione $f$ e la associa a $f\cp f$, 
+la composizione di $f$ con se stessa. Nel lambda-calcolo, $f\cp f$ \`e scritto come
 \[         \lam x.f(f(x)),   
 \]
-and the operation that maps $f$ to $f\cp f$ is written as
+e l'operazione che assegna $f$ a $f\cp f$ \`e scritta come
 \[         \lam f.\lam x.f(f(x)).
 \]
-The evaluation of higher-order functions can get somewhat complex; as
-an example, consider the following expression:
+Lo sviluppo di funzioni di ordine superiore può diventare abbastanza complesso;
+per esempio, consideriamo la seguente espressione:
 \[         \left((\lam f.\lam x.f(f(x)))(\lam y.y^2)\right)(5)
 \]
-Convince yourself that this evaluates to 625. Another example is given
-in the following exercise:
+Convinciamoci che questa espressione sia uguale a 625. Un altro esempio \`e dato
+nel seguente esercizio:
 
 \begin{exercise}
-Evaluate the lambda-expression
+Sviluppa il lambda-termine
 \[        \Big(
           \big(\left(\lam f.\lam x.f(f(f(x)))\right)
           \left(\lam g.\lam y.g(g(y))\right)\big)
@@ -148,62 +147,62 @@ Evaluate the lambda-expression
 \]
 \end{exercise}
 
-We will soon introduce some conventions for reducing the number of
-parentheses in such expressions.
+Presto introdurremo delle convenzioni per ridurre il numero di
+parentesi in tali espressioni.
 
 % ----------------------------------------------------------------------
 \subsection{Untyped vs.\ typed lambda-calculi}
 
-We have already mentioned that, when considering ``functions as
-rules'', is not always necessary to know the domain and codomain of a
-function ahead of time. The simplest example is the identity function
-$f = \lam x.x$, which can have any set $X$ as its domain and codomain,
-as long as domain and codomain are equal. We say that $f$ has the {\em
-  type} $X\to X$.  Another example is the function $g = \lam f.\lam
-x.f(f(x))$ that we encountered above. One can check that $g$ maps any
-function $f:X\to X$ to a function $g(f):X\to X$. In this case, we say
-that the type of $g$ is
+Abbiamo gi\`a detto che, quando consideriamo le ``funzioni come regole'', 
+non \`e sempre necessario conoscere il dominio e il codominio
+di una funzione in anticipo. L'esempio più semplice \`e la funzione identit\`a
+$f = \lam x.x$, che può avere qualsiasi insieme $X$ come suo dominio e codominio,
+finché questi sono uguali. Diciamo che
+$f$ \`e del {\em tipo} $X\to X$. Un altro esempio \`e la funzione $g = \lam f.\lam
+x.f(f(x))$ che abbiamo visto sopra. Possiamo controllare che $g$ si assegna 
+qualsiasi funzione $f:X\to X$ ad una funzione $g(f):X\to X$. In questo caso, diciamo
+che $g$ \`e del tipo
 \[          (X\to X)\to(X\to X).
 \]
-By being flexible about domains and codomains, we are able to
-manipulate functions in ways that would not be possible in ordinary
-mathematics. For instance, if $f=\lam x.x$ is the identity function,
-then we have $f(x) = x$ for {\em any} $x$. In particular, we can take
-$x=f$, and we get
+Essendo flessibili con domini e codomini, siamo in grado
+di manipolare funzioni in modi che non sarebbero possibili
+nella matematica classica. Per sempio, se $f=\lam x.x$ \`e la funzione identit\`a,
+di conseguenza abbiamo $f(x) = x$ per {\em ogni} $x$. In particolare, possiamo prendere
+$x=f$, e otteniamo
 \[     f(f) = (\lam x.x)(f) = f.
 \]
-Note that the equation $f(f)=f$ never makes sense in ordinary
-mathematics, since it is not possible (for set-theoretic reasons) for
-a function to be included in its own domain.
+Nota che l'equazione $f(f)=f$ non ha mai senso nella matematica
+classica, poiché non \`e possibile (per motivi insiemistici) che una
+funzione sia inclusa nel suo stesso dominio.
 
-As another example, let $\omega = \lam x.x(x)$. 
+Come altro esempio, assegno $\omega = \lam x.x(x)$. 
 
 \begin{exercise}
-  What is $\omega(\omega)$?
+  Che cos'\`e $\omega(\omega)$?
 \end{exercise}
 
-We have several options regarding types in the lambda calculus.
+Abbiamo diverse opzioni riguardanti i tipi nel lambda-calcolo.
 \begin{itemize}
-\item {\em Untyped lambda calculus.} In the untyped lambda calculus,
-  we never specify the type of any expression. Thus we never specify
-  the domain or codomain of any function. This gives us maximal
-  flexibility. It is also very unsafe, because we might run into
-  situations where we try to apply a function to an argument that it
-  does not understand. 
-\item {\em Simply-typed lambda calculus.} In the simply-typed lambda
-  calculus, we always completely specify the type of every expression. 
-  This is very similar to the situation in set theory. We never allow
-  the application of a function to an argument unless the type of the
-  argument is the same as the domain of the function. Thus, terms such
-  as $f(f)$ are ruled out, even if $f$ is the identity function.
-\item {\em Polymorphically typed lambda calculus.} This is an
-  intermediate situation, where we may specify, for instance, that a
-  term has a type of the form $X\to X$ for all $X$, without actually
-  specifying $X$.
+\item {\em Lambda-calcolo non tipato.} Nel lambda-calcolo non tipato,
+non specifichiamo mai il tipo di qualsiasi espressione. Di conseguenza
+non specifichiamo mai il dominio o il codominio di qualsiasi funzione. Questo ci 
+d\`a massima flessibilit\`a. \`E anche molto poco sicuro, poiché potremmo andare incontro a
+situazioni dove proviamo ad applicare una funzione ad un argomento che
+non comprende.
+\item {\em Lambda-calcolo tipato semplice.} Nel lambda-calcolo tipato semplice,
+dobbiamo sempre specificato i tipo di ogni espressione.
+Ciò \`e molto simile alla situazione nella teoria degli insiemi. Non permettiamo
+mai l'applicazione di una funzione ad un argomento a meno che il tipo
+dell'argomento \`e lo stesso del dominio della funzione. Di conseguenza,
+termini come $f(f)$ sono fuori questione, anche se $f$ \`e la funzione identit\`a.
+\item {\em Lambda-calcolo tipato polimorfo.} Questa \`e una
+situazione intermedia, dove potremmo specificare, ad esempio, che
+un termine ha un tipo della forma $X\to X$ per tutti gli $X$, senza neanche
+specificare $X$.
 \end{itemize}
 
-As we will see, each of these alternatives has dramatically different
-properties from the others.
+Come vedremo, ognuna di queste alternative ha propriet\`a notevolmente
+diverse dalle altre.
 
 % ----------------------------------------------------------------------
 \subsection{Lambda calculus and computability}
