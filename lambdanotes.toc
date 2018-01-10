@@ -1,0 +1,95 @@
+\contentsline {section}{\numberline {1}Introduction}{6}
+\contentsline {subsection}{\numberline {1.1}Extensional vs. intensional view of functions}{6}
+\contentsline {subsection}{\numberline {1.2}The lambda calculus}{7}
+\contentsline {subsection}{\numberline {1.3}Untyped vs.\ typed lambda-calculi}{8}
+\contentsline {subsection}{\numberline {1.4}Lambda calculus and computability}{9}
+\contentsline {subsection}{\numberline {1.5}Connections to computer science}{10}
+\contentsline {subsection}{\numberline {1.6}Connections to logic}{10}
+\contentsline {subsection}{\numberline {1.7}Connections to mathematics}{11}
+\contentsline {section}{\numberline {2}The untyped lambda calculus}{11}
+\contentsline {subsection}{\numberline {2.1}Syntax}{11}
+\contentsline {subsection}{\numberline {2.2}Free and bound variables, $\alpha $-equivalence}{13}
+\contentsline {subsection}{\numberline {2.3}Substitution}{15}
+\contentsline {subsection}{\numberline {2.4}Introduction to $\beta $-reduction}{17}
+\contentsline {subsection}{\numberline {2.5}Formal definitions of $\beta $-reduction and $\beta $-equivalence}{18}
+\contentsline {section}{\numberline {3}Programming in the untyped lambda calculus}{19}
+\contentsline {subsection}{\numberline {3.1}Booleans}{19}
+\contentsline {subsection}{\numberline {3.2}Natural numbers}{20}
+\contentsline {subsection}{\numberline {3.3}Fixed points and recursive functions}{22}
+\contentsline {subsection}{\numberline {3.4}Other data types: pairs, tuples, lists, trees, etc.}{24}
+\contentsline {section}{\numberline {4}The Church-Rosser Theorem}{26}
+\contentsline {subsection}{\numberline {4.1}Extensionality, $\eta $-equivalence, and $\eta $-reduction}{26}
+\contentsline {subsection}{\numberline {4.2}Statement of the Church-Rosser Theorem, and some consequences}{28}
+\contentsline {subsection}{\numberline {4.3}Preliminary remarks on the proof of the Church-Rosser Theorem}{30}
+\contentsline {subsection}{\numberline {4.4}Proof of the Church-Rosser Theorem}{32}
+\contentsline {subsection}{\numberline {4.5}Exercises}{37}
+\contentsline {section}{\numberline {5}Combinatory algebras}{38}
+\contentsline {subsection}{\numberline {5.1}Applicative structures}{39}
+\contentsline {subsection}{\numberline {5.2}Combinatory completeness}{40}
+\contentsline {subsection}{\numberline {5.3}Combinatory algebras}{42}
+\contentsline {subsection}{\numberline {5.4}The failure of soundness for combinatory algebras}{43}
+\contentsline {subsection}{\numberline {5.5}Lambda algebras}{45}
+\contentsline {subsection}{\numberline {5.6}Extensional combinatory algebras}{49}
+\contentsline {section}{\numberline {6}Simply-typed lambda calculus, propositional logic, and the Curry-Howard isomorphism}{51}
+\contentsline {subsection}{\numberline {6.1}Simple types and simply-typed terms}{51}
+\contentsline {subsection}{\numberline {6.2}Connections to propositional logic}{54}
+\contentsline {subsection}{\numberline {6.3}Propositional intuitionistic logic}{56}
+\contentsline {subsection}{\numberline {6.4}An alternative presentation of natural deduction}{58}
+\contentsline {subsection}{\numberline {6.5}The Curry-Howard Isomorphism}{60}
+\contentsline {subsection}{\numberline {6.6}Reductions in the simply-typed lambda calculus}{62}
+\contentsline {subsection}{\numberline {6.7}A word on Church-Rosser}{63}
+\contentsline {subsection}{\numberline {6.8}Reduction as proof simplification}{64}
+\contentsline {subsection}{\numberline {6.9}Getting mileage out of the Curry-Howard isomorphism}{65}
+\contentsline {subsection}{\numberline {6.10}Disjunction and sum types}{66}
+\contentsline {subsection}{\numberline {6.11}Classical logic vs.\ intuitionistic logic}{68}
+\contentsline {subsection}{\numberline {6.12}Classical logic and the Curry-Howard isomorphism}{70}
+\contentsline {section}{\numberline {7}Weak and strong normalization}{71}
+\contentsline {subsection}{\numberline {7.1}Definitions}{71}
+\contentsline {subsection}{\numberline {7.2}Weak and strong normalization in typed lambda calculus}{72}
+\contentsline {section}{\numberline {8}Polymorphism}{73}
+\contentsline {subsection}{\numberline {8.1}Syntax of System F}{73}
+\contentsline {subsection}{\numberline {8.2}Reduction rules}{74}
+\contentsline {subsection}{\numberline {8.3}Examples}{75}
+\contentsline {subsubsection}{\numberline {8.3.1}Booleans}{75}
+\contentsline {subsubsection}{\numberline {8.3.2}Natural numbers}{76}
+\contentsline {subsubsection}{\numberline {8.3.3}Pairs}{77}
+\contentsline {subsection}{\numberline {8.4}Church-Rosser property and strong normalization}{77}
+\contentsline {subsection}{\numberline {8.5}The Curry-Howard isomorphism}{78}
+\contentsline {subsection}{\numberline {8.6}Supplying the missing logical connectives}{79}
+\contentsline {subsection}{\numberline {8.7}Normal forms and long normal forms}{80}
+\contentsline {subsection}{\numberline {8.8}The structure of closed normal forms}{82}
+\contentsline {subsection}{\numberline {8.9}Application: representation of arbitrary data in System F}{84}
+\contentsline {section}{\numberline {9}Type inference}{86}
+\contentsline {subsection}{\numberline {9.1}Principal types}{87}
+\contentsline {subsection}{\numberline {9.2}Type templates and type substitutions}{87}
+\contentsline {subsection}{\numberline {9.3}Unifiers}{89}
+\contentsline {subsection}{\numberline {9.4}The unification algorithm}{90}
+\contentsline {subsection}{\numberline {9.5}The type inference algorithm}{92}
+\contentsline {section}{\numberline {10}Denotational semantics}{93}
+\contentsline {subsection}{\numberline {10.1}Set-theoretic interpretation}{94}
+\contentsline {subsection}{\numberline {10.2}Soundness}{96}
+\contentsline {subsection}{\numberline {10.3}Completeness}{98}
+\contentsline {section}{\numberline {11}The language PCF}{98}
+\contentsline {subsection}{\numberline {11.1}Syntax and typing rules}{99}
+\contentsline {subsection}{\numberline {11.2}Axiomatic equivalence}{100}
+\contentsline {subsection}{\numberline {11.3}Operational semantics}{101}
+\contentsline {subsection}{\numberline {11.4}Big-step semantics}{103}
+\contentsline {subsection}{\numberline {11.5}Operational equivalence}{105}
+\contentsline {subsection}{\numberline {11.6}Operational approximation}{106}
+\contentsline {subsection}{\numberline {11.7}Discussion of operational equivalence}{106}
+\contentsline {subsection}{\numberline {11.8}Operational equivalence and parallel or}{107}
+\contentsline {section}{\numberline {12}Complete partial orders}{109}
+\contentsline {subsection}{\numberline {12.1}Why are sets not enough, in general?}{109}
+\contentsline {subsection}{\numberline {12.2}Complete partial orders}{109}
+\contentsline {subsection}{\numberline {12.3}Properties of limits}{111}
+\contentsline {subsection}{\numberline {12.4}Continuous functions}{111}
+\contentsline {subsection}{\numberline {12.5}Pointed cpo's and strict functions}{112}
+\contentsline {subsection}{\numberline {12.6}Products and function spaces}{112}
+\contentsline {subsection}{\numberline {12.7}The interpretation of the simply-typed lambda calculus in complete partial orders}{114}
+\contentsline {subsection}{\numberline {12.8}Cpo's and fixed points}{114}
+\contentsline {subsection}{\numberline {12.9}Example: Streams}{115}
+\contentsline {section}{\numberline {13}Denotational semantics of PCF}{116}
+\contentsline {subsection}{\numberline {13.1}Soundness and adequacy}{116}
+\contentsline {subsection}{\numberline {13.2}Full abstraction}{118}
+\contentsline {section}{\numberline {14}Acknowledgements}{119}
+\contentsline {section}{\numberline {15}Bibliography}{120}
