@@ -3045,14 +3045,14 @@ $\beta\eta$-riduzioni.
 \end{exercise}
 
 % ----------------------------------------------------------------------
-\subsection{Riduzione come prova di semplificazione}
+\subsection{Riduzione come semlificazione della dimostrazione}
 
 Avendo fatto una corrispondenza uno-a-uno tra lambda termini simply-typed
 e derivazioni nella deduzione naturale intuizionista, possiamo ora chiedere 
-quali $\beta$- e $\eta$ -riduzioni gli equivalgono sotto questa corrispondenza.
-Si scopre che queste riduzioni possono essere pensate come `` passaggi di semplificazione della dimostrazione''.
+quali $\beta$- e $\eta$-riduzioni gli equivalgono sotto questa corrispondenza.
+Si scopre che queste riduzioni possono essere pensate come `` passaggi di semplificazione della dimostrazione ''.
 
-Prendiamo ad esempio $\beta$ -riduzione $\proj1\pair{M,N}\ su M $.
+Prendiamo ad esempio $\beta$-riduzione $\proj1\pair{M,N}\ su M $.
 Se traduciamo il lato sinistro e il lato destro attraverso l'isomorfismo di Curry-Howard 
 (qui usiamo la prima notazione per deduzione naturale), otteniamo
 \[ \trule{$\cand$-E$_1$}\deriv{\trule{$\cand$-I}\deriv{\ideriv{\Gamma}{A}\sep\ideriv{\Gamma}{B}}{A\cand B}}{A}
@@ -3062,11 +3062,11 @@ Possiamo vedere che la derivazione di sinistra contiene una regola di
 introduzione immediatamente seguita da una regola di eliminazione. 
 Questo porta ad una ovvia semplificazione se sostituiamo la derivazione sinistra con quella destra.
 
-In generale, $\beta$ -redexes corrispondono a situazioni in cui
+In generale, i $\beta$-redexes corrispondono a situazioni in cui
 una regola di introduzione \`e immediatamente seguita da una regola di 
-eliminazione, e $\eta$ -redexes corrispondono alle situazioni dove 
+eliminazione, ed i $\eta$-redexes corrispondono alle situazioni dove 
 una regola di eliminazione \`e immediatamente seguita da una regola di introduzione.
-Ad esempio,si considera $\eta$ -riduzione  $\pair{\proj1 M,\proj2 M} \to M$. 
+Ad esempio,si considera $\eta$-riduzione  $\pair{\proj1 M,\proj2 M} \to M$. 
 Questo si traduce come:
 \[
 \trule{$\cand$-I}\deriv{\trule{$\cand$-E$_1$}\deriv{\ideriv{\Gamma}{A\cand
@@ -3078,15 +3078,14 @@ Ancora una volta, questo \`e un passo di semplificazione ovvio, ma ha una condiz
 la sottoderivazione sinistra e destra devono essere le stesse! 
 Questa condizione laterale corrisponde al fatto che nel redex $\pair{\proj1
 M,\proj2 M}$, i due sottotitoli chiamati $M$ devono essere uguali.
-\`E un'altra caratteristica delle $\eta$ -riduzioni che spesso vengono accompagnate 
+\`E un'altra caratteristica delle $\eta$-riduzioni che spesso vengono accompagnate 
 da condizioni secondarie.
 
 La riduzione $M\to\unit$ si traduce nel seguente modo:
 \[
 \ideriv{\Gamma}{\ctrue} \ssep\to\ssep \trule{$\ctrue$-I}\deriv{\hspace{.5in}}{\ctrue}
 \]
-In altre parole, qualiasi derivazione di $\ctrue$ pu\`o essere rimpiazzata dalla canonica di tale derivazione
-
+In altre parole, qualiasi derivazione di $\ctrue$ pu\`o essere rimpiazzata dalla canonica di tale derivazione.
 Pi\`u interessante \`e il caso della regola $(\beta_{\to})$. In questo caso, abbiamo
 $(\lamabs{x}{A}.M)N \to \subst{M}{N}{x}$, che pu\`o essere tradotta tramite
   l'Isomorfismo di Curry-Howardas nel seguente modo:
@@ -3109,7 +3108,7 @@ nella parte destra del termine. Questo corrisponde al fatto che se
 $x$ si presenta varie volte in $M$, allora $\subst{M}{N}{x}$ potrebbe essere
 un pi\`u lungo e complicato termine di $(\lam x.M)N$.
 
-Infine, considerarela regola $(\eta_{\to})$  $\lamabs{x}{A}.Mx \to M$,
+Infine, considerare la regola $(\eta_{\to})$  $\lamabs{x}{A}.Mx \to M$,
 dove $x\not\in\FV{M}$. Questo si traduce come derivazione nel seguente modo:
 \[
 \trule{$\to$-I}\ \deriv{\trule{$\to$-E}\ \deriv{\ideriv{\Gamma}{A\to
@@ -3122,7 +3121,7 @@ dove $x\not\in\FV{M}$. Questo si traduce come derivazione nel seguente modo:
 
 L'isomorfismo di Curry-Howard crea una connessione tra il lambda
 calcolo e la logica. Possiamo pensarlo come una connessione tra
-``programmi'' e ``dimostrazioni''. A cosa serve una tale connessione? come qualsiasi
+``programmi'' e ``dimostrazioni''. A cosa serve una tale connessione? Come qualsiasi
 isomorfismo,  ci consente di passare avanti e indietro e di pensare in
 qualunque sistema si adatti al nostro intuito in una data situazione.  Inoltre,
 possiamo risparmiare molto lavoro trasferendo teoremi dimostrati
@@ -3134,25 +3133,25 @@ dal lambda calcolo.
 % ----------------------------------------------------------------------
 \subsection{Disgiunzione e tipi di somma}
 
-Per il BNF per formule della logica proposizionale intuzionistica dalla
-Section~\ref{subsec-proplogic}, aggiungiamo le seguenti proposizioni:
+Nel BNF per formule della logica proposizionale intuzionistica dalla
+Sezione~\ref{subsec-proplogic}, aggiungiamo le seguenti proposizioni:
 \[ \mbox{Formulas:}\ssep A,B \bnf \ldots \bor A\cor B \bor \cfalse.
 \]
-Qui, $A\cor B$ sta per disgiunzione, o ``or'', e $\cfalse$
+Qui, $A\cor B$ sta per disgiunzione o ``or'', e $\cfalse$
 sta per falsit\`a, che possiamo anche pensare come una disgiunzione 
 nullaria(0 ariet\`a). Il simbolo $\cfalse$ è anche conosciuto come
 ``estremit\`a'', ``assurdit\`a'', o ``contraddizione''.  Le regole per
  costruire derivazioni sono estese dai seguenti casi:
 \begin{enumerate}
 \resumeenumerate
-\item ($\cor$-introduction)
+\item ($\cor$-introduzione)
 \[ \trule{$\cor$-I$_1$}\ \deriv{\Gamma\tj A}{\Gamma\tj A\cor B}
 \sep
 \trule{$\cor$-I$_2$}\ \deriv{\Gamma\tj B}{\Gamma\tj A\cor B}
 \]
-In other words, if we have proven $A$ or we have proven $B$, then we
-may conclude $A\cor B$.
-\item ($\cor$-elimination)
+In altre parole,se abbiamo provato che $A$ o abbiamo dimostrato che $B$,allora
+possiamo concludere che $A\cor B$.
+\item ($\cor$-eliminazione)
 \[ \trule{$\cor$-E$_{x,y}$}\ \deriv{\Gamma\tj A\cor B
   \sep \Gamma,\typ{x}{A}\tj C
   \sep \Gamma,\typ{y}{B}\tj C}{\Gamma\tj C}
@@ -3166,11 +3165,11 @@ dimostriamo $C$, che quindi è valida indipendentemente.
 Notare che la regola $\cor$-eliminazione differisce da tutte le altre regole che
 abbiamo considerato fino ad ora, perch\`e richiede qualche formula arbitraria $C$
 che non \`e direttamente collegata con la formula principale che viene eliminata $A\cor B$.
-\item ($\cfalse$-elimination)
+\item ($\cfalse$-eliminazione)
 \[ \trule{$\cfalse$-E}\ \deriv{\Gamma\tj\cfalse}{\Gamma\tj C},
 \]
 per una formula arbitraria $C$. Questa regola formalizza il familiare
-principio ``ex falsum quodlibet'', che significa che la falsità 
+principio ``ex falsum quodlibet'', che significa che la falsit\'a 
 implica qualsiasi cosa.
 \end{enumerate}
 
