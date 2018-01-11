@@ -101,7 +101,7 @@ per esempio, scriviamo
 \[   A = (x+y)\times z^2,   
 \]
 e non 
-\[   \mbox{assegno $w=x+y$, quindi assegno $u=z^2$, dopo assegno $A=w\times u$.}    
+\[   \mbox{sia $w=x+y$, quindi sia $u=z^2$, dopo sia $A=w\times u$.}    
 \]
 La seconda scrittura sarebbe stancante e tediosa da manipolare.
 
@@ -175,7 +175,7 @@ Nota che l'equazione $f(f)=f$ non ha mai senso nella matematica
 classica, poiché non \`e possibile (per motivi insiemistici) che una
 funzione sia inclusa nel suo stesso dominio.
 
-Come altro esempio, assegno $\omega = \lam x.x(x)$. 
+Come altro esempio, sia $\omega = \lam x.x(x)$. 
 
 \begin{exercise}
   Che cos'\`e $\omega(\omega)$?
@@ -336,7 +336,7 @@ la seguente, pi\`u tradizionale definizione matematica:
   \end{itemize}
 \end{definition}
 
-COmparando le due definizioni equivalenti, vediamo che la
+Comparando le due definizioni equivalenti, vediamo che la
 forma di Backus-Naur \`e una notazione conveniente perché: (1) la definizione
 dell'alfabeto pu\`o rimanere implicita, (2) l'uso di distinti meta-simboli
 per diverse classi sintattiche ($x,y,z$ per le variabili e $M,N$ per
@@ -400,43 +400,42 @@ per convenienza notazionale; non influisce sulla definizione
 \end{exercise}
 
 % ----------------------------------------------------------------------
-\subsection{Free and bound variables, $\alpha$-equivalence}
+\subsection{Variabili libere e legate, $\alpha$-equivalenza}
 
-In our informal discussion of lambda terms, we have already pointed
-out that the terms $\lam x.x$ and $\lam y.y$, which differ only in the
-name of their bound variable, are essentially the same. We will say
-that such terms are $\alpha$-equivalent, and we write $M\eqa N$.  In
-the rare event that we want to say that two terms are precisely equal,
-symbol for symbol, we say that $M$ and $N$ are {\em identical} and we
-write $M\equiv N$. We reserve ``$=$'' as a generic symbol used for
-different purposes.
+Nella nostra discussione informale dei lambda-termini, abbiamo gi\`a fatto
+notare che i termini $\lam x.x$ e $\lam y.y$, che differiscono solo nel
+nome della loro variabile legata, sono praticamente lo stesso. Diremo che
+tali termini sono $\alpha$-equivalenti, e scriviamo $M\eqa N$. Nel raro
+caso in cui volessimo dire che due termini sono precisamente uguali, simbolo
+per ismbolo, diciamo che $M$ e $N$ sono {\em identici} e scriviamo $M\equiv N$.
+Riserviamo ``$=$'' come un simbolo generico usato per differenti scopi.
 
-An occurrence of a variable $x$ inside a term of the form $\lam x.N$
-is said to be {\em bound}. The corresponding $\lam x$ is called a {\em
-  binder}, and we say that the subterm $N$ is the {\em scope} of the
-binder. A variable occurrence that is not bound is {\em free}.  Thus,
-for example, in the term
+Un'occorrenza di una variabile $x$ dentro un termine della forma $\lam x.N$
+\`e detta {\em legata}. Il corrispondente $\lam x$ \`e chiamato un {\em binder}, e
+diciamo che il sottotermine $N$ \`e lo {\em scope} del binder. Un'occorrenza di
+una variabile che non \`e legata \`e detta {\em libera}. Quindi,
+ad esempio, nel termine
 \[   M \equiv (\lam x.xy)(\lam y.yz), \]
-$x$ is bound, but $z$ is free. The variable $y$ has both a free and a
-bound occurrence. The set of free variables of $M$ is $\s{y,z}$. 
+$x$ \`e legata, mentre $z$ \`e libera. La variabile $y$ ha sia un'occorrenza libera
+che una legata. L'insieme delle variabili libere di $M$ \`e
 
-More generally, the set of free variables of a term $M$ is denoted
-$\FV{M}$, and it is defined formally as follows:
+Pi\`u generalmente, l'insieme delle variabili libere del termine $M$ sono
+denotate con $\FV{M}$, e sono definite formalmente in questo modo:
 \[ \begin{array}{lll}
   \FV{x} &=& \s{x}, \\
   \FV{MN} &=& \FV{M}\cup \FV{N}, \\
   \FV{\lam x.M} &=& \FV{M} \setminus \s{x}.
 \end{array}
 \]
-This definition is an example of a definition by recursion on
-terms. In other words, in defining $\FV{M}$, we assume that we have
-already defined $\FV{N}$ for all subterms of $M$. We will often
-encounter such recursive definitions, as well as inductive proofs. 
+Questo \`e un esempio di definizione tramite ricorsione sui termini. In
+altre parole, nel definire $\FV{M}$, assumiamo di aver gi\`a definito
+$\FV{N}$ per tutti i sottotermini di $M$. Spesso incontreremo tali
+definizioni ricorsive, insieme a dimostrazioni induttive.
 
-Before we can formally define $\alpha$-equivalence, we need to define
-what it means to {\em rename} a variable in a term. If $x,y$ are
-variables, and $M$ is a term, we write $\ren{M}{y}{x}$ for the result of
-renaming $x$ as $y$ in $M$. Renaming is formally defined as follows:
+Prima di poter formalmente definire l'$\alpha$-equivalenza, dobbiamo definire
+cosa significa {\em rinominare} una variabile in un termine. Se $x,y$ sono
+variabili, e $M$ \`e un termine, scriviamo $\ren{M}{y}{x}$ come risultato della
+ridenominazione di $x$ a $y$ in $M$. Rinominare \`e formalmente definito come segue:
 \[ \begin{array}{llll}
   \ren{x}{y}{x} &\equiv& y, \\
   \ren{z}{y}{x} &\equiv& z, & \mbox{if $x\neq z$,} \\
@@ -446,26 +445,27 @@ renaming $x$ as $y$ in $M$. Renaming is formally defined as follows:
   $x\neq z$.}
 \end{array}
 \]
-Note that this kind of renaming replaces all occurrences of $x$ by
-$y$, whether free, bound, or binding. We will only apply it in cases
-where $y$ does not already occur in $M$. 
+Nota che questo tipo di ridenominazione sostituisce tutte le occorrenze di $x$ con
+$y$, che sia libera, legata, o ``binding''. La applicheremo solo in casi dove
+$y$ non \`e gi\`a presente in $M$.
 
-Finally, we are in a position to formally define what it means for two
-terms to be ``the same up to renaming of bound variables'':
+Infine, possiamo finalmente definire formalmente cosa significa che due
+termini sono ``lo stesso prima di rinominare le variabili legate''
 
 \begin{definition}
-  We define {\em $\alpha$-equivalence} to be the smallest congruence
-  relation $\eqa$ on lambda terms, such that for all terms $M$ and all
-  variables $y$ that do not occur in $M$,
+  Definiamo {\em $\alpha$-equivalenza} come la pi\`u piccola relazione di congruenza 
+  $\eqa$ sui lambda-termini, cos\`i che per tutti i termini $M$ e tutte le 
+  variabili $y$ che non sono presenti in $M$,
   \[ \lam x.M \eqa \lam y.(\ren{M}{y}{x}). \]
 \end{definition}
 
-Recall that a relation on lambda terms is an equivalence relation if
-it satisfies rules $\trule{refl}$, $\trule{symm}$, and
-$\trule{trans}$. It is a congruence if it also satisfies rules
-$\trule{cong}$ and $\nrule{\xi}$.  Thus, by definition,
-$\alpha$-equivalence is the smallest relation on lambda terms
-satisfying the six rules in Table~\ref{tab-alpha}.
+
+Ricordiamo che una relazione su lambda-termini \`e una relazione di equivalenza se
+soddisfa le regole $\trule{refl}$, $\trule{symm}$, e
+$\trule{trans}$. \`E una congruenza se soddisfa anche le regole
+$\trule{cong}$ e $\nrule{\xi}$.  Quindi, per definizione,
+l'$\alpha$-equivalenza \`e la relazione pi\`u piccola sui lambda-termini 
+che soddisfano le sei regole nella Tabella~\ref{tab-alpha}.
 % ......................................................................
 \begin{table*}[tbp]
 \[ \begin{array}{lc}
@@ -485,24 +485,24 @@ satisfying the six rules in Table~\ref{tab-alpha}.
   \deriv{\mbox{$y\not\in M$}}{\lam x.M = \lam y.(\ren{M}{y}{x})}
 \end{array}
 \]
-\caption{The rules for alpha-equivalence}
+\caption{Le regole per l'alfa-equivalenza}
 \label{tab-alpha}
 \end{table*}
 % ......................................................................
 
-It is easy to prove by induction that any lambda term is
-$\alpha$-equivalent to another term in which the names of all bound
-variables are distinct from each other and from any free variables.
-Thus, when we manipulate lambda terms in theory and in practice, we
-can (and will) always assume {\wloss} that bound variables have been
-renamed to be distinct. This convention is called {\em Barendregt's
-  variable convention}.
+\`E anche facile dimostrare per induzione che ogni lambda-termine \`e
+$\alpha$-equivalente ad un altro termine in cui i nomi di tutte le
+variabili legate sono diverse tra loro e da qualsiasi variabile libera.
+Quindi, quando manipoliamo i lambda-termini in teoria e in pratica,
+possiamo supporre (e daremo per assodato) {\wloss} che le variabili legate
+sono state rinominate per essere distinte. Questa convenzione \`e chiamata 
+{\em Convenzione di Barendregt sulle variabili}.
 
-As a remark, the notions of free and bound variables and
-$\alpha$-equivalence are of course not particular to the lambda
-calculus; they appear in many standard mathematical notations, as well
-as in computer science. Here are four examples where the variable $x$
-is bound.
+Per sottolineare, la nozione di variabili libere e legate e di
+$\alpha$-equivalenza sono chiaramente non esclusive del lambda-calcolo;
+sono presenti in diverse notazioni matematiche tradizionali, cos\`i come
+nella scienza dei computer. Qui vi sono quattro esempi dove la variabile $x$
+\`e legata.
 \[ \begin{array}{l}
   \int_0^1 x^2\,dx \nl
   \sum_{x=1}^{10}\frac{1}{x} \nl
@@ -512,97 +512,98 @@ is bound.
 \]
 
 % ----------------------------------------------------------------------
-\subsection{Substitution}\label{ssec-substitution}
+\subsection{Sostituzione}\label{ssec-sostituzione}
 
-In the previous section, we defined a renaming operation, which
-allowed us to replace a variable by another variable in a lambda term.
-Now we turn to a less trivial operation, called {\em substitution},
-which allows us to replace a variable by a lambda term. We will write
-$\subst{M}{N}{x}$ for the result of replacing $x$ by $N$ in $M$. The
-definition of substitution is complicated by two circumstances:
+Nella sezione precedente, abbiamo definito un'operazione di 
+ridenominazione, la quale ci ha permesso di sostituire una variabile 
+con un'altra variabile in un lambda-termine. Adesso ci rivolgiamo ad 
+un'operazione meno elementare, chiamata {\em sostituzione}, che ci 
+permette di sostituire una variabile con un lambda-termine. Scriveremo
+$\subst{M}{N}{x}$ come il risultato della sostituzione di $x$ con $N$ 
+in $M$. La definizione di sostituzione \`e complicata da due condizioni:
 \begin{enumerate}
-\item[1.] We should only replace {\em free} variables. This is because
-  the names of bound variables are considered immaterial, and should
-  not affect the result of a substitution. Thus, $\subst{x(\lam
-    xy.x)}{N}{x}$ is $N(\lam xy.x)$, and not $N(\lam xy.N)$.
-\item[2.] We need to avoid unintended ``capture'' of free
-  variables. Consider for example the term $M\equiv\lam x.yx$, and let
-  $N\equiv\lam z.xz$. Note that $x$ is free in $N$ and bound in $M$.
-  What should be the result of substituting $N$ for $y$ in $M$?
-  If we do this naively, we get 
+\item[1.] Possiamo solo sostituire variabili {\em libere}, poiché i nomi
+delle variabili legali sono considerati irrilevanti, e non
+dovrebbero influenzare il risultato di una sostituzione. Quindi, $\subst{x(\lam
+    xy.x)}{N}{x}$ \`e $N(\lam xy.x)$, e non $N(\lam xy.N)$.
+\item[2.] Dobbiamo evitare l'accidentale ``cattura'' di variabili
+libere. Consideriamo ad esempio il termine $M\equiv\lam x.yx$, e sia
+  $N\equiv\lam z.xz$. Nota che $x$ \`e libera in $N$ e legata in $M$.
+Quale dovrebbe essere il risultato della sostituzione di $N$ per $y$ in $M$?
+Facendolo ingenuamente, otterremmo
   \[ \subst{M}{N}{y}=\subst{(\lam x.yx)}{N}{y}=
      \lam x.Nx=\lam x.(\lam z.xz)x. 
   \]
-  However, this is not what we intended, since the variable $x$ was
-  free in $N$, and during the substitution, it got bound. We need to
-  account for the fact that the $x$ that was bound in $M$ was not the
-  ``same'' $x$ as the one that was free in $N$. The proper thing to do
-  is to rename the bound variable {\em before} the substitution:
+  Tuttavia, questo non \`e quello che ci aspettavamo, poiché la variabile $x$
+  era libera in $N$, e durante la sostituzione, \`e diventata legata. Dobbiamo
+  considerare il fatto che l'$x$ che era legata in $M$ non era la 
+  ``stessa'' $x$ di quella che era libera in $N$. La cosa pi\`u giusta da fare
+\`e rinominare la variabile legata {\em prima} della sostituzione:
   \[ \subst{M}{N}{y}=\subst{(\lam x'.yx')}{N}{y}=
      \lam x'.Nx'=\lam x'.(\lam z.xz)x'. 
   \]
 \end{enumerate}
 
-Thus, the operation of substitution forces us to sometimes rename a
-bound variable. In this case, it is best to pick a variable from
-$\Vars$ that has not been used yet as the new name of the bound
-variable. A variable that is currently unused is called {\em fresh}.
-The reason we stipulated that the set $\Vars$ is infinite was to make
-sure a fresh variable is always available when we need one.
+Dunque, l'operazione di sostituzione ci costringe delle volte a rinominare
+una variabile legata. In questo caso, \`e meglio scegliere una variable da
+$\Vars$ che non \`e ancora stata usata come nuovo nome della variabile
+legata. Una variabile che \`e attualmente inutilizzata \`e chiamata {\em fresca}.
+Il motivo per cui abbiamo stipulato che l'insieme $\Vars$ \`e infinito era per
+star certi della disponibilit\`a di una variabile fresca quando ne necessitiamo una.
 
 \begin{definition}
-  The (capture-avoiding) {\em substitution} of $N$ for free
-  occurrences of $x$ in $M$, in symbols $\subst{M}{N}{x}$, is defined
-  as follows:
+  The {\em sostituzione}(``capture-avoiding'')  di $N$ per occorrenze
+  libere di $x$ in $M$, in simboli $\subst{M}{N}{x}$, \`e definita
+  come segue:
   \[  \begin{array}{l@{~}l@{~}ll}
     \subst{x}{N}{x} &\equiv & N, \\
-    \subst{y}{N}{x} &\equiv & y, &\mbox{if $x\neq y$,} \\
+    \subst{y}{N}{x} &\equiv & y, &\mbox{se $x\neq y$,} \\
     \subst{(MP)}{N}{x} &\equiv & (\subst{M}{N}{x})(\subst{P}{N}{x}), \\
     \subst{(\lam x.M)}{N}{x} &\equiv & \lam x.M, \\
     \subst{(\lam y.M)}{N}{x} &\equiv & \lam y.(\subst{M}{N}{x}), 
-    &\mbox{if $x\neq y$ and $y\not\in\FV{N}$,} \\
+    &\mbox{se $x\neq y$ e $y\not\in\FV{N}$,} \\
     \subst{(\lam y.M)}{N}{x} &\equiv & \lam y'.(\subst{\ren{M}{y'}{y}}{N}{x}), 
-    &\mbox{if $x\neq y$, $y\in\FV{N}$, and $y'$ fresh.} \\
+    &\mbox{se $x\neq y$, $y\in\FV{N}$, e $y'$ fresca.} \\
   \end{array}
   \]
 \end{definition}
 
-This definition has one technical flaw: in the last clause, we did not
-specify which fresh variable to pick, and thus, technically,
-substitution is not well-defined. One way to solve this problem is to
-declare all lambda terms to be identified up to $\alpha$-equivalence,
-and to prove that substitution is in fact well-defined modulo
-$\alpha$-equivalence.  Another way would be to specify which variable
-$y'$ to choose: for instance, assume that there is a well-ordering on
-the set $\Vars$ of variables, and stipulate that $y'$ should be chosen
-to be the least variable that does not occur in either $M$ or $N$.
+Questa definizione ha un difetto tecnico, nell'ultima proposizione, non
+abbiamo specificato quale variabile fresca prendere, e quindi, tecnicamente,
+la sostituzione non \`e ben definita. Un modo per risolvere questo problema
+\`e di dichiarare tutti i lambda-termini identificabili in termini di
+$\alpha$-equivalenza, e di dimostrare che la sostituzione \`e effettivamente
+un'$\alpha$-equivalenza ben definita in modulo. Un altro modo sarebbe
+specificare quale variabile $y'$ scegliere: ad esempio, supponiamo che
+l'insieme $\Vars$ di variabili \`e ben ordinato, e stipuliamo che $y'$ dovrebbe
+essere scelto per essere la minima variabile che non ha occorrenze in $M$ o $N$.
 
 % ----------------------------------------------------------------------
-\subsection{Introduction to $\beta$-reduction}
+\subsection{Introduzione alla $\beta$-riduzione}
 
 \begin{convention}
-From now on, unless stated otherwise, we identify lambda terms up to
-$\alpha$-equivalence. This means, when we speak of lambda terms being
-``equal'', we mean that they are $\alpha$-equivalent. Formally, we
-regard lambda terms as equivalence classes modulo $\alpha$-equivalence.
-We will often use the ordinary equality symbol $M=N$ to denote
-$\alpha$-equivalence. 
+Da ora in poi, se non precisato, indentificheremo i lambda-termini tramite
+$\alpha$-equivalenza. Questo significa che quando parliamo di lambda-termini
+``uguali'', intendiamo che sono $\alpha$-equivalenti. Formalmente, intendiamo
+i lambda-termini come la classe d'equivalenza di modulo $\alpha$-equivalenza.
+Spesso useremo il tradizionale simbolo di uguaglianza $M=N$ per denotare
+l'$\alpha$-equivalenza.
 \end{convention}
 
-The process of evaluating lambda terms by ``plugging arguments into
-functions'' is called {\em $\beta$-reduction}. A term of the form
-$(\lam x.M)N$, which consists of a lambda abstraction applied to
-another term, is called a {\em $\beta$-redex}. We say that it {\em
-  reduces} to $\subst{M}{N}{x}$, and we call the latter term the {\em
-  reduct}. We reduce lambda terms by finding a subterm that is a
-redex, and then replacing that redex by its reduct. We repeat this as
-many times as we like, or until there are no more redexes left to
-reduce. A lambda term without any $\beta$-redexes is said to be in {\em
-  $\beta$-normal form}.
+Il processo di sviluppare lambda-termini ``inserendo gli argomenti
+nelle funzioni'' \`e chiamato {\em $\beta$-riduzione}. Un termine della
+forma $(\lam x.M)N$, che consiste nella lambda-astrazione applicata ad un
+altro termine, \`e chiamato un {\em $\beta$-redex}. Diciamo che si
+{\em riduce} a $\subst{M}{N}{x}$, e chiamiamo quest'ultimo termine il {\em
+  ridotto}. Riduciamo lambda-termini per trovare un sottotermine che \`e
+un redex, e dopo sostituendo quel redex con il suo ridotto. Ripetiamo
+questi passaggi quante volte desideriamo, o finché non vi sono pi\`u redex
+da ridurre. Un lambda-termine senza nessun $\beta$-redex \`e detto di essere
+nella sua {\em $\beta$-forma normale}.
 
-For example, the lambda term $(\lam x.y)((\lam z.zz)(\lam w.w))$ can
-be reduced as follows. Here, we underline each redex just before
-reducing it:
+Per esempio, il lambda-termine $(\lam x.y)((\lam z.zz)(\lam w.w))$ pu\`o
+essere ridotto come segue. Qui, sottolineiamo ogni redex appena prima
+di ridurlo:
 \[ \begin{array}{lll}
   (\lam x.y)(\ul{(\lam z.zz)(\lam w.w)}) 
   &\redb& (\lam x.y)(\ul{(\lam w.w)(\lam w.w)}) \\
@@ -610,30 +611,31 @@ reducing it:
   &\redb& y.
 \end{array}
 \]
-The last term, $y$, has no redexes and is thus in normal form.
-We could reduce the same term differently, by choosing the redexes in
-a different order:
+L'ultimo termine, $y$, non ha redex ed \`e quindi nella sua forma normale.
+Potremmo ridurre lo stesso termine in modo diverso, scegliendo i redex
+in un ordine differente:
 \[ \begin{array}{lll}
   \ul{(\lam x.y)((\lam z.zz)(\lam w.w))}
   &\redb& y.
 \end{array}
 \]
-As we can see from this example:
+Come possiamo vedere da questo esempio:
 \begin{itemize}
-\item[-] reducing a redex can create new redexes,
-\item[-] reducing a redex can delete some other redexes,
-\item[-] the number of steps that it takes to reach a normal form
-  can vary, depending on the order in which the redexes are reduced.
+\item[-] ridurre un redex pu\`o creare nuovi redex,
+\item[-] ridurre un redex pu\`o cancellare altri redex,
+\item[-] il numero di passaggi necessari per raggiungere una forma normale
+possono variare, in base all'ordine secondo il quale i redex sono ridotti.
 \end{itemize}
-We can also see that the final result, $y$, does not seem to depend on
-the order in which the redexes are reduced. In fact, this is true in
-general, as we will prove later.
+Possiamo anche vedere che il risultato finale, $y$, non sembra dipendere
+dall'ordine nel quale i redex sono ridotti. Infatti, ci\`o \`e vero in generale,
+come dimostreremo pi\`u avanti.
 
-If $M$ and $M'$ are terms such that $M\redbs M'$, and if $M'$ is in
-normal form, then we say that $M$ {\em evaluates} to $M'$. 
+Se $M$ e $M'$ sono termini tali che $M\redbs M'$, e se $M'$ \`e in
+forma normale, quindi possiamo dire che $M$ {\em si sviluppa} in $M'$.
 
-Not every term evaluates to something; some terms can be reduced
-forever without reaching a normal form. The following is an example:
+Non tutti i termini si sviluppano in qualcosa; alcuni termini
+possono essere ridotti per sempre senza raggiungere una forma normale.
+Ecco un esempio:
 \[ \begin{array}{lll}
   (\lam x.xx)(\lam y.yyy) 
   &\redb& (\lam y.yyy)(\lam y.yyy) \\
@@ -641,20 +643,20 @@ forever without reaching a normal form. The following is an example:
   &\redb& \ldots
 \end{array}
 \]
-This example also shows that the size of a lambda term need not
-decrease during reduction; it can increase, or remain the same. The
-term $(\lam x.xx)(\lam x.xx)$, which we encountered in
-Section~\ref{sec-intro}, is another example of a lambda term that
-does not reach a normal form. 
+Questo esempio mostra pure che la dimensione del lambda-termine non
+necessariamente diminuisce durante la riduzione; pu\`o anche aumentare,
+o rimanere la stessa. Il termine $(\lam x.xx)(\lam x.xx)$, che abbiamo
+incontrato nella Sezione~\ref{sec-intro}, \`e un altro esempio di
+lambda-termine che non raggiunge una forma normale.
 
 % ----------------------------------------------------------------------
-\subsection{Formal definitions of $\beta$-reduction and $\beta$-equivalence}
+\subsection{Definizioni formali di $\beta$-riduzione e $\beta$-equivalenza}
 
-The concept of $\beta$-reduction can be defined formally as follows:
+L'idea di $\beta$-riduzione pu\`o essere definita formalmente cos\`i come segue:
 
 \begin{definition}\label{page-def-beta}
-  We define {\em single-step $\beta$-reduction} to be the smallest
-  relation $\redb$ on terms satisfying:
+  Definiamo la {\em single-step $\beta$-riduzione} come la pi\`u piccola
+  relazione $\redb$ su termini che soddisfa:
   \[ \begin{array}{lc}
     \nrule{\beta} &
     \deriv{}{(\lam x.M)N\redb \subst{M}{N}{x}} \nl
@@ -668,55 +670,56 @@ The concept of $\beta$-reduction can be defined formally as follows:
   \]
 \end{definition}
 
-Thus, $M\redb M'$ iff $M'$ is obtained from $M$ by reducing a {\em
-  single} $\beta$-redex of $M$.
+Di conseguenza, $M\redb M'$ iff $M'$ \`e ottenuta da $M$ 
+riducendo un {\em solo} $\beta$-redex di $M$.
 
 \begin{definition}
-  We write $M\redbs M'$ if $M$ reduces to $M'$ in zero or more steps.
-  Formally, $\redbs$ is defined to be the reflexive transitive
-  closure of $\redb$, i.e., the smallest reflexive transitive
-  relation containing $\redb$. 
+  Scriviamo $M\redbs M'$ se $M$ si riduce a $M'$ in zero o pi\`u passi.
+  Formalmente, $\redbs$ \`e definita come la chiusura riflessiva
+transitida di $\redb$, cio\`e la pi\`u piccola relazione riflessiva
+transitiva contenente $\redb$.
 \end{definition}
   
-Finally, $\beta$-equivalence is obtained by allowing reduction steps
-as well as inverse reduction steps, i.e., by making $\redb$
-symmetric:
+Infine, la %\beta$-equivalenza \`e ottenuta ammettendo passaggi di
+riduzione cos\`i come passaggi inversi di riduzione, cio\`e rendendo $\redb$
+simmetrico:
 
 \begin{definition}
-  We write $M\eqb M'$ if $M$ can be transformed into $M'$ by zero or
-  more reduction steps and/or inverse reduction steps. Formally,
-  $\eqb$ is defined to be the reflexive symmetric transitive closure
-  of $\redb$, i.e., the smallest equivalence relation containing
-  $\redb$. 
+  Scriviamo $M\eqb M'$ se $M$ pu\`o essere trasformato in $M'$ in zero o pi\`u
+  passi di riduzione e/o passaggi inversi di riduzione. Formalmente,
+  $\eqb$ \`e definito come la chiusura simmetrica transitiva riflessiva
+  di $\redb$, cio\`e, la pi\`u piccola relazione di equivalenza contenente
+  $\redb$.
 \end{definition}
 
 \begin{exercise}
-  This definition of $\beta$-equivalence is slightly different from
-  the one given in class. Prove that they are in fact the same.
+  Questa definizione di $\beta$-equivalenza \`e un po' diversa da
+  quella data a lezione. Prova che sono effettivamente la stessa.
 \end{exercise}
 
 % ----------------------------------------------------------------------
-\section{Programming in the untyped lambda calculus}
+\section{Programmare nel lambda-calcolo non tipato}
 
-One of the amazing facts about the untyped lambda calculus is that we
-can use it to encode data, such as booleans and natural numbers, as well as
-programs that operate on the data. This can be done purely within the
-lambda calculus, without adding any additional syntax or axioms.
+Uno dei fatti pi\`u entusiasmanti riguardo al lambda-calcolo non tipato \`e che
+possiamo usarlo per codificare informazioni, come booleani e numeri
+naturali, cos\`i come programmi che operano sulle informazioni. Questo pu\`o essere
+fatto semplicemente nel lambda-calcolo, senza aggiungere sintassi o
+ulteriori assiomi.
 
-We will often have occasion to give names to particular lambda terms;
-we will usually use boldface letters for such names.
+Spesso avremo l'occasione di dare nomi a particolari lambda-termini;
+per tali nomi solitamente useremo lettere in neretto.
 
 % ----------------------------------------------------------------------
-\subsection{Booleans}\label{ssec-booleans}
+\subsection{Booleani}\label{ssec-booleans}
 
-We begin by defining two lambda terms to encode the truth values
-``true'' and ``false'':
+Iniziamo dal definire due lambda-termini per codifiicare i valori di verit\`a
+``vero'' e ``falso'':
 \[ \begin{array}{rcl}
   \truet &=& \lam xy.x \\
   \falset &=& \lam xy.y
 \end{array}
 \]
-Let $\andt$ be the term $\lam ab.ab\falset$. Verify the following:
+Sia $\andt$ il termine $\lam ab.ab\falset$. Verificare che:
 \[ \begin{array}{rcl}
   \andt \truet \truet &\redbs& \truet \\
   \andt \truet \falset &\redbs& \falset \\
@@ -724,40 +727,40 @@ Let $\andt$ be the term $\lam ab.ab\falset$. Verify the following:
   \andt \falset \falset &\redbs& \falset
 \end{array}
 \]
-Note that $\truet$ and $\falset$ are normal forms, so we can really
-say that a term such as $\andt \truet \truet$ {\em evaluates} to
-$\truet$. We say that $\andt$ {\em encodes} the boolean function
-``and''. It is understood that this coding is with respect to the
-particular coding of ``true'' and ``false''. We don't claim that
-$\andt MN$ evaluates to anything meaningful if $M$ or $N$ are terms
-other than $\truet$ and $\falset$.
+Nota che $\truet$ e $\falset$ sono forme normali, quindi possiamo
+dire che un termine come $\andt \truet \truet$ {\em si sviluppa} in
+$\truet$. Diciamo che $\andt$ {\em codifica} la funzione booleana
+``and''. Comprendiamo che questa codificazione \`e secondo la
+particolare codificazione di ``vero'' e ``falso''. Non affermiamo che
+$\andt MN$ si sviluppa in qualcosa di significativo se $M$ o $N$ sono 
+termini diversi da $\truet$ e $\falset$.
 
-Incidentally, there is nothing unique about the term $\lam
-ab.ab\falset$. It is one of many possible ways of encoding the ``and''
-function. Another possibility is $\lam ab.bab$.
+Incidentalmente, non c'\`e niente di unico del termine $\lam
+ab.ab\falset$. \`E uno dei possibili modi di codificare la funzione 
+``and''. Un'altro modo \`e $\lam ab.bab$.
 
 \begin{exercise}
-  Find lambda terms $\ort$ and $\nott$ that encode the boolean
-  functions ``or'' and ``not''. Can you find more than one term?
+  Trova i lambda-termini $\ort$ e $\nott$ che codificano le funzioni
+  booleane ``or'' e ``not'' Riesci a trovare pi\`u di un termine?
 \end{exercise}
 
-Moreover, we define the term $\ifthenelset=\lam x.x$. This term behaves
-like an ``if-then-else'' function --- specifically, we have
+Inoltre, definiamo il termine $\ifthenelset=\lam x.x$. Questo termine si 
+comporta come una funzione ``if-then-else'' --- in particolare, abbiamo
 \[ \begin{array}{rcl}
   \ifthenelset \truet M N &\redbs& M \\
   \ifthenelset \falset M N &\redbs& N \\
 \end{array}
 \]
-for all lambda terms $M$, $N$.
+per tutti i lambda-termini $M$, $N$.
 
 % ----------------------------------------------------------------------
-\subsection{Natural numbers}\label{ssec-natural-numbers}
+\subsection{Numeri naturali}\label{ssec-natural-numbers}
 
-If $f$ and $x$ are lambda terms, and $n\geq 0$ a natural number, write
-$f^nx$ for the term $f(f(\ldots(fx)\ldots))$, where $f$ occurs $n$
-times.  For each natural number $n$, we define a lambda term
-$\chnum{n}$, called the {\em $n$th Church numeral}, as $\chnum{n}=\lam
-fx.f^nx$. Here are the first few Church numerals:
+Se $f$ e $x$ sono lambda-termini, e $n\geq 0$ un numero naturale, scrivere
+$f^nx$ per il termine $f(f(\ldots(fx)\ldots))$, dove $f$ \`e presente $n$
+volte.  Per ogni numero naturale $n$, definiamo un lambda-termine
+$\chnum{n}$, chiamato il {\em $n$th numero di Church}, come $\chnum{n}=\lam
+fx.f^nx$. Ecco i primi numeri di Church:
 \[ \begin{array}{rcl}
   \chnum{0} &=& \lam fx.x \\
   \chnum{1} &=& \lam fx.fx \\
@@ -766,14 +769,14 @@ fx.f^nx$. Here are the first few Church numerals:
   \ldots
 \end{array}
 \]
-This particular way of encoding the natural numbers is due to Alonzo
-Church, who was also the inventor of the lambda calculus.
-Note that $\chnum{0}$ is in fact the same term as $\falset$; thus,
-when interpreting a lambda term, we should know ahead of time whether
-to interpret the result as a boolean or a numeral.
+Questo modo particolare di codificare i numeri naturali \`e dato ad Alonzo
+Church, che fu anche l'inventore del lambda-calcolo.
+Nota che $\chnum{0}$ \`e effettivamente lo stesso termine di $\falset$; 
+quindi, quando interpretiamo un lambda-termine, dovremmo sapere dal principio 
+se interpretare il risultato come un booleano o come un numero.
 
-The successor function can be defined as follows: $\succt = \lam
-nfx.f(nfx)$. What does this term compute when applied to a numeral?
+La funzione successore pu\`o essere definita nel seguente modo: $\succt = \lam
+nfx.f(nfx)$. Cosa computa questo termine quando applicato ad un numero?
 \[ \begin{array}{rcl}
   \succt \chnum{n} &=& (\lam nfx.f(nfx))(\lam fx.f^nx) \\
   &\redb& \lam fx.f((\lam fx.f^nx)fx) \\
@@ -782,9 +785,9 @@ nfx.f(nfx)$. What does this term compute when applied to a numeral?
   &=& \chnum{n+1}
 \end{array}
 \]
-Thus, we have proved that the term $\succt$ does indeed encode the
-successor function, when applied to a numeral. Here are possible
-definitions of addition and multiplication:
+quindi, abbiamo dimostrato che il termine $\succt$ effettivamente codifica
+la funzione successore, quando \`e applicato ad un numero. Ecco le possibili
+definizioni di addizione e prodotto:
 \[ \begin{array}{rcl}
   \addt &=& \lam nmfx.nf(mfx) \\
   \multt &=& \lam nmf.n(mf). 
@@ -793,48 +796,48 @@ definitions of addition and multiplication:
 
 \begin{exercise}
   \begin{enumerate}
-  \item[(a)] Manually evaluate the lambda terms
+  \item[(a)] Sviluppa manualmente i lambda-termini
     $\addt\chnum{2}\chnum{3}$ and $\multt\chnum{2}\chnum{3}$.
-  \item[(b)] Prove that $\addt\chnum{n}\chnum{m}\redbs\chnum{n+m}$,
-    for all natural numbers $n$, $m$.
-  \item[(c)] Prove that
-    $\multt\chnum{n}\chnum{m}\redbs\chnum{n\cdot m}$, for all natural
-    numbers $n$, $m$.
+  \item[(b)] Dimostra che $\addt\chnum{n}\chnum{m}\redbs\chnum{n+m}$,
+    per tutti i numeri naturali $n$, $m$.
+  \item[(c)] Dimostra che
+    $\multt\chnum{n}\chnum{m}\redbs\chnum{n\cdot m}$, per tutti i numeri
+    naturali $n$, $m$.
   \end{enumerate}
 \end{exercise}
 
 \begin{definition}
-  Suppose $f:\N^k\to \N$ is a $k$-ary function on the natural numbers,
-  and that $M$ is a lambda term. We say that $M$ {\em (numeralwise)
-    represents} $f$ if for all $n_1,\ldots,n_k\in\N$,
+  Supponiamo $f:\N^k\to \N$ una funzione $k$-aria sui numeri naturali,
+  e che $M$ \`e un lambda-termine. Diciamo che $M$ {\em (numeralmente)
+    rappresenta} $f$ se per tutti gli $n_1,\ldots,n_k\in\N$,
   \[ M\chnum{n_1}\ldots\chnum{n_k} \redbs \chnum{f(n_1,\ldots,n_k)}.
   \]
 \end{definition}
 
-This definition makes explicit what it means to be an ``encoding''. We
-can say, for instance, that the term $\addt = \lam nmfx.nf(mfx)$
-represents the addition function.  The definition generalizes easily to
-boolean functions, or functions of other data types.
+Questa definizione rende esplicito il significato di ``codificare''.
+Possiamo dire, ad esempio, che il termine $\addt = \lam nmfx.nf(mfx)$
+rappresenta la funzione addizione. La definizione si generalizza facilmente
+a funzioni booleane, o a funzioni di altri tipi di dato.
 
-Often handy is the function $\iszerot$ from natural numbers to booleans, which
-is defined by
+Risulta spesso comoda la funzione $\iszerot$ dai numeri naturali ai booleani,
+che \`e definita da
 \[ \begin{array}{rcll}
-  \iszerot(0) &=& \mbox{true} \\
-  \iszerot(n) &=& \mbox{false,} & \mbox{if $n\neq 0$.}
+  \iszerot(0) &=& \mbox{vero} \\
+  \iszerot(n) &=& \mbox{falso,} & \mbox{se $n\neq 0$.}
 \end{array}
 \]
-Convince yourself that the following term is a representation of
-this function:
+Convinciti che i seguenti termini sono una rappresentazione
+di questa funzione:
 \[ \iszerot = \lam nxy.n(\lam z.y)x. \]
 
 \begin{exercise}
-  Find lambda terms that represent each of the following functions:
+  Trova lambda-termini che rappresentano ognuna delle seguenti funzioni:
   \begin{enumerate}
   \item[(a)] 
     $ f(n)=(n+3)^2, $
   \item[(b)] 
-    $  f(n)=\left\{\begin{array}{ll}\mbox{true}&\mbox{if
-          $n$ is even,}\\\mbox{false}&\mbox{if $n$ is odd,}
+    $  f(n)=\left\{\begin{array}{ll}\mbox{vero}&\mbox{se
+          $n$ \`e pari}\\\mbox{false}&\mbox{se $n$ \`e dispari,}
       \end{array}\right. 
     $
   \item[(c)] 
@@ -842,49 +845,49 @@ this function:
   \item[(d)] 
     $ \predt(n)=n-1. $
   \end{enumerate}
-  Note: part (d) is not easy. In fact, Church believed for a while
-  that it was impossible, until his student Kleene found a solution.
-  (In fact, Kleene said he found the solution while having his wisdom
-  teeth pulled, so his trick for defining the predecessor function is
-  sometimes referred to as the ``wisdom teeth trick''.)
+  Nota: la parte (d) non \`e facile. Infatti, Church credette per
+  un po' che fosse impossibile, finché il suo studente Kleene trov\`o una soluzione.
+  (Infatti, Kleene disse di aver trovato la soluzione mentre gli tolsero
+  il dente del giudizio, quindi il suo trucco per definire la funzione predecessore
+  \`e spesso definito ``il trucco del dente del giudizio''.)
 \end{exercise}
 
-We have seen how to encode some simple boolean and arithmetic
-functions. However, we do not yet have a systematic method of
-constructing such functions. What we need is a mechanism for defining
-more complicated functions from simple ones. Consider for example the
-factorial function, defined by:
+Abbiamo visto come codificare alcune semplici funzioni
+booleane e aritmetiche. Tuttavia, non abbiamo ancora un metodo sistematico
+di costruire tali funzioni. Quello che ci serve \`e un meccanismo per definire
+funzioni pi\`u complicati a partire da quelle pi\`u semplici. Consideriamo ad esempio
+la funzione fattoriale, definita da:
 \[ \begin{array}{rcll}
   0! &=& 1 \\
   n! &=& n\cdot (n-1)!,& \mbox{if $n\neq 0$}.
 \end{array}
 \]
-The encoding of such functions in the lambda calculus is the subject
-of the next section. It is related to the concept of a fixed point.
+La codificazione di tale funzione nel lambda-calcolo \`e il tema
+della prossima sezione. Si riferisce al concetto di punto fisso.
 
 % ----------------------------------------------------------------------
-\subsection{Fixed points and recursive functions}\label{subsec-fixed-points}
+\subsection{Punti fissi e funzioni ricorsive}\label{subsec-fixed-points}
 
-Suppose $f$ is a function. We say that $x$ is a {\em fixed point} of $f$
-if $f(x)=x$. In arithmetic and calculus, some functions have
-fixed points, while others don't. For instance, $f(x)=x^2$ has two
-fixed points $0$ and $1$, whereas $f(x)=x+1$ has no fixed points. Some
-functions have infinitely many fixed points, notably $f(x)=x$. 
+Sia $f$ una funzione. Diciamo che $x$ \`e un {\em punto fisso} di $f$
+se $f(x)=x$. Nell'aritmetica e nel calcolo differenziale e integrale, alcune
+funzioni hanno punti fissi, mentre altre no. Ad esempio, $f(x)=x^2$ ha
+due punti fissi, $0$ e $1$, mentre $f(x)=x+1$ non ha punti fissi.
+Alcune funzionei hanno infiniti punti fissi, ad esempio $f(x)=x$.
 
-We apply the notion of fixed points to the lambda calculus. If $F$ and
-$N$ are lambda terms, we say that $N$ is a fixed point of $F$ if $FN\eqb
-N$.  The lambda calculus contrasts with arithmetic in that {\em every}
-lambda term has a fixed point. This is perhaps the first surprising fact
-about the lambda calculus we learn in this course.
+Applichiamo la nozione di punti fissi al lambda-calcolo. Se $F$ e
+$N$ sono lambda-termini, diciamo che $N$ \`e un punto fisso di $F$ se $FN\eqb
+N$.  Il lambda-calcolo va in contrasto con l'aritmetica per il fatto
+che {\em ogni} lambda-termine ha un punto fisso. Questo \`e forse il fatto pi\`u
+sorprendente del lambda-calcolo che impareremo in questo corso.
 
 \begin{theorem}\label{thm-fix}
-In the untyped lambda calculus, every term $F$ has a fixed point.
+Nel lambda-calcolo non tipato, ogni termine $F$ ha un punto fisso.
 \end{theorem}
 
 \begin{proof}
-  Let $A=\lam xy.y(xxy)$, and define $\Thetat=AA$. Now suppose $F$ is
-  any lambda term, and let $N=\Thetat F$. We claim that $N$ is a
-  fixed point of $F$.  This is shown by the following calculation:
+  Sia $A=\lam xy.y(xxy)$, e definiamo $\Thetat=AA$. Ora supponiamo $F$
+  come qualsiasi lambda-termine, e sia $N=\Thetat F$. Affermiamo che $N$ \`e un
+  punto fisso di $F$. Questo si pu\`o vedere dai seguenti calcoli:
 \[ \begin{array}{rcl}
   N 
   &=& \Thetat F \\
@@ -898,33 +901,33 @@ In the untyped lambda calculus, every term $F$ has a fixed point.
 \eottwo
 \end{proof}
 
-The term $\Thetat$ used in the proof is called {\em Turing's fixed point
-  combinator}. 
+Il termine $\Thetat$ usato nella dimostrazione \`e chiamato 
+{\em Combinatore di punto fisso di Turing}. 
 
-The importance of fixed points lies in the fact that they allow us to
-solve {\em equations}. After all, finding a fixed point for $f$ is the
-same thing as solving the equation $x = f(x)$. This covers equations
-with an arbitrary right-hand side, whose left-hand side is $x$. From
-the above theorem, we know that we can always solve such equations in
-the lambda calculus.
+L'importanza dei punti fissi sta nel fatto che ci permettono
+di risolvere {\em equazioni}. Dopotutto, trovare un punto fisso di $f$ 
+\`e la stessa cosa di risolvere l'equazione $x = f(x)$. Questo \`e valido
+per equazioni con un secondo membro arbitrario, il quale primo membro 
+\`e $x$. Dal teorema soprastante, sappiamo che possiamo sempre risolvere 
+tali equazioni nel lambda-calcolo.
 
-To see how to apply this idea, consider the question from the last
-section, namely, how to define the factorial function. The most
-natural definition of the factorial function is recursive, and we can
-write it in the lambda calculus as follows:
+Per vedere come applicare quest'idea, consideriamo la domanda 
+dell'ultima sezione, ossia come definire la funzione fattoriale. La definizione
+pi\`u naturale della funzione fattoriale \`e quella ricorsiva, e
+possiamo scriverla nel lambda calcolo in questo modo:
 \[ \begin{array}{rcl} 
   \factt n &=& \ifthenelset (\iszerot n) (\chnum{1}) (\multt n (\factt
   (\predt n)))
  \end{array}
  \]
-Here we have used various abbreviations for lambda terms that were
-introduced in the previous section. The evident problem with a
-recursive definition such as this one is that the term to be defined,
-$\factt$, appears both on the left- and the right-hand side. In other
-words, to find $\factt$ requires solving an equation!
+Qui abbiamo usato diverse abbreviazioni per lambda-termini che
+erano stati introdotti nelle sezioni precedenti. Il problema evidente
+con una definizione ricorsiva come questa \`e che il termine da definire,
+$\factt$, spunta sia al primo che al secondo membro. In
+parole povere, trovare $\factt$ richiede risolvere un'equazione!
 
-We now apply our newfound knowledge of how to solve fixed point equations
-in the lambda calculus. We start by rewriting the problem slightly:
+Adesso applichiamo le nostre nuove conoscenze su come risolvere le equazioni
+sui punti fissi nel lambda calcolo. Iniziamo dallo scrivere in parte il problema:
 \[ \begin{array}{rcl} 
   \factt &=& \lam n.\ifthenelset (\iszerot n) (\chnum{1}) (\multt n (\factt
   (\predt n))) \\
@@ -932,27 +935,26 @@ in the lambda calculus. We start by rewriting the problem slightly:
   (\multt n (f (\predt n)))) \factt
 \end{array}
 \]
-Let us temporarily write $F$ for the term 
+Scriviamo temporaneamente $F$ per il termine
 \[ \lam f.\lam n.\ifthenelset (\iszerot n) (\chnum{1}) (\multt n (f
    (\predt n))). 
 \]
-Then the last equation becomes $\factt = F \factt$, which is a
-fixed point equation. We can solve it up to $\beta$-equivalence, by
-letting
+Quindi l'ultima equazione diventa $\factt = F \factt$, che \`e un'equazione
+di un punto fisso. Possiamo risolverla con la $\beta$-equivalenza, ossia
+imponendo
 \[ \begin{array}{rcl} 
   \factt &=& \Thetat F \\
   &=& \Thetat (\lam f.\lam n.\ifthenelset (\iszerot n) (\chnum{1})
   (\multt n (f (\predt n))))
 \end{array}
 \]
-Note that $\factt$ has disappeared from the right-hand side. The
-right-hand side is a closed lambda term that represents the factorial
-function. (A lambda term is called {\em closed} if it contains no free
-variables).
+Nota che $\factt$ \`e sparito dal secondo membro. Il
+secondo membro \`e un lambda-termine chiuso che rappresenta la funzione
+fattoriale. (Un lambda termine \`e definito {\em chiuso} se non contiene variabili libere).
 
-To see how this definition works in practice, let us evaluate $\factt
-\chnum{2}$. Recall from the proof of Theorem~\ref{thm-fix} that
-$\Thetat F\redbs F(\Thetat F)$, therefore $\factt \redbs F\factt$.
+Per vedere come funziona questa definizione all'atto pratico, sviluppiamo $\factt
+\chnum{2}$. Ricordiamo dalla dimostrazione del Teorema~\ref{thm-fix} che
+$\Thetat F\redbs F(\Thetat F)$, di conseguenza $\factt \redbs F\factt$.
 \[ \begin{array}{@{}r@{~}c@{~}l@{}}
   \factt\chnum{2}
   &\redbs& F\factt\chnum{2} \\
@@ -975,24 +977,24 @@ $\Thetat F\redbs F(\Thetat F)$, therefore $\factt \redbs F\factt$.
   &\redbs& \chnum{2}
 \end{array}
 \]
-Note that this calculation, while messy, is completely mechanical. You
-can easily convince yourself that $\factt \chnum{3}$ reduces to
-$\multt \chnum{3} (\factt \chnum{2})$, and therefore, by the above
-calculation, to $\multt \chnum{3} \chnum{2}$, and finally to
-$\chnum{6}$. It is now a matter of a simple induction to prove that
-$\factt \chnum{n}\redbs \chnum{n!}$, for any $n$.
+Nota che questo calcolo, nonostante confusionario, \`e completamente meccanico.
+Si ci pu\`o convincere facilmente che $\factt \chnum{3}$ si riduce a
+$\multt \chnum{3} (\factt \chnum{2})$, e quindi, stando ai calcoli
+soprastanti, a $\multt \chnum{3} \chnum{2}$, ed infine a
+$\chnum{6}$. Adesso \`e solo una questione di una semplice induzione provare che
+$\factt \chnum{n}\redbs \chnum{n!}$, per ogni $n$.
 
 \begin{exercise}
-  Write a lambda term that represents the Fibonacci
-  function, defined by
-  \[ f(0) = 1,\sep f(1) = 1,\sep f(n+2)=f(n+1)+f(n), \mbox{for $n\geq 2$}
+  Scrivere un lambda-termine che rappresenti la
+  funzione di Fibonacci, definita da
+  \[ f(0) = 1,\sep f(1) = 1,\sep f(n+2)=f(n+1)+f(n), \mbox{per $n\geq 2$}
   \]
 \end{exercise}
 
 \begin{exercise}
-  Write a lambda term that represents the characteristic
-  function of the prime numbers, i.e., $f(n)=\mbox{true}$ if $n$ is
-  prime, and $\mbox{false}$ otherwise. 
+  Scrivere un lambda-termine che rappresenta la caratteristica
+  funzione dei numeri primi, ossia $f(n)=\mbox{true}$ se $n$ \`e
+  primo, altrimenti $\mbox{false}$. 
 \end{exercise}
 
 \begin{exercise}
