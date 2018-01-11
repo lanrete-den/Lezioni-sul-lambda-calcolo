@@ -5,7 +5,7 @@
 \textwidth 4.5in \textheight 6.5in
 
 \title{Lezioni sul lambda-calcolo}
-\author{Peter Selinger}
+\author{Peter Selinger, traduzione in italiano a cura di DaniBrando e Josura}
 \date{Dipartimento di matematica e statistica\\
   Universit\`a di Dalhousie, Halifax, Canada}
 
@@ -3201,7 +3201,7 @@ Quali dovrebbero essere i lambda termini che si accoppiano con questi nuovi tipi
 dalla nostra esperienza con l'isomorfismo di Curry-Howard che dobbiamo
 avere precisamente un costruttore di termini per ogni introduzione o
 regola di eliminazione della deduzione naturale. Inoltre, sappiamo che se tale
-una regola ha $n$ subderivazioni, allora il nostro termine costruttore deve avere
+regola ha $n$ subderivazioni, allora il nostro termine costruttore deve avere
 $n$ sottotemi immediati. Sappiamo inoltre qualcosa sulle variabili legate:
 Ogni volta che un'ipotesi viene cancellata in una regola di deduzione naturale, l\`i
 deve esistere un binder della variabile corrispondente nel lambda calcolo.
@@ -3215,7 +3215,7 @@ Aggiungiamo quattro termini al lambda calcolo:
   \caseof{M}{x}{A}{N}{y}{B}{P} \bor \Box_A M
 \end{array}
 \]
-Le regole di tipo per questi nuovi termini sono mostrati nella
+Le regole di tipo per questi nuovi termini sono mostrate nella
 Tabella~\ref{tab-sum-typing-rules}.
 % ......................................................................
 \begin{table*}[tbp]
@@ -3238,7 +3238,7 @@ Tabella~\ref{tab-sum-typing-rules}.
 \end{table*}
 % ......................................................................
 comparando queste regole con \trule{$\cor$-I$_1$},
-\trule{$\cor$-I$_2$}, \trule{$\cor$-E}, and \trule{$\cfalse$-E}, puoi vedere 
+\trule{$\cor$-I$_2$}, \trule{$\cor$-E}, and \trule{$\cfalse$-E}, possiamo vedere 
 che sono perfettamente analoghe.
 
 Ma quale \`e il significato di questi nuovi termini? Il termine $\inj1 M$ \`e semplicemente 
