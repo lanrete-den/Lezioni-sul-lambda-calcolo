@@ -3032,7 +3032,7 @@ of $\eta$-reductions.
 
 \begin{exercise}
   Dimostrare il teorema di Church-Rosser per le $\beta$-riduzioni nel
-  $\lam^{\to,\times,1}$-calcolo. suggerimento: usa lo stesso metodo che abbiamo usato nel caso non tipizzato.
+  $\lam^{\to,\times,1}$-calcolo. suggerimento: usa lo stesso metodo che abbiamo usato nel caso non tipato.
 \end{exercise}
 
 Un'altra soluzione \`e quella di omettere il tipo $1$ e il termine $\unit$ dal
@@ -3041,7 +3041,7 @@ $\beta\eta$-riduzioni.
 
 \begin{exercise}
   Dimostrare il teorema di Church-Rosser per le $\beta$-riduzioni nel
-  $\lam^{\to,\times}$-calculus, i.e., il lambda calcolo symple-typed(semplice-tipizzato) 
+  $\lam^{\to,\times}$-calculus, i.e., il lambda calcolo tipato semplice 
  senza $1$ e $\unit$.
 \end{exercise}
 
@@ -3275,8 +3275,8 @@ In questo modo, non \`e necessario introdurre formule e regole speciali per la
 negazione; semplicemente usiamo le regole esistenti per $\to$ e $\cfalse$.
 
 Nella logica intuizionista, non esiste una derivazione di $A\cor\neg A$, per il 
-generale $A$. O in modo equivalente, nel lambda calcolo semplicemente 
-tipizzato,non esiste un termine chiuso di tipo $A+(A\to 0)$. Non siamo ancora
+generale $A$. O in modo equivalente, nel lambda calcolo tipato semplice, 
+non esiste un termine chiuso di tipo $A+(A\to 0)$. Non siamo ancora
  in una posizione per dimostrare questo formalmente, ma informalmente, 
 l'argomento segue questo ragionamento: Se il tipo $A$ \`e vuoto, non può esserci
  alcun termine chiuso di tipo $A$ (altrimenti $A$ avrebbe quel termine come 
@@ -3293,7 +3293,9 @@ Strettamente correlato \`e il fatto che nella logica intuizionista, non abbiamo
  un principio di dimostrazione per contraddizione. La regola `` dimostrazione per contraddizione '' \`e la seguente:
 \[ \trule{contra$_x$}\ \deriv{\Gamma,\typ{x}{\neg A}\tj\cfalse}{\Gamma\tj A}.
 \]
-Questa \`e {\em not} una regola di logica proposizionale intuizionista, ma possiamo esplorare cosa succederebbe se dovessimo aggiungere una regola del genere. Innanzitutto, osserviamo che la regola della contraddizione \`e molto simile alla seguente:
+Questa \`e {\em not} una regola di logica proposizionale intuizionista, ma possiamo 
+esplorare cosa succederebbe se dovessimo aggiungere una regola del genere. Innanzitutto, 
+osserviamo che la regola della contraddizione \`e molto simile alla seguente:
 \[ \deriv{\Gamma,\typ{x}{A}\tj\cfalse}{\Gamma\tj\neg A}.
 \]
 Tuttavia, poich\`e abbiamo definito  $\neg A$ per essere uguale a $A\to\cfalse$,
