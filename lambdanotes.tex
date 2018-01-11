@@ -3197,26 +3197,26 @@ come un tipo ``unione'' o ``variante'' . Noi lo chiameremo tipo ``somma''.
 Il tipo  $0$ \`e semplicemente il tipo vuoto,corrispondente all'insieme vuoto
 nella teoria degli insiemi.
 
-What should the lambda terms be that go with these new types?  We know
-from our experience with the Curry-Howard isomorphism that we have to
-have precisely one term constructor for each introduction or
-elimination rule of natural deduction. Moreover, we know that if such
-a rule has $n$ subderivations, then our term constructor has to have
-$n$ immediate subterms. We also know something about bound variables:
-Each time a hypothesis is canceled in a natural deduction rule, there
-must be a binder of the corresponding variable in the lambda calculus.
-This information more or less uniquely determines what the lambda
-terms should be; the only choice that is left is what to call them!
+Quali dovrebbero essere i lambda termini che si accoppiano con questi nuovi tipi?  Sappiamo
+dalla nostra esperienza con l'isomorfismo di Curry-Howard che dobbiamo
+avere precisamente un costruttore di termini per ogni introduzione o
+regola di eliminazione della deduzione naturale. Inoltre, sappiamo che se tale
+una regola ha $n$ subderivazioni, allora il nostro termine costruttore deve avere
+$n$ sottotemi immediati. Sappiamo inoltre qualcosa sulle variabili legate:
+Ogni volta che un'ipotesi viene cancellata in una regola di deduzione naturale, l\`i
+deve esistere un binder della variabile corrispondente nel lambda calcolo.
+Questa informazione determina pi\'u o meno in modo univoco cosa dovrebbero essere i lambda
+termini; l'unica scelta che rimane \`e come chiamarli!
 
-We add four terms to the lambda calculus:
+Aggiungiamo quattro termini al lambda calcolo:
 \[ \begin{array}{lll}
   \mbox{Raw terms:}\ssep M,N,P &\bnf&\ldots\bor \inj1 M\bor \inj2 M \\
   && \bor
   \caseof{M}{x}{A}{N}{y}{B}{P} \bor \Box_A M
 \end{array}
 \]
-The typing rules for these new terms are shown in
-Table~\ref{tab-sum-typing-rules}.
+Le regole di tipo per questi nuovi termini sono mostrati nella
+Tabella~\ref{tab-sum-typing-rules}.
 % ......................................................................
 \begin{table*}[tbp]
 \[ \begin{array}{rc}
@@ -3237,75 +3237,71 @@ Table~\ref{tab-sum-typing-rules}.
 \label{tab-sum-typing-rules}
 \end{table*}
 % ......................................................................
-By comparing these rules to \trule{$\cor$-I$_1$},
-\trule{$\cor$-I$_2$}, \trule{$\cor$-E}, and \trule{$\cfalse$-E}, you
-can see that they are precisely analogous.
+comparando queste regole con \trule{$\cor$-I$_1$},
+\trule{$\cor$-I$_2$}, \trule{$\cor$-E}, and \trule{$\cfalse$-E}, puoi vedere 
+che sono perfettamente analoghe.
 
-But what is the meaning of these new terms? The term $\inj1 M$ is
-simply an element of the left component of $A+B$. We can think of
-$\inj1$ as the injection function $A\to A+B$. Similar for $\inj2$.
-The term $(\caseof{M}{x}{A}{N}{y}{B}{P})$ is a case distinction:
-evaluate $M$ of type $A+B$. The answer is either an element of the
-left component $A$ or of the right component $B$. In the first case,
-assign the answer to the variable $x$ and evaluate $N$. In the second
-case, assign the answer to the variable $y$ and evaluate $P$. Since
-both $N$ and $P$ are of type $C$, we get a final result of type $C$.
-Note that the case statement is very similar to an if-then-else; the
-only difference is that the two alternatives also carry a value.
-Indeed, the booleans can be defined as $1+1$, in which case
-$\truet=\inj1\unit$, $\falset=\inj2\unit$, and $\ifthenelset
-MNP=\caseof{M}{x}{1}{N}{y}{1}{P}$, where $x$ and $y$ don't occur in
-$N$ and $P$, respectively.
+Ma quale \`e il significato di questi nuovi termini? Il termine $\inj1 M$ \`e semplicemente 
+un elemento del componente sinistro di $A+B$. Possiamo pensare che 
+$\inj1$ sia la funzione di iniezione $A\to A+B$. Similare per $\inj2$.
+Il termine $(\caseof{M}{x}{A}{N}{y}{B}{P})$ \`e una distinzione di casi:
+considerare $M$ di tipo $A+B$. La risposta \`e o un elemento del
+componente sinistro $A$  o del componente destro $B$. Nel primo caso,
+assegna la risposta alla variabile $x$ e valuta $N$. Nel secondo
+caso, assegnare la risposta alla variabile $y$ e valutare $P$. Dato che
+entrambi $N$ e $P$ sono di tipo $C$, otteniamo un risultato finale di tipo $C$.
+Si noti che la dichiarazione del caso \`e molto simile a un if-then-else;l'unica differenza 
+\`e che le due alternative hanno anche un valore.
+In effetti, i booleani possono essere definiti come $1+1$, in ogni caso
+$\truet=\inj1\unit$, $\falset=\inj2\unit$, e $\ifthenelset
+MNP=\caseof{M}{x}{1}{N}{y}{1}{P}$, dove $x$ e $y$ non si presentano in
+$N$ e $P$, rispettivamente.
 
-Finally, the term $\Box_A M$ is a simple type cast, corresponding to
-the unique function $\Box_A:0\to A$ from the empty set to any set $A$.
+Infine, il termine $\Box_A M$ \`e un cast di tipo semplice , corrispondente alla
+funzione unica $\Box_A:0\to A$ dall'insieme vuoto ad ogni insieme $A$.
 
 % ----------------------------------------------------------------------
-\subsection{Classical logic vs.\ intuitionistic logic}
+\subsection{Logica classica vs.\ logica intuizionistica}
 
-We have mentioned before that the natural deduction calculus we have
-presented corresponds to intuitionistic logic, and not classical
-logic. But what exactly is the difference? Well, the difference is
-that in intuitionistic logic, we have no rule for proof by
-contradiction, and we do not have $A\cor\neg A$ as an axiom. 
+Abbiamo menzionato prima che il calcolo in deduzione naturale che abbiamo
+presentato corrisponde alla logica intuizionista e non alla classica. 
+Ma qual \`e esattamente la differenza? La differenza \`e
+che nella logica intuizionista, non abbiamo una regola per la dimostrazione di
+contraddizione, e non abbiamo $A\cor\neg A$ come assioma. 
 
-Let us adopt the following convention for negation: the formula $\neg
-A$ (``not $A$'') is regarded as an abbreviation for $A\to\cfalse$.
-This way, we do not have to introduce special formulas and rules for
-negation; we simply use the existing rules for $\to$ and $\cfalse$.
+Adottiamo la seguente convenzione per la negazione: la formula $\neg
+A$ (``not $A$'') \`e considerata come un'abbreviazione di $A\to\cfalse$.
+In questo modo, non \`e necessario introdurre formule e regole speciali per la
+negazione; semplicemente usiamo le regole esistenti per $\to$ e $\cfalse$.
 
-In intuitionistic logic, there is no derivation of $A\cor\neg A$, for
-general $A$. Or equivalently, in the simply-typed lambda calculus,
-there is no closed term of type $A+(A\to 0)$. We are not yet in a
-position to prove this formally, but informally, the argument goes as
-follows: If the type $A$ is empty, then there can be no closed term of
-type $A$ (otherwise $A$ would have that term as an element). On the
-other hand, if the type $A$ is non-empty, then there can be no closed
-term of type $A\to 0$ (or otherwise, if we applied that term to some
-element of $A$, we would obtain an element of $0$). But if we were to
-write a {\em generic} term of type $A+(A\to 0)$, then this term would
-have to work no matter what $A$ is. Thus, the term would have to
-decide whether to use the left or right component independently of
-$A$. But for any such term, we can get a contradiction by choosing $A$
-either empty or non-empty.
+Nella logica intuizionista, non esiste una derivazione di $A\cor\negA$, per il 
+generale $A$. O in modo equivalente, nel lambda calcolo semplicemente 
+tipizzato,non esiste un termine chiuso di tipo $A+(A\to 0)$. Non siamo ancora
+ in una posizione per dimostrare questo formalmente, ma informalmente, 
+l'argomento segue questo ragionamento: Se il tipo $A$ \`e vuoto, non può esserci
+ alcun termine chiuso di tipo $A$ (altrimenti $A$ avrebbe quel termine come 
+elemento). Dall'altra parte, se il tipo $A$ non \`e vuoto, allora non può essere 
+un termine chiuso di tipo $A\to 0$ (o altrimenti, se abbiamo applicato questo 
+termine a qualche elemento di $A$, otterremmo un elemento di $0$). Ma se
+ dovessimo scrivere un termine {\ em generico} di tipo $A+(A\to 0)$, quindi 
+questo termine dovrebbe funzionare a prescindere da $A$. Quindi, il termine 
+dovrebbe decidere se utilizzare il componente sinistro o destro indipendentemente 
+da $A$. Ma per qualsiasi termine del genere, possiamo ottenere una contraddizione
+ scegliendo $A$ vuoto o non vuoto.
 
-Closely related is the fact that in intuitionistic logic, we do not
-have a principle of proof by contradiction. The ``proof by
-contradiction'' rule is the following:
+Strettamente correlato \`e il fatto che nella logica intuizionista, non abbiamo
+ un principio di dimostrazione per contraddizione. La regola `` dimostrazione per contraddizione '' \`e la seguente:
 \[ \trule{contra$_x$}\ \deriv{\Gamma,\typ{x}{\neg A}\tj\cfalse}{\Gamma\tj A}.
 \]
-This is {\em not} a rule of intuitionistic
-propositional logic, but we can explore what would happen if we were
-to add such a rule. First, we observe that the contradiction rule is
-very similar to the following:
+Questa \`e {\em not} una regola di logica proposizionale intuizionista, ma possiamo esplorare cosa succederebbe se dovessimo aggiungere una regola del genere. Innanzitutto, osserviamo che la regola della contraddizione \`e molto simile alla seguente:
 \[ \deriv{\Gamma,\typ{x}{A}\tj\cfalse}{\Gamma\tj\neg A}.
 \]
-However, since we defined $\neg A$ to be the same as $A\to\cfalse$,
-the latter rule is an instance of \trule{$\to$-I}. The contradiction
-rule, on the other hand, is not an instance of \trule{$\to$-I}.
+Tuttavia, poich\`e abbiamo definito  $\neg A$ per essere uguale a $A\to\cfalse$,
+quest'ultima regola \`e un'istanza di \trule{$\to$-I}. La regola della contraddizione, 
+d'altra parte, non \`e un'istanza di \trule{$\to$-I}.
 
-If we admit the rule \trule{contra}, then $A\cor\neg A$ can be
-derived. The following is such a derivation:
+Se ammettiamo la regola \trule{contra}, allora $A\cor\neg A$ pu\'o essere
+derivata. In seguito vi \`e la derivazione:
 {\footnotesize
 \[ \trule{$\to$-E}\ \deriv{\raisebox{-6ex}{$\squishr{\trule{ax$_y$}~}\deriv{}{\typ{y}{\neg(A\cor\neg A)}\tj\neg(A\cor\neg A)}$}\hspace{-24ex}
   \squishr{\trule{$\to$-E}~}\deriv{\squishr{\trule{ax$_y$}~}\deriv{}{\typ{y}{\neg(A\cor\neg A)},\typ{x}{A}\tj\neg(A\cor\neg A)}
