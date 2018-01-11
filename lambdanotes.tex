@@ -49,7 +49,7 @@ delle funzioni, perché specifica che l'unica cosa osservabile
 di una funzione \`e come associa gli input e gli output.
 
 A dire il vero, prima del ventesimo secolo, raramente le funzioni venivano
-viste in questo modo. UNa vecchia nozione di funzione \`e quella di ``funzioni come 
+viste in questo modo. Una vecchia nozione di funzione \`e quella di ``funzioni come 
 regole''. In questa prospettiva, dare una funzione significa dare una regola di
 come la funzione dev'essere calcolata. Spesso, tale regola pu\`o essere data da
 una formula, ad esempio, la tipica $f(x)=x^2$ o $g(x)=\sin(e^x)$
@@ -66,7 +66,7 @@ identit\`a. Potremmo trattarla come una funzione $f:X\to X$ per {\em qualunque} 
 
 In buona parte della matematica, il paradigma delle 
 ``funzioni come grafici'' \`e il modo pi\`u elegante ed appropriato per lavorare con le funzioni. 
-I grafici definiscono una classe pi\`u generale delle funzioni, poiché include
+I grafici definiscono una classe pi\`u generale delle funzioni, poich\'e include
 funzioni che non sono necessariamente dettate da una regola. Quindi, quando
 proviamo un teorema matematico come ``qualsiasi funzione derivabile
 \`e continua'', in realt\`a intendiamo che questo \`e vero per {\em tutte} le funzioni
@@ -157,7 +157,7 @@ Abbiamo gi\`a detto che, quando consideriamo le ``funzioni come regole'',
 non \`e sempre necessario conoscere il dominio e il codominio
 di una funzione in anticipo. L'esempio pi\`u semplice \`e la funzione identit\`a
 $f = \lam x.x$, che pu\`o avere qualsiasi insieme $X$ come suo dominio e codominio,
-finché questi sono uguali. Diciamo che
+finch\'e questi sono uguali. Diciamo che
 $f$ \`e del {\em tipo} $X\to X$. Un altro esempio \`e la funzione $g = \lam f.\lam
 x.f(f(x))$ che abbiamo visto sopra. Possiamo controllare che $g$ si assegna 
 qualsiasi funzione $f:X\to X$ ad una funzione $g(f):X\to X$. In questo caso, diciamo
@@ -166,13 +166,13 @@ che $g$ \`e del tipo
 \]
 Essendo flessibili con domini e codomini, siamo in grado
 di manipolare funzioni in modi che non sarebbero possibili
-nella matematica classica. Per sempio, se $f=\lam x.x$ \`e la funzione identit\`a,
+nella matematica classica. Per esempio, se $f=\lam x.x$ \`e la funzione identit\`a,
 di conseguenza abbiamo $f(x) = x$ per {\em ogni} $x$. In particolare, possiamo prendere
 $x=f$, e otteniamo
 \[     f(f) = (\lam x.x)(f) = f.
 \]
 Nota che l'equazione $f(f)=f$ non ha mai senso nella matematica
-classica, poiché non \`e possibile (per motivi insiemistici) che una
+classica, poich\'e non \`e possibile (per motivi insiemistici) che una
 funzione sia inclusa nel suo stesso dominio.
 
 Come altro esempio, sia $\omega = \lam x.x(x)$. 
@@ -186,7 +186,7 @@ Abbiamo diverse opzioni riguardanti i tipi nel lambda-calcolo.
 \item {\em Lambda-calcolo non tipato.} Nel lambda-calcolo non tipato,
 non specifichiamo mai il tipo di qualsiasi espressione. Di conseguenza
 non specifichiamo mai il dominio o il codominio di qualsiasi funzione. Questo ci 
-d\`a massima flessibilit\`a. \`E anche molto poco sicuro, poiché potremmo andare incontro a
+d\`a massima flessibilit\`a. \`E anche molto poco sicuro, poich\'e potremmo andare incontro a
 situazioni dove proviamo ad applicare una funzione ad un argomento che
 non comprende.
 \item {\em Lambda-calcolo tipato semplice.} Nel lambda-calcolo tipato semplice,
@@ -376,7 +376,7 @@ le seguenti convenzioni nella scrittura dei lambda-termini:
   \end{itemize}
 \end{convention}  
 
-\`a importante tenere presente che questa convenzione \`e soltanto 
+\`e importante tenere presente che questa convenzione \`e soltanto 
 per convenienza notazionale; non influisce sulla definizione 
 ``ufficiale'' dei lambda-termini.
 
@@ -404,10 +404,10 @@ per convenienza notazionale; non influisce sulla definizione
 
 Nella nostra discussione informale dei lambda-termini, abbiamo gi\`a fatto
 notare che i termini $\lam x.x$ e $\lam y.y$, che differiscono solo nel
-nome della loro variabile legata, sono praticamente lo stesso. Diremo che
+nome della loro variabile legata, sono praticamente gli stessi. Diremo che
 tali termini sono $\alpha$-equivalenti, e scriviamo $M\eqa N$. Nel raro
 caso in cui volessimo dire che due termini sono precisamente uguali, simbolo
-per ismbolo, diciamo che $M$ e $N$ sono {\em identici} e scriviamo $M\equiv N$.
+per simbolo, diciamo che $M$ e $N$ sono {\em identici} e scriviamo $M\equiv N$.
 Riserviamo ``$=$'' come un simbolo generico usato per differenti scopi.
 
 Un'occorrenza di una variabile $x$ dentro un termine della forma $\lam x.N$
@@ -450,7 +450,7 @@ $y$, che sia libera, legata, o ``binding''. La applicheremo solo in casi dove
 $y$ non \`e gi\`a presente in $M$.
 
 Infine, possiamo finalmente definire formalmente cosa significa che due
-termini sono ``lo stesso prima di rinominare le variabili legate''
+termini sono ``gli stessi prima di rinominare le variabili legate''
 
 \begin{definition}
   Definiamo {\em $\alpha$-equivalenza} come la pi\`u piccola relazione di congruenza 
@@ -522,7 +522,7 @@ permette di sostituire una variabile con un lambda-termine. Scriveremo
 $\subst{M}{N}{x}$ come il risultato della sostituzione di $x$ con $N$ 
 in $M$. La definizione di sostituzione \`e complicata da due condizioni:
 \begin{enumerate}
-\item[1.] Possiamo solo sostituire variabili {\em libere}, poiché i nomi
+\item[1.] Possiamo solo sostituire variabili {\em libere}, poich\'e i nomi
 delle variabili legali sono considerati irrilevanti, e non
 dovrebbero influenzare il risultato di una sostituzione. Quindi, $\subst{x(\lam
     xy.x)}{N}{x}$ \`e $N(\lam xy.x)$, e non $N(\lam xy.N)$.
@@ -534,7 +534,7 @@ Facendolo ingenuamente, otterremmo
   \[ \subst{M}{N}{y}=\subst{(\lam x.yx)}{N}{y}=
      \lam x.Nx=\lam x.(\lam z.xz)x. 
   \]
-  Tuttavia, questo non \`e quello che ci aspettavamo, poiché la variabile $x$
+  Tuttavia, questo non \`e quello che ci aspettavamo, poich\'e la variabile $x$
   era libera in $N$, e durante la sostituzione, \`e diventata legata. Dobbiamo
   considerare il fatto che l'$x$ che era legata in $M$ non era la 
   ``stessa'' $x$ di quella che era libera in $N$. La cosa pi\`u giusta da fare
@@ -582,7 +582,7 @@ essere scelto per essere la minima variabile che non ha occorrenze in $M$ o $N$.
 \subsection{Introduzione alla $\beta$-riduzione}
 
 \begin{convention}
-Da ora in poi, se non precisato, indentificheremo i lambda-termini tramite
+Da ora in poi, se non precisato, identificheremo i lambda-termini tramite
 $\alpha$-equivalenza. Questo significa che quando parliamo di lambda-termini
 ``uguali'', intendiamo che sono $\alpha$-equivalenti. Formalmente, intendiamo
 i lambda-termini come la classe d'equivalenza di modulo $\alpha$-equivalenza.
@@ -3041,7 +3041,7 @@ $\beta\eta$-riduzioni.
 
 \begin{exercise}
   Dimostrare il teorema di Church-Rosser per le $\beta$-riduzioni nel
-  $\lam^{\to,\times}$-calculus, i.e., il lambda calcolo tipato semplice 
+  $\lam^{\to,\times}$-calculus, i.e., il lambda calcolo tipizzato semplice 
  senza $1$ e $\unit$.
 \end{exercise}
 
@@ -3313,35 +3313,27 @@ derivata. In seguito vi \`e la derivazione:
   }{\typ{y}{\neg(A\cor\neg A)}\tj A\cor \neg A}\hspace{-18ex}
   }}{\trule{contra$_y$~}\deriv{\typ{y}{\neg(A\cor\neg A)}\tj\cfalse}{\tj A\cor\neg A}}
 \]}
-Conversely, if we added $A\cor\neg A$ as an axiom to intuitionistic
-logic, then this already implies the \trule{contra} rule. Namely, from
-any derivation of $\Gamma,\typ{x}{\neg A}\tj\cfalse$, we can obtain a
-derivation of $\Gamma\tj A$ by using $A\cor\neg A$ as an axiom. Thus,
-we can {\em simulate} the \trule{contra} rule, in the presence of
+Al contrario, se abbiamo aggiunto $A\cor\neg A$ come assioma alla logica intuizionista, allora questo implica gi\`a la regola  \trule{contra} . Vale a dire, da qualsiasi derivazione di $\Gamma,\typ{x}{\neg A}\tj\cfalse$, possiamo ottenere una derivazione di $\Gamma\tj A$ usando $A\cor\neg A$ come assioma. Quindi, possiamo{\em simulare} la regola \trule{contra}, in presenza di
 $A\cor\neg A$.
 \[ \trule{$\cor$-E$_{x,y}$}\ \deriv{\deriv{\trule{excluded middle}}{\Gamma\tj A\cor \neg A} \sep
  \trule{$\cfalse$-E}\ \deriv{ \Gamma,\typ{x}{\neg A}\tj\cfalse}{\Gamma,\typ{x}{\neg A}\tj A}
 \sep \trule{ax$_y$}\ \deriv{}{\Gamma,\typ{y}{A}\tj A}}{\Gamma\tj A}
 \]
-In this sense, we can say that the rule $\trule{contra}$ and the axiom
-$A\cor\neg A$ are equivalent, in the presence of the other axioms and
-rules of intuitionistic logic.
+In questo senso, possiamo dire che la regola $\trule{contra}$ e l'assioma
+$A\cor\neg A$ sono equivalenti, in presenza degli altri assiomi e delle regole della logica intuizionista.
 
-It turns out that the system of intuitionistic logic plus
-\trule{contra} is equivalent to classical logic as we know it. It is
-in this sense that we can say that intuitionistic logic is ``classical
-logic without proofs by contradiction''.
+Si scopre che il sistema di logica intuizionista più 
+\trule{contra} \`e equivalente alla logica classica come la conosciamo. \`e in questo senso che possiamo dire che la logica intuizionista \`e "la logica classica senza dimostrazoni per contraddizione".
 
 \begin{exercise}
-  The formula $((A\to B)\to A)\to A$ is called ``Peirce's law''. It is
-  valid in classical logic, but not in intuitionistic logic. Give a
-  proof of Peirce's law in natural deduction, using the rule
+  La formula $((A\to B)\to A)\to A$ \`e chiamata "Legge di Peirce". \`e valida nella logica classica, 
+ma non nella logica intuizionista. Fornisci una prova della legge di Peirce in deduzione naturale, usando la regola 
   \trule{contra}.
 \end{exercise}
 
-Conversely, Peirce's law, when added to intuitionistic logic for all
-$A$ and $B$, implies \trule{contra}. Here is the proof. Recall that
-$\neg A$ is an abbreviation for $A\to\cfalse$.
+Al contrario, la legge di Peirce, se aggiunta alla logica intuizionista per tutti i
+$A$ e $B$, implica \trule{contra}. Qu\'i di seguito la dimostrazione. Ricorda che 
+$\neg A$ \'e una abbreviazione di $A\to\cfalse$.
 \[ \trule{$\to$-E}~
    \deriv{
    \deriv{\trule{Peirce's law for $B=\cfalse$}}
@@ -3358,8 +3350,10 @@ $\neg A$ is an abbreviation for $A\to\cfalse$.
    {\Gamma\tj A}
 \]
 
-We summarize the results of
-this section in terms of a slogan:
+ 
+
+Riassumiamo i risultati di
+questa sezione in termini di uno slogan:
 \[ \begin{array}{ll}
   &  \mbox{intuitionistic logic + \trule{contra}} \\
   =& \mbox{intuitionistic logic + ``$A\cor\neg A$''} \\
@@ -3368,68 +3362,59 @@ this section in terms of a slogan:
 \end{array}
 \]
 
-The proof theory of intuitionistic logic is a very interesting subject
-in its own right, and an entire course could be taught just on that
-subject.
+La teoria delle dimostrazioni della logica intuizionista \`e un argomento molto interessante
+di per sé, e un intero corso potrebbe essere insegnato solo su questo
+argomento.
 
 % ----------------------------------------------------------------------
-\subsection{Classical logic and the Curry-Howard isomorphism}
+\subsection{Logica classica e isomorfismo di Curry-Howard}
 
-To extend the Curry-Howard isomorphism to classical logic, according
-to the observations of the previous section, it is sufficient to add
-to the lambda calculus a term representing Peirce's law. All we have
-to do is to add a term $\fC:((A\to B)\to A)\to A$, for all types $A$
-and $B$. 
+Per estendere l'isomorfismo di Curry-Howard alla logica classica, secondo le 
+osservazioni della sezione precedente, \`e sufficiente aggiungere
+al calcolo lambda un termine che rappresenta la legge di Peirce. Tutto
+ quello che dobbiamo fare \`e aggiungere un termine $\fC:((A\to B)\to A)\to A$, per tutti i tipi $A$
+e $B$. 
 
-Such a term is known as {\em Felleisen's $\fC$}, and it has a specific
-interpretation in terms of programming languages. It can be understood
-as a control operator (similar to ``goto'', ``break'', or exception
-handling in some procedural programming languages).
+Tale termine \`e noto come {\em Felleisen's $\fC$}, e ha un'interpretazione
+ specifica in termini di linguaggi di programmazione. Pu\`o essere inteso come
+ un operatore di controllo (simile a "goto", "break" o gestione delle eccezioni in alcuni linguaggi di programmazione procedurale).
 
-Specifically, Felleisen's interpretation requires a term of the form
+Nello specifico, l'interpretazione di Felleisen richiede un termine della forma
 \[ M = \fC(\lam k^{A\to B}.N) : A
 \]
-to be evaluated as follows. To evaluate $M$, first evaluate $N$.  Note
-that both $M$ and $N$ have type $A$. If $N$ returns a result, then
-this immediately becomes the result of $M$ as well. On the other hand,
-if during the evaluation of $N$, the function $k$ is ever called with
-some argument $x:A$, then the further evaluation of $N$ is aborted,
-and $x$ immediately becomes the result of $M$.
+da valutare come segue. Per valutare $M$, valutare prima $N$.  Nota
+che sia $M$ che $N$ hanno tipo $A$. If $N$ restituisce un risultato, 
+questo diventa immediatamente il risultato di $M$ D'altra parte, se durante la valutazione di 
+ $N$, la funzione $k$ viene mai chiamata con qualche argomento
+ $x:A$, allora l'ulteriore valutazione di $N$ viene interrotta,
+e $x$ diventa immediatamente il risultato di $M$.
 
-In other words, the final result of $M$ can be calculated anywhere
-inside $N$, no matter how deeply nested, by passing it to $k$ as an
-argument. The function $k$ is known as a {\em continuation}.
-
-There is a lot more to programming with continuations than can be
-explained in these lecture notes. For an interesting application of
-continuations to compiling, see e.g. {\cite{App92}} from the
-bibliography (Section~\ref{ssec-bibliography}). The above explanation
-of what it means to ``evaluate'' the term $M$ glosses over several
-details.  In particular, we have not given a reduction rule for $\fC$
-in the style of $\beta$-reduction. To do so is rather complicated and
-is beyond the scope of these notes.
+C'\`e molto di più nella programmazione con continuazioni di quanto possa essere spiegato 
+in questi appunti. Per un'interessante applicazione di continuazioni alla compilazione, vedi 
+ad es. {\cite{App92}} dalla  bibliografia Sezione~\ref{ssec-bibliography}). La spiegazione 
+sopra di cosa significa "valutare" il termine $M$ sorvola diversi dettagli. In particolare, non 
+abbiamo dato una regola di riduzione per $\fC$ nello stile di $\beta$-reduction. Fare ci\`o \`e 
+piuttosto complicato e va oltre lo scopo di queste note.
 
 % ----------------------------------------------------------------------
-\section{Weak and strong normalization}
+\section{Normalizzazione debole e forte}
 
 % ----------------------------------------------------------------------
-\subsection{Definitions}
+\subsection{Definizioni}
 
-As we have seen, computing with lambda terms means reducing lambda
-terms to normal form. By the Church-Rosser theorem, such a normal form
-is guaranteed to be unique if it exists. But so far, we have paid
-little attention to the question whether normal forms exist for a
-given term, and if so, how we need to reduce the term to find a normal
-form. 
+Come abbiamo visto, il calcolo con termini lambda significa ridurre i lambda
+ termini alla forma normale. Secondo il teorema di Church-Rosser, una tale 
+forma normale \`e garantita come unica se esiste. Ma finora, abbiamo prestato poca
+ attenzione alla domanda se esistono forme normali per un dato termine e, in tal caso,
+ come dovremmo ridurre il termine per trovare una forma normale.
 
 \begin{definition}
-  Given a notion of term and a reduction relation, we say that a term
-  $M$ is {\em weakly normalizing} if there exists a finite sequence of
-  reductions $M\red M_1\red\ldots\red M_n$ such that $M_n$ is a normal
-  form. We say that $M$ is {\em strongly normalizing} if there does
-  not exist an infinite sequence of reductions starting from $M$, or
-  in other words, if {\em every} sequence of reductions starting from
-  $M$ is finite. 
+  Data una nozione di termine e una relazione di riduzione, diciamo che un termine 
+  $M$ is {\em debolmente normalizzante} se esiste una sequenza finita di riduzioni
+  $M\red M_1\red\ldots\red M_n$ tale che $M_n$ \`e una forma normale.
+  Diciamo che $M$ \`e {\em fortemente normalizzante} se non esiste un'infinit\`a
+  di riduzioni che partono da $M$, o in altre parole, se {\em every} sequenza di riduzioni a partire da
+  $M$ \`e finita. 
 \end{definition}
 
 Recall the following consequence of the Church-Rosser theorem, which
