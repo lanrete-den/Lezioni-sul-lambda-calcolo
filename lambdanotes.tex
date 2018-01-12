@@ -3418,125 +3418,121 @@ forma normale \`e garantita come unica se esiste. Ma finora, abbiamo prestato po
   $M$ \`e finita. 
 \end{definition}
 
-Recall the following consequence of the Church-Rosser theorem, which
-we stated as Corollary~\ref{cor-cr-3}: If $M$ has a normal form $N$,
-then $M\reds N$. It follows that a term $M$ is weakly normalizing if
-and only if it has a normal form. This does not imply that every
-possible way of reducing $M$ leads to a normal form. A term is
-strongly normalizing if and only if every way of reducing it leads to
-a normal form in finitely many steps. 
+Ricordiamo la seguente conseguenza del teorema di Church-Rosser, che 
+abbiamo dichiarato come Corollario~\ref{cor-cr-3}: se $M$ ha una forma normale $N$,
+allora $M\reds N$. Ne consegue che un termine $M$sta debolmente normalizzando
+ se e solo se ha una forma normale. Ci\'o non implica che ogni possibile modo di 
+ridurre $M$ porti a una forma normale. Un termine si sta fortemente normalizzando
+ se e solo se ogni modo di ridurlo porta a una forma normale in una certa quantit\'a di passi.
 
-Consider for example the following terms in the untyped lambda
-calculus:
+Prendiamo ad esempio i seguenti termini nel lambda calcolo non tipato:
 \begin{enumerate}
-\item The term $\Omega=(\lam x.xx)(\lam x.xx)$ is neither weakly nor
-  strongly normalizing. It does not have a normal form.
-\item The term $(\lam x.y)\Omega$ is weakly normalizing, but not
-  strongly normalizing. It reduces to the normal form $y$, but it also
-  has an infinite reduction sequence.
-\item The term $(\lam x.y)((\lam x.x)(\lam x.x))$ is strongly
-  normalizing. While there are several different ways to reduce this
-  term, they all lead to a normal form in finitely many steps. 
-\item The term $\lam x.x$ is strongly normalizing, since it has no
-  reductions, much less an infinite reduction sequence. More
-  generally, every normal form is strongly normalizing.
+\item Il termine $\Omega=(\lam x.xx)(\lam x.xx)$ non \'e n\'e debolmente n\'e
+   fortemente normalizzante. Non ha una forma normale.
+\item Il temine $(\lam x.y)\Omega$ sta debolmente normalizzando, ma non \'e
+   fortemente normalizzante. Si riduce alla forma normale
+\item Il termine $(\lam x.y)((\lam x.x)(\lam x.x))$ \'e fortemente
+   normalizzante. Mentre ci sono diversi modi per ridurre questo
+   termine, portano tutti a una forma normale in passaggi finiti.
+\item Il termine $\lam x.x$ sta fortemente normalizzando, dal momento che non ha
+   riduzioni, tanto meno una sequenza di riduzione infinita.Più
+   generalmente, ogni forma normale \'e fortemente normalizzante.
 \end{enumerate}
 
-We see immediately that strongly normalizing implies weakly
-normalizing. However, as the above examples show, the converse is not
-true. 
+Vediamo immediatamente che una forte normalizzazione implica debolmente
+normalizzante. Tuttavia, come mostrano gli esempi precedenti, il contrario non \'e
+vero.
 
 % ----------------------------------------------------------------------
-\subsection{Weak and strong normalization in typed lambda 
-  calculus}
+\subsection{Normalizzazione debole e forte nel lambda calcolo tipato}
 
-We found that the term $\Omega=(\lam x.xx)(\lam x.xx)$ is not weakly
-or strongly normalizing. On the other hand, we also know that this
-term is not typable in the simply-typed lambda calculus. This is not
-a coincidence, as the following theorem shows.
+Abbiamo scoperto che il termine $\Omega=(\lam x.xx)(\lam x.xx)$non \'e debolmente
+o fortemente normalizzante. D'altra parte, sappiamo inoltre che
+il termine non \'e tipabile nel lambda calcolo semplicemente tipato. Questa non \'e
+una coincidenza, come viene dimostrato nel seguente teorema.
 
-\begin{theorem}[Weak normalization theorem]\label{thm-weak-norm}
-  In the simply-typed lambda calculus, all terms are weakly
-  normalizing.
+\begin{theorem}[Teorema normalizzazione debole]\label{thm-weak-norm}
+  Nel  lambda calcolo semplicemente tipato, tutti i termini sono debolmente
+   normalizzanti.
 \end{theorem}
 
-\begin{theorem}[Strong normalization theorem]\label{thm-strong-norm}
-  In the simply-typed lambda calculus, all terms are strongly
-  normalizing.
+\begin{theorem}[Teorema normalizzazione forte]\label{thm-strong-norm}
+  Nel  lambda calcolo semplicemente tipato, tutti i termini sono fortemente
+   normalizzanti.
 \end{theorem}
 
-Clearly, the strong normalization theorem implies the weak
-normalization theorem. However, the weak normalization theorem is much
-easier to prove, which is the reason we proved both these theorems in
-class. In particular, the proof of the weak normalization theorem
-gives an explicit measure of the complexity of a term, in terms of the
-number of redexes of a certain degree in the term. There is no
-corresponding complexity measure in the proof of the strong
-normalization theorem.
+Chiaramente, il  teorema di normalizzazione forte implica il 
+teorema di normalizzazione debole. Tuttavia, il  teorema di normalizzazione debole \'e molto
+più facile da dimostrare, che \'e la ragione per cui abbiamo dimostrato entrambi questi teoremi in
+classe(?). In particolare, la dimostrazione del teorema di normalizzazione debole 
+fornisce una misura esplicita della complessit\'a di un termine, in termini di
+numero di riduzioni di un certo grado nel termine. Non c'\'e
+corrispondente misura di complessit\'a nella prova del
+teorema di normalizzazione forte.
 
-Please refer to Chapters 4 and 6 of ``Proofs and Types'' by
-Girard, Lafont, and Taylor {\cite{GLT89}} for the proofs of
-Theorems~\ref{thm-weak-norm} and {\ref{thm-strong-norm}},
-respectively. 
-
-% ----------------------------------------------------------------------
-\section{Polymorphism}
-
-The polymorphic lambda calculus, also known as ``System F'', is
-obtained extending the Curry-Howard isomorphism to the quantifier
-$\forall$. For example, consider the identity function $\lambda
-x^A.x$.  This function has type $A\to A$. Another identity function is
-$\lambda x^B.x$ of type $B\to B$, and so forth for every type. We can
-thus think of the identity function as a family of functions, one for
-each type. In the polymorphic lambda calculus, there is a dedicated
-syntax for such families, and we write $\Lambda\alpha.\lambda
-x^\alpha.x$ of type $\forall\alpha.\alpha\to\alpha$.
-
-System F was independently discovered by Jean-Yves Girard and John
-Reynolds in the early 1970's.
+Si prega di fare riferimento al capitolo 4 e 6  ``Dimostrazioni e Tipi'' di
+Girard, Lafont, e Taylor {\cite{GLT89}} per la dimostrazione dei 
+Teoremi~\ref{thm-weak-norm} e {\ref{thm-strong-norm}},
+rispettivamente. 
 
 % ----------------------------------------------------------------------
-\subsection{Syntax of System F}
+\section{Polimorfismo}
 
-The primary difference between System F and simply-typed lambda
-calculus is that System F has a new kind of function that takes a {\em
-  type}, rather than a {\em term}, as its argument. We can also think
-of such a function as a family of terms that is indexed by a type.
+Il lambda calcolo polimorfico, noto anche come `` Sistema F '', \'e
+ottenuto estendendo l'isomorfismo Curry-Howard al quantificatore
+$\forall$. Ad esempio, Prendere in considerazionea la funzione identit\'a $\lambda
+x^A.x$.  Questa funzione ha tipo $A\to A$. Un'altra funzione di identit\'a \'e
+$\lambda x^B.x$ di tipo $B\to B$, e cos\'i via per ogni tipo. Possiamo
+quindi pensare alla funzione identit\'a come a una famiglia di funzioni, una per
+ogni tipo. Nel lambda calcolo polimorfico, c'\'e una
+sintassi dedicata per tali famiglie e scriviamo $\Lambda\alpha.\lambda
+x^\alpha.x$ di tipo $\forall\alpha.\alpha\to\alpha$.
 
-Let $\alpha,\beta,\gamma$ range over a countable set of {\em type
-  variables}. The types of System F are given by the grammar
+Il sistema F fu scoperto indipendentemente da Jean-Yves Girard e John
+Reynolds nei primi anni '70.
+
+% ----------------------------------------------------------------------
+\subsection{Sintassi del Sistema F}
+
+La differenza principale tra Sistema F e lambda calcolo semplicemente
+ tipizzato \'e che il Sistema F ha un nuovo tipo di funzione che prende un
+ {\em tipo}, piuttosto che un {\em term}, come argomento. Possiamo anche 
+pensare a questo tipo di funzione come come una famiglia di termini che \'e 
+indicizzata da un tipo.
+
+Siano $\alpha,\beta,\gamma$ su un insieme numerabile di {\em tipo
+  variabile}. I tipi di sistema F sono dati dalla grammatica
 \[ \mbox{Types:}\ssep A,B \bnf \alpha \bor A\to B\bor \forall\alpha.A
 \]
-A type of the form $A\to B$ is called a {\em function type}, and a
-type of the form $\forall\alpha.A$ is called a {\em universal type}.
-The type variable $\alpha$ is bound in $\forall\alpha.A$, and we
-identify types up to renaming of bound variables; thus,
-$\forall\alpha.\alpha\to\alpha$ and $\forall\beta.\beta\to\beta$ are
-the same type. We write $\FTV{A}$ for the set of free type variables
-of a type $A$, defined inductively by: 
+Un tipo di modulo $A\to B$ \'e chiamato un  {\em tipo di funzione} e un 
+tipo della forma $\forall\alpha.A$ \'e chiamato {\em universal type}.La 
+variabile di tipo $\alpha$ \'e associata in $\forall\alpha.A$, e identifichiamo
+ i tipi fino alla ridenominazione delle variabili associate; in tal modo
+,$\forall\alpha.\alpha\to\alpha$ e $\forall\beta.\beta\to\beta$ sono lo stesso tipo.
+ Scriviamo $\FTV{A}$ per il set di variabili di tipo libero di un tipo $A$, definito induttivamente da:
 \begin{itemize}
 \item $\FTV{\alpha} = \s{\alpha}$,
 \item $\FTV{A\to B} = \FTV{A}\cup\FTV{B}$,
 \item $\FTV{\forall\alpha.A} = \FTV{A}\setminus\s{\alpha}$.
 \end{itemize}
-We also write $A[B/\alpha]$ for the result of replacing all free
-occurrences of $\alpha$ by $B$ in $A$. Just like the substitution of
-terms (see Section~\ref{ssec-substitution}), this type substitution
-must be {\em capture-free}, i.e., special care must be taken to rename
-any bound variables of $A$ so that their names are different from the
-free variables of $B$.
+Scriviamo anche $A[B/\alpha]$per il risultato della sostituzione di tutte le
+occorrenze gratuite di $\alpha$ da $B$ in $A$.Proprio come la sostituzione di
+termini (see Section~\ref{ssec-substitution}), questa sostituzione di tipo
+deve essere {\em capture-free},ad esempio, \'e necessario prestare particolare attenzione per rinominare
+qualsiasi variabile vincolata di $A$ in modo che i loro nomi siano diversi da
+variabili libere di  $B$.
 
-The terms of System F are:
+I termini del Sistema F sono:
 \[ \mbox{Terms:}\ssep M,N \bnf x \bor MN \bor \lamabs{x}{A}.M \bor MA
 \bor \Lamabs{\alpha}.M
 \]
-Of these, variables $x$, applications $MN$, and lambda abstractions
-$\lamabs{x}{A}.M$ are exactly as for the simply-typed lambda
-calculus. The new terms are {\em type application} $MA$, which is the
-application of a type function $M$ to a type $A$, and {\em type
-  abstraction} $\Lamabs{\alpha}.M$, which denotes the type function
-that maps a type $\alpha$ to a term $M$. The typing rules for System F
-are shown in Table~\ref{tab-system-f-typing-rules}.
+Di questi, variabili $x$, applicazioni $MN$, e lambda astrazioni
+$\lamabs{x}{A}.M$ sono esattamente come nel lambda
+calcolo semplicemente tipato. I nuovi termini sono {\em applicazione di tipo} $MA$, che \'e
+l'applicazione $M$ ad un tipo $A$, e {\em astrazione di tipo}
+ $\Lamabs{\alpha}.M$, che denota la funzione di tipo
+che mappa un tipo $\alpha$ ad un  termine $M$. le regole di tipo nel Sistema F
+sono mostrate nella Tabella~\ref{tab-system-f-typing-rules}.
 % ......................................................................
 \begin{table*}[tbp]
 \[
@@ -3557,35 +3553,34 @@ are shown in Table~\ref{tab-system-f-typing-rules}.
                 {\Gamma\tj\Lamabs{\alpha}.M: \forall\alpha.A}
 \end{array}
 \]
-\caption{Typing rules for System F}
+\caption{Typing rules for Sistema F}
 \label{tab-system-f-typing-rules}
 \end{table*}
 % ......................................................................
 
-We also write $\FTV{M}$ for the set of free type variables in the term
-$M$. We need a final notion of substitution: if $M$ is a term, $B$ a type,
-and $\alpha$ a type variable, we write $M[B/\alpha]$ for the
-capture-free substitution of $B$ for $\alpha$ in $M$. 
+Scriviamo anche $\FTV{M}$ per l'insieme di variabili di tipo libero nel termine
+$M$. Abbiamo bisogno di una nozione finale di sostituzione: se  $M$ \'e un termine,$B$ un tipo,
+e $\alpha$ una variabile di tipo, scriviamo $M[B/\alpha]$ per la
+sostituzione capture-free di $B$ per $\alpha$ in $M$. 
 
 % ----------------------------------------------------------------------
-\subsection{Reduction rules}
+\subsection{Regole di riduzione}
 
-In System F, there are two rules for $\beta$-reduction. The first one
-is the familiar rule for the application of a function to a term. The
-second one is an analogous rule for the application of a type function
-to a type. 
+Nel Sistema F, ci sono due regole per $\beta$-reduction.  La prima \'e la 
+regola familiare per l'applicazione di una funzione a un termine. La seconda
+ \'e una regola analoga per l'applicazione della funzione di tipo ad un tipo
 \[ \begin{array}{lllll}
   (\beta_{\to}) & (\lamabs{x}{A}.M)N & \to & \subst{M}{N}{x}, \\
   (\beta_{\forall}) & (\Lamabs{\alpha}.M)A & \to & \subst{M}{A}{\alpha},
 \end{array}
 \]
-Similarly, there are two rules for $\eta$-reduction.
+Similarmente, ci sono due regole per $\eta$-reduction.
 \[ \begin{array}{lllll}
   (\eta_{\to}) & \lamabs{x}{A}.Mx & \to & M, & \mbox{if $x\not\in\FV{M}$,} \\
   (\eta_{\forall}) & \Lamabs{\alpha}.M\alpha & \to & M, & \mbox{if $\alpha\not\in\FTV{M}$.}
 \end{array}
 \]
-The congruence and $\xi$-rules are as expected:
+La congruenza e $\xi$-rules sono proprio come ci si aspettava:
 \[ \deriv{M\to M'}{MN\to M'N}
    \sep
    \deriv{N\to N'}{MN\to MN'}
@@ -3598,37 +3593,37 @@ The congruence and $\xi$-rules are as expected:
 \]
 
 % ----------------------------------------------------------------------
-\subsection{Examples}
+\subsection{Esempi}
 
-Just as in the untyped lambda calculus, many interesting data types
-and operations can be encoded in System F. 
+Proprio come nel lambda calcolo non tipato, molti interessanti tipi di dato
+ed operazioni possono essere codificati nel Sistema F. 
 
 % ----------------------------------------------------------------------
-\subsubsection{Booleans}
+\subsubsection{Booleani}
 
-Define the System F type $\bool$, and terms $\truet,\falset:\bool$, as follows:
+Definire il tipo del Sistema F $\bool$, ed i termini $\truet,\falset:\bool$, come segue:
 \[ \begin{array}{ccl}
   \bool &=& \forall\alpha.\alpha\to\alpha\to\alpha,\\
   \truet &=& \Lamabs{\alpha}.\lamabs{x}{\alpha}.\lamabs{y}{\alpha}.x,\\
   \falset &=& \Lamabs{\alpha}.\lamabs{x}{\alpha}.\lamabs{y}{\alpha}.y.\\
 \end{array}
 \]
-It is easy to see from the typing rules that $\tj\truet:\bool$ and
-$\tj\falset:\bool$ are valid typing judgements. We can define an
-if-then-else operation 
+\'E facile vedere dalle regole di tipo $\tj\truet:\bool$ e
+$\tj\falset:\bool$ sono dei giudizi di tipo validi. Possiamo definire una operazione
+if-then-else 
 \[ \begin{array}{l}
   \ifthenelset : \forall\beta.\bool\to\beta\to\beta\to\beta,
   \\  \ifthenelset = \Lamabs{\beta}.\lamabs{z}{\bool}.z\beta.
 \end{array}
 \]
-It is then easy to see that, for any type $B$ and any pair of terms
-$M,N:B$, we have
+\'e quindi facile vedere che, per qualsiasi tipo $B$ e qualsiasi coppia di termini
+$M,N:B$, abbiamo
 \[ \begin{array}{rcl}
   \ifthenelset B\, \truet\, MN &\redbs& M,\\
   \ifthenelset B\, \falset\, MN &\redbs& N.
 \end{array}
 \]
-Once we have if-then-else, it is easy to define other boolean
+Una volta che abbiamo if-then-else, it is easy to define other boolean
 operations, for example
 \[ \begin{array}{ccl}
   \andt &=& \lamabs{a}{\bool}.\lamabs{b}{\bool}.\ifthenelset\bool a\,b\,\falset,\\
@@ -3636,24 +3631,22 @@ operations, for example
   \nott &=& \lamabs{a}{\bool}.\ifthenelset\bool a\,\falset\,\truet.
 \end{array}
 \]
-Later, in Proposition~\ref{prop-unique-bool}, we will show that up to
-$\beta\eta$ equality, $\truet$ and and $\falset$ are the {\em only}
-closed terms of type $\bool$. This, together with the if-then-else
-operation, justifies calling this the type of booleans.
+Più tardi, nella Proposition~\ref{prop-unique-bool}, dimostreremo fino a
+$\beta\eta$ equalit\'a, $\truet$ e $\falset$ sono i {\em soli}
+terimini chiusi di tipo $\bool$. Questo, insieme all'operazione if-then-else,
+Giustifica l'averli chiamati come tipo dei Booleani.
 
-Note that the above encodings of the booleans and their if-then-else
-operation in System F is exactly the same as the corresponding
-encodings in the untyped lambda calculus from
-Section~\ref{ssec-booleans}, provided that one erases all the types
-and type abstractions. However, there is an important difference: in
-the untyped lambda calculus, the booleans were just two terms among
-many, and there was no guarantee that the argument of a boolean
-function (such as $\andt$ and $\ort$) was actually a boolean. In
-System F, the typing guarantees that all closed boolean terms
-eventually reduce to either $\truet$ or $\falset$. 
+Si noti che le suddette codifiche dei booleani e dei loro if-then-else
+ l'operazione nel sistema F \'e esattamente la stessa della corrispondente
+ codifica nel  lambda calcolo non tipato da Sezione~\ref{ssec-Booleani}
+, a condizione che si cancellino tutti i tipi e le  astrazioni di tipi. Tuttavia, c'\'e
+ una differenza importante: nel lambda calcolo non tipizzato, i booleani erano solo
+ due termini in mezzo a molti, e non c'era alcuna garanzia che l'argomento di una
+ funzione booleana  (come $\andt$ e $\ort$) era in realt\'a un booleano. Nel Sistema F,
+ la digitazione garantisce che tutti i termini booleani chiusi alla fine si riducono a $\truet$ o $\falset$.
 
 % ----------------------------------------------------------------------
-\subsubsection{Natural numbers}
+\subsubsection{Numeri naturali}
 
 We can also define a type of Church numerals in System F. We define:
 \[ \begin{array}{ccl}
