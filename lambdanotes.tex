@@ -998,230 +998,230 @@ $\factt \chnum{n}\redbs \chnum{n!}$, per ogni $n$.
 \end{exercise}
 
 \begin{exercise}
-  We have remarked at the beginning of this section that
-  the number-theoretic function $f(x)=x+1$ does not have a
-  fixed point. On the other hand, the lambda term $F=\lam x.\succt x$,
-  which represents the same function, does have a fixed point by
-  Theorem~\ref{thm-fix}. How can you reconcile the two statements?
+  Abbiamo sottolineato all'inizio di questa sezione che
+  la funzione teoretica dei numeri $f(x)=x+1$ non ha un
+  punto fisso. D'altra parte, il lambda-termine $F=\lam x.\succt x$,
+  che rappresenta la stessa funzione, ha effettivamente un punto fisso per
+  il Teorema~\ref{thm-fix}. Come puoi risolvere la contraddizione?
 \end{exercise}
 
 \begin{exercise}
-  The first fixed point combinator for the lambda calculus was discovered
-  by Curry.  Curry's fixed point combinator, which is also called the
-  {\em paradoxical fixed point combinator}, is the term $\Y=\lam f.(\lam
+  Il primo combinatore di punto fisso per il lambda-calcolo \`e stato
+  scoperto da Curry. Il combinatore di punto fisso di Curry, che \`e anche chiamato il
+  {\em il combinatore paradossale di punti fissi}, \`e il termine $\Y=\lam f.(\lam
   x.f(xx))(\lam x.f(xx))$.
   \begin{enumerate}
-  \item[(a)] Prove that this is indeed a fixed point combinator, i.e.,
-    that $\Y F$ is a fixed point of $F$, for any term $F$. 
-  \item[(b)] Turing's fixed point combinator not only satisfies $\Thetat
-    F\eqb F(\Thetat F)$, but also $\Thetat F\redbs F(\Thetat F)$. We
-    used this fact in evaluating $\factt\chnum{2}$. Does an analogous
-    property hold for $\Y$? Does this affect the outcome of the
-    evaluation of $\factt\chnum{2}$?
-  \item[(c)] Can you find another fixed point combinator, besides Curry's
-    and Turing's?
+  \item[(a)] Dimostra che questo \`e effettivamente un combinatore di punto fisso,
+  ossia che $\Y F$ \`e un punto fisso di $F$, per qualsiasi termine $F$.
+  \item[(b)] Il combinatore di punto fisso di Turing non soddisfa solo $\Thetat
+    F\eqb F(\Thetat F)$, ma anche $\Thetat F\redbs F(\Thetat F)$. Usiamo
+    questo fatto nello sviluppare $\factt\chnum{2}$. C'\`e una propriet\`a analoga per $\Y$? 
+    E questa influenza il risultato dello sviluppo di $\factt\chnum{2}$?
+  \item[(c)] Puoi trovare un'altro combinatore di punto fisso, oltre
+  a quello di Curry e a quello di Turing?
   \end{enumerate}
 \end{exercise}
 
 % ----------------------------------------------------------------------
-\subsection{Other data types: pairs, tuples, lists, trees, etc.}
+\subsection{Altri tipi di dato: coppie, tuple, liste, alberi, ecc.}
 
-So far, we have discussed lambda terms that represented functions on
-booleans and natural numbers. However, it is easily possible to encode more
-general data structures in the untyped lambda calculus. Pairs and
-tuples are of interest to everybody. The examples of lists and trees
-are primarily interesting to people with experience in a
-list-processing language such as LISP or PROLOG; you can safely ignore
-these examples if you want to.
+Fino ad ora abbiamo discusso di lambda-termini che rappresentano funzioni
+su booleani e numeri naturali. A dire il vero, \`e facilmente possibile codificare
+pi\`u strutture generali di dato nel lambda-calcolo non tipato. Coppie e tuple
+sono di particolare interesse per tutti. Questi esempi di liste e alberi sono
+principalmente interessanti a persone con esperienza in
+un linguaggio di programmazione list-processing come LISP o PROLOG, puoi
+tranquillamente ignorare questi esempi se preferisci.
 
-{\bf Pairs.} If $M$ and $N$ are lambda terms, we define the pair
-$\pair{M,N}$ to be the lambda term $\lam z.zMN$. We also define two
-terms $\leftt=\lam p.p(\lam xy.x)$ and $\rightt=\lam p.p(\lam xy.y)$.
-We observe the following:
+{\bf Coppie.} Se $M$ e $N$ sono lambda-termini, definiamo la coppia
+$\pair{M,N}$ come il lambda-termine $\lam z.zMN$. Definiamo anche due
+termini $\leftt=\lam p.p(\lam xy.x)$ e $\rightt=\lam p.p(\lam xy.y)$.
+Osserviamo che:
 \[  \begin{array}{rcl}
   \leftt \pair{M,N} &\redbs& M \\
   \rightt \pair{M,N} &\redbs& N
 \end{array}
 \]
-The terms $\leftt$ and $\rightt$ are called the left and right {\em
-  projections}.
+I termini $\leftt$ e $\rightt$ sono chiamati il destro e il sinistro {\em
+  proiezioni}.
 
-{\bf Tuples.} The encoding of pairs easily extends to arbitrary
-$n$-tuples. If $M_1,\ldots,M_n$ are terms, we define the $n$-tuple
-$\tuple{M_1,\ldots,M_n}$ as the lambda term $\lam z.zM_1\ldots M_n$,
-and we define the $i$th projection $\pi^n_i=\lam p.p(\lam x_1\ldots
-x_n.x_i)$. Then
+{\bf Tuples.} La codificazione di coppie si estende facilmente a $n$-tuple
+arbitrarie. Se $M_1,\ldots,M_n$ sono lambda-termini, definiamo l'$n$-tupla
+$\tuple{M_1,\ldots,M_n}$ come il lambda-termine $\lam z.zM_1\ldots M_n$,
+e definiamo la $i$th proiezione $\pi^n_i=\lam p.p(\lam x_1\ldots
+x_n.x_i)$. Quindi
 \[ \begin{array}{rcl}
   \pi^n_i\tuple{M_1,\ldots,M_n} &\redbs& M_i, \mbox{for all $1\leq i\leq n$.}
 \end{array}
 \]
 
-{\bf Lists.} A list is different from a tuple, because its length is
-not necessarily fixed. A list is either empty (``nil''), or else it
-consists of a first element (the ``head'') followed by another list
-(the ``tail''). We write $\nilt$ for the empty list, and $H::T$ for
-the list whose head is $H$ and whose tail is $T$. So, for instance,
-the list of the first three numbers can be written as
-$1::(2::(3::\nilt))$. We usually omit the parentheses, where it is
-understood that ''$::$'' associates to the right. Note that every list
-ends in $\nilt$.
+{\bf Liste.} Una lista \`e diversa da una tupla, perch\'e la sua lunghezza non \`e
+necessariamente fissa. Una lista \`e o vuota (``nil''), o invece
+consiste di un primo elemento (la ``testa'') seguita da un'altra lista
+(la ``coda''). Scriviamo $\nilt$ per la lista vuota, e $H::T$ per la
+lista la cui testa \`e $H$ \`e la cui coda \`e $T$. Quindi, ad esempio,
+la lista dei primi tre numeri pu\`o essere scritta come
+$1::(2::(3::\nilt))$. Solitamente omettiamo le parentesi, assumendo
+che ''$::$'' \`e associativa a destra. Nota che ogni lista
+finisce con $\nilt$.
 
-In the lambda calculus, we can define $\nilt=\lam xy.y$ and $H::T =
-\lam xy.xHT$. Here is a lambda term that adds a list of numbers:
+Nel lambda-calcolo, possiamo definire $\nilt=\lam xy.y$ e $H::T =
+\lam xy.xHT$. Ecco il lambda-termine che aggiunge una lista di numeri:
 \[ \nm{addlist} l = l(\lam h\,t.\addt h(\nm{addlist} t))(\chnum{0}).
 \]
-Of course, this is a recursive definition, and must be translated into
-an actual lambda term by the method of Section~\ref{subsec-fixed-points}.
-In the definition of $\nm{addlist}$, $l$ and $t$ are lists of numbers,
-and $h$ is a number. If you are very diligent, you can calculate the sum of
-last weekend's Canadian lottery results by evaluating the term
+Ovviamente, questa \`e una definizione ricorsiva, e dev'essere tradotta
+con un un effettivo lambda-termine con il metodo della Sezione~\ref{subsec-fixed-points}.
+Nella defizione di $\nm{addlist}$, $l$ e $t$ sono liste di numeri,
+e $h$ \`e un numero. Se sei molto diligente, puoi calcolare la somma dei
+risultati della lotteria canadese dello scorso weekend sviluppando il termine
 \[ \nm{addlist} (\chnum{4}::\chnum{22}::\chnum{24}::\chnum{32}::\chnum{42}::\chnum{43}::\nilt).
 \]
 
-Note that lists enable us to give an alternative encoding of the
-natural numbers: We can encode a natural number as a list of booleans,
-which we interpret as the binary digits 0 and 1. Of course, with this
-encoding, we would have to carefully redesign our basic functions,
-such as successor, addition, and multiplication. However, if done
-properly, such an encoding would be a lot more efficient (in terms of
-number of $\beta$-reductions to be performed) than the encoding by
-Church numerals.
+Nota che questa lista ci permette di dare una codificazione alternativa
+dei numeri naturali: possiamo codificare un numero naturale come una lista
+di booleani, che interpretiamo come le cifre binarie 0 e 1. Ovviamente,
+con questa codificazione, dovremmo attentamente ridisegnare le nostre
+funzioni base, cos\`i come il successore, l'addizione, e il prodotto. Tuttavia,
+se fatto correttamente, tale codificazione sarebbe molto pi\`u efficiente (in
+termini di $\beta$-riduzioni che andrebbero fatte) rispetto alla codificazione
+con i numeri di Church.
 
-{\bf Trees.} A binary tree is a data structure that can be one of two
-things: either a {\em leaf}, labeled by a natural number, or a {\em
-  node}, which has a left and a right subtree. We write $\leaft(N)$ for
-a leaf labeled $N$, and $\nodet(L,R)$ for a node with left subtree $L$
-and right subtree $R$. We can encode trees as lambda terms, for
-instance as follows:
+{\bf Alberi.} Un albero binario \`e una struttura di dati che pu\`o essere una
+di due cose: o una {\em foglia}, contrassegnata da un numero naturale, o un {\em
+	nodo}, che pu\`o avere un sottoalbero sinistro o destro. Scriviamo $\leaft(N)$
+per una foglia contrassegnata con $N$, e $\nodet(L,R)$ per un nodo con un
+sottoalbero sinistro $L$ e un sottoalbero destro $R$. Possiamo codificare
+alberi come lambda-termini, per esempio cos\`i come segue:
 \[ \leaft(n) = \lam xy.xn,\sep \nodet(L,R) = \lam xy.yLR \]
-As an illustration, here is a program (i.e., a lambda term) that adds
-all the numbers at the leafs of a given tree.
+Come esempio, ecco un programma (ossia un lambda-termine) che aggiunge
+tutti i numeri alle foglie di un dato albero.
 \[ \nm{addtree} t = t(\lam n.n)(\lam l\,
 r.\addt(\nm{addtree}l)(\nm{addtree}r)).
 \]
 
+una funzione
 \begin{exercise}
-  This is a voluntary programming exercise.
+  Scrivi un lambda-termine che calcola la lunghezza di una lista.
   \begin{enumerate}
   \item[(a)] Write a lambda term that calculates the length of a
     list.
-  \item[(b)] Write a lambda term that calculates the depth (i.e., the
-    nesting level) of a tree. You may need to define a function
-    $\nm{max}$ that calculates the maximum of two numbers.
-  \item[(c)] Write a lambda term that sorts a list of numbers. You
-    may assume given a term $\nm{less}$ that compares two numbers. 
+  \item[(b)] Scrivi un lambda-termine che calcola la profondit\`a (ossia il
+  livello di nidificazione) di un albero. Potrebbe servirti definire una
+    funzione $\nm{max}$ che calcola il massimo di due numeri.
+  \item[(c)] Scrivi un lambda-termine che ordina una lista di numeri. Potresti
+  assumere dato un termine $\nm{less}$ che confronta due numeri.
   \end{enumerate}
 \end{exercise}
 
 % ----------------------------------------------------------------------
-\section{The Church-Rosser Theorem}
+\section{Il teorema di Church-Rosser}
 
 % ----------------------------------------------------------------------
-\subsection{Extensionality, $\eta$-equivalence, and $\eta$-reduction}
+\subsection{Estensionalit\`a, $\eta$-equivalenza, and $\eta$-riduzione}
 
-In the untyped lambda calculus, any term can be applied to another
-term. Therefore, any term can be regarded as a function.  Consider a
-term $M$, not containing the variable $x$, and consider the term
-$M'=\lam x.Mx$. Then for any argument $A$, we have $MA\eqb M'A$. So in
-this sense, $M$ and $M'$ define ``the same function''.  Should $M$ and
-$M'$ be considered equivalent as terms?
+Nel lambda-calcolo non tipato, qualsiasi termine pu\`o essere applicato
+ad un altro termine. Quindi, ogni termine pu\`o essere trattato come una funzione.
+Consideriamo un termine $M$, non contenente la variabile $x$, e consideriamo
+il termine $M'=\lam x.Mx$. Quindi per ogni argomento $A$, abbiamo $MA\eqb M'A$.
+Quindi in questo senso, $M$ e $M'$ definiscono ``la stessa funzione''.  
+Dovremmo considerare $M$ e $M'$ come termini equivalenti?
 
-The answer depends on whether we want to accept the principle that
-``if $M$ and $M'$ define the same function, then $M$ and $M'$ are
-equal''. This is called the principle of {\em extensionality}, and we
-have already encountered it in Section~\ref{subsec-intro1}. Formally, the
-extensionality rule is the following:
+La risposta varia se vogliamo accettare il principio che
+``se $M$ e $M'$ definiscono la stessa funzione, allora $M$ e $M'$ sono
+uguali''. Questo \`e chiamato il principio di {\em estensionalit\`a}, e lo
+abbiamo gi\`a incontrato nella Sezione~\ref{subsec-intro1}. Formalmente,
+la regola di estensionalit\`a \`e la seguente:
 \[ \begin{array}{lc}
   \trule{ext$_\forall$} & \deriv{\forall A.MA=M'A}{M=M'}.
 \end{array}
 \]
-In the presence of the axioms $\nrule{\xi}$, $\trule{cong}$, and
-$\nrule{\beta}$, it can be easily seen that $MA=M'A$ is true for {\em
-  all} terms $A$ if and only if $Mx=M'x$, where $x$ is a fresh
-variable. Therefore, we can replace the extensionality rule by the
-following equivalent, but simpler rule:
+In presenza degli assiomi $\nrule{\xi}$, $\trule{cong}$, e
+$\nrule{\beta}$, si pu\`o vedere facilmente che $MA=M'A$ \`e vero per {\em
+  tutti} i termini $A$ se e solo se $Mx=M'x$, dove $x$ \`e una variabile
+fresca. Di conseguenza, possiamo sostituire alla regola di estensionalit\`a 
+la seguente regola equivalente, pi\`u semplice:
 \[ \begin{array}{lc}
-  \trule{ext} & \deriv{Mx=M'x, \mbox{ where $x\not\in\FV{M,M'}$}}{M=M'}.
+  \trule{ext} & \deriv{Mx=M'x, \mbox{ dove $x\not\in\FV{M,M'}$}}{M=M'}.
 \end{array}
 \]
-Note that we can apply the extensionality rule in particular to the
-case where $M'=\lam x.Mx$, where $x$ is not free in $M$. As we have
-remarked above, $Mx\eqb M'x$, and thus extensionality implies that
-$M=\lam x.Mx$. This last equation is called the $\eta$-law (eta-law):
+Nota che possiamo applicare la regola di estensionalit\`a in particolare al
+caso dove $M'=\lam x.Mx$, dove $x$ is non \`e libera in $M$. Come abbiamo
+sottolineato sopra, $Mx\eqb M'x$, e quindi l'estensionalit\`a implica che
+$M=\lam x.Mx$. Quest'ultima equazione \`e chiamata $\eta$-law (legge eta):
 \[ \begin{array}{lc}
-  \nrule{\eta} & M=\lam x.Mx, \mbox{ where $x\not\in\FV{M}$}.
+  \nrule{\eta} & M=\lam x.Mx, \mbox{ dove $x\not\in\FV{M}$}.
 \end{array}
 \]
-In fact, $\nrule{\eta}$ and $\trule{ext}$ are equivalent in the
-presence of the other axioms of the lambda calculus. We have already
-seen that $\trule{ext}$ and $\nrule{\beta}$ imply $\nrule{\eta}$.
-Conversely, assume $\nrule{\eta}$, and assume that $Mx=M'x$, for some
-terms $M$ and $M'$ not containing $x$ freely.  Then by $\nrule{\xi}$,
-we have $\lam x.Mx=\lam x.M'x$, hence by $\nrule{\eta}$ and
-transitivity, $M=M'$. Thus $\trule{ext}$ holds.
+Infatti, $\nrule{\eta}$ e $\trule{ext}$ sono equivalenti in
+presenza di altri assiomi del lambda-calcolo. Abbiamo gi\`a
+visto che $\trule{ext}$ e $\nrule{\beta}$ implicano $\nrule{\eta}$.
+Al contrario, sia $\nrule{\eta}$, e sia $Mx=M'x$, per alcuni
+termini $M$ e $M'$ non contenenti $x$ libera.  Quindi per $\nrule{\xi}$,
+abbiamo $\lam x.Mx=\lam x.M'x$, perci\`o da $\nrule{\eta}$ e
+transitivit\`a, $M=M'$. Quindi $\trule{ext}$ \`e vera.
 
-We note that the $\eta$-law does not follow from the axioms and rules
-of the lambda calculus that we have considered so far. In particular,
-the terms $x$ and $\lam y.xy$ are not $\beta$-equivalent, although
-they are clearly $\eta$-equivalent. We will prove that $x\not\eqb \lam
-y.xy$ in Corollary~\ref{cor-beta-not-eta} below.
+Facciamo notare che l'$\eta$-law non segue gli assiomi e le regole
+del lambda-calcolo che abbiamo considerato fin ora. In particolare,
+i termini $x$ e $\lam y.xy$ non sono $\beta$-equivalenti, anche se
+sono chiaramente $\eta$-equivalenti. Dimostreremo che $x\not\eqb \lam
+y.xy$ nel Corollario~\ref{cor-beta-not-eta} sotto.
 
-Single-step $\eta$-reduction is the smallest relation $\rede$
-satisfying $\trule{cong$_1$}$, $\trule{cong$_2$}$, $\nrule{\xi}$, and
-the following axiom (which is the same as the $\eta$-law, directed
-right to left):
+L'$\eta$-riduzione ad un solo passaggio \`e la pi\`u piccola relazione $\rede$
+che soddisfa $\trule{cong$_1$}$, $\trule{cong$_2$}$, $\nrule{\xi}$, e
+il seguente assioma (che \`e lo stesso dell'$\eta$-law, diretto
+da destra verso sinistra):
 \[ \begin{array}{lc}\label{page-def-eta}
   \nrule{\eta} & \lam x.Mx\rede M, \mbox{ where $x\not\in\FV{M}$}.
 \end{array}
 \]
-Single-step $\beta\eta$-reduction $\redbe$ is defined as the union of
-the single-step $\beta$- and $\eta$-reductions, i.e., $M\redbe M'$ iff
-$M\redb M'$ or $M\rede M'$. Multi-step $\eta$-reduction $\redes$,
-multi-step $\beta\eta$-reduction $\redbes$, as well as
-$\eta$-equivalence $\eqe$ and $\beta\eta$-equivalence $\eqbe$ are
-defined in the obvious way as we did for $\beta$-reduction and
-equivalence. We also get the evident notions of $\eta$-normal form,
-$\beta\eta$-normal form, etc.
+L'$\eta$-riduzione ad un solo passaggio $\redbe$ \`e definita come l'unione
+delle riduzioni a singolo passaggio $\beta$ e $\eta$., quindi $M\redbe M'$ se
+$M\redb M'$ o $M\rede M'$. $\eta$-riduzione a pi\`u passaggi $\redes$,
+$\beta\eta$-riduzione a pi\`u passaggi $\redbes$, cos\`i come
+$\eta$-equivalenza $\eqe$ e $\beta\eta$-equivalenza $\eqbe$ sono
+definite nel modo ovvio come abbiamo fatto per la $\beta$-riduzione ed
+equivalenza. Ottieniamo anche nozioni evidenti di $\eta$-forma normale,
+$\beta\eta$-forma normale, etc.
 
 % ----------------------------------------------------------------------
-\subsection{Statement of the Church-Rosser Theorem, and some consequences}
+\subsection{La dichiarazione del teorema di Church-Rosser, e alcune conseguenze}
 
 \begin{un-theorem}[Church and Rosser, 1936]\label{thm-church-rosser}
-  Let $\reds$ denote either $\redbs$ or $\redbes$.  Suppose $M$, $N$,
-  and $P$ are lambda terms such that $M\reds N$ and $M\reds P$. Then
-  there exists a lambda term $Z$ such that $N\reds Z$ and $P\reds Z$.
+  Sia $\reds$ una denotazione per $\redbs$ o $\redbes$.  Supponiamo che 
+  $M$, $N$, e $P$ sono lambda-termini tali che $M\reds N$ e $M\reds P$. Quindi
+  esiste un lambda-termine $Z$ tale che $N\reds Z$ e $P\reds Z$.
 \end{un-theorem}
 
-In pictures, the theorem states that the following diagram can always
-be completed:
+Questo teorema afferma che il seguente diagramma
+pu\`o sempre essere completato:
 \[ \xymatrix@dr{M\ar@{->>}[r]\ar@{->>}[d] & P\ar@{.>>}[d]\\ N\ar@{.>>}[r] & Z}
 \]
 
-This property is called the {\em Church-Rosser property}, or {\em
-  confluence}. Before we prove the Church-Rosser Theorem, let us
-highlight some of its consequences.
+Questa propriet\`a \`e definita la {\em propriet\`a di Church-Rosser}, o {\em
+	confluenza}. Prima di dimostrare il teorema di Church-Rosser,
+evidenziamo alcune delle sue conseguenze:
 
 \begin{corollary}\label{cor-cr-2}
-  If $M\eqb N$ then there exists some $Z$ with $M,N\redbs
-  Z$. Similarly for $\beta\eta$.
+  Se $M\eqb N$ quindi esiste un qualche $Z$ con $M,N\redbs
+  Z$. Allo stesso modo per $\beta\eta$.
 \end{corollary}
 
 \begin{proof}
-  Please refer to Figure~\ref{fig-cor-cr-2} for an illustration of
-  this proof. Recall that $\eqb$ is the reflexive symmetric transitive
-  closure of $\redb$. Suppose that $M\eqb N$.  Then there exist $n\geq
-  0$ and terms $M_0,\ldots,M_n$ such that $M=M_0$, $N=M_n$, and for
-  all $i=1\ldots n$, either $M_{i-1}\redb M_{i}$ or $M_{i}\redb
-  M_{i-1}$.  We prove the claim by induction on $n$. For $n=0$, we
-  have $M=N$ and there is nothing to show. Suppose the claim has been
-  proven for $n-1$. Then by induction hypothesis, there exists a term
-  $Z'$ such that $M\redbs Z'$ and $M_{n-1}\redbs Z'$. Further, we know
-  that either $N\redb M_{n-1}$ or $M_{n-1}\redb N$. In case $N\redb
-  M_{n-1}$, then $N\redbs Z'$, and we are done. In case $M_{n-1}\redb
-  N$, we apply the Church-Rosser Theorem to $M_{n-1}$, $Z'$, and $N$
-  to obtain a term $Z$ such that $Z'\redbs Z$ and $N\redbs Z$. Since
-  $M\redbs Z'\redbs Z$, we are done. The proof in the case of
-  $\beta\eta$-reduction is identical.\eot
+  Riferiamoci alla Figura~\ref{fig-cor-cr-2} per un'illustrazione
+  di questa dimostrazione. Ricordiamo che $\eqb$ \`e la chiusura simmetrica riflessiva
+  transitiva di $\redb$. Supponiamo che $M\eqb N$. Quindi esiste $n\geq
+  0$ e termini $M_0,\ldots,M_n$ tali che $M=M_0$, $N=M_n$, e per
+  tutti gli $i=1\ldots n$, o $M_{i-1}\redb M_{i}$ o $M_{i}\redb
+  M_{i-1}$.  Dimostriamo quest'affermazione per induzione su $n$. Per $n=0$, abbiamo $M=N$ e 
+  non c'\`e niente da mostrare. Supponiamo l'affermazione vera per $n-1$. 
+  Quindi per ipotesi induttiva, esiste un termine
+  $Z'$ tale che $M\redbs Z'$ e $M_{n-1}\redbs Z'$. Inoltre, sappiamo
+  che $N\redb M_{n-1}$ o $M_{n-1}\redb N$. Nel caso $N\redb
+  M_{n-1}$, dopo $N\redbs Z'$, e abbiamo finito. Nel caso $M_{n-1}\redb
+  N$, applichiamo il teorema di Church-Rosser a $M_{n-1}$, $Z'$, e $N$
+  per ottenere un termine $Z$ tale che $Z'\redbs Z$ e $N\redbs Z$. Dato che
+  $M\redbs Z'\redbs Z$, abbiamo finito. La dimostrazione nel caso di
+  $\beta\eta$-reduction \`e identica.\eot
 \end{proof}
 
 \begin{figure}
@@ -1240,83 +1240,83 @@ highlight some of its consequences.
   & Z
   }
 \]
-\caption{The proof of Corollary~\ref{cor-cr-2}}
+\caption{La dimostrazione del Corollario~\ref{cor-cr-2}}
 \label{fig-cor-cr-2}
 \end{figure}
 
 \begin{corollary}\label{cor-cr-3}
-  If $N$ is a $\beta$-normal form and $N\eqb M$, then $M\redbs N$, and
-  similarly for $\beta\eta$.
+  Se $N$ \`e una $\beta$-forma normale e $N\eqb M$, allora $M\redbs N$, e
+  in maniera similare per $\beta\eta$.
 \end{corollary}
 
 \begin{proof}
-  By Corollary~\ref{cor-cr-2}, there exists some $Z$ with $M,N\redbs
-  Z$. But $N$ is a normal form, thus $N\eqa Z$. \eot
+  Per il Corollario~\ref{cor-cr-2}, esiste un qualche $Z$ con $M,N\redbs
+  Z$. Ma $N$ \`e una forma normale, quindi $N\eqa Z$. \eot
 \end{proof}
 
 \begin{corollary}\label{cor-cr-4}
-  If $M$ and $N$ are $\beta$-normal forms such that $M\eqb N$, then
-  $M\eqa N$, and similarly for $\beta\eta$.
+  Se $M$ e $N$ sono $\beta$-forme normali tali che $M\eqb N$, allora
+  $M\eqa N$, e in maniera similare per $\beta\eta$.
 \end{corollary}
 
 \begin{proof}
-  By Corollary~\ref{cor-cr-3}, we have $M\redbs N$, but since $M$ is a
-  normal form, we have $M\eqa N$. \eot
+  Per il Corollario~\ref{cor-cr-3}, abbiamo $M\redbs N$,ma dato che $M$ \`e una
+  forma normale, abbiamo $M\eqa N$. \eot
 \end{proof}
 
 \begin{corollary}
-  If $M\eqb N$, then neither or both have a $\beta$-normal
-  form. Similarly for $\beta\eta$.
+  Se $M\eqb N$, quindi nessuno dei due o entrambi hanno una $\beta$-forma
+  normale. In maniera similare per $\beta\eta$.
 \end{corollary}
 
 \begin{proof}
-  Suppose that $M\eqb N$, and that one of them has a $\beta$-normal
-  form. Say, for instance, that $M$ has a normal form $Z$. Then $N\eqb
-  Z$, hence $N\redbs Z$ by Corollary~\ref{cor-cr-3}. \eot
+  Supponiamo che $M\eqb N$, e che uno dei due ha una $\beta$-forma
+  normale. Sia, ad esempio, che $M$ ha una forma normale $Z$. Quindi $N\eqb
+  Z$, perci\`o $N\redbs Z$ per il Corollario~\ref{cor-cr-3}. \eot
 \end{proof}
 
 \begin{corollary}\label{cor-beta-not-eta}
-  The terms $x$ and $\lam y.xy$ are not $\beta$-equivalent. In
-  particular, the $\eta$-rule does not follow from the $\beta$-rule.
+  I termini $x$ e $\lam y.xy$ non sono $\beta$-equivalenti. In
+  particulare, la regola $\eta$ non segue dalla regola $\beta$.
 \end{corollary}
 
 \begin{proof}
-  The terms $x$ and $\lam y.xy$ are both $\beta$-normal forms, and
-  they are not $\alpha$-equivalent. It follows by
-  Corollary~\ref{cor-cr-4} that $x\not\eqb \lam y.xy$. \eot
+  I termini $x$ e $\lam y.xy$ sono entrambi nelle $\beta$-forme normali, e
+  non sono $\alpha$-equivalenti. Dal
+  Corollario~\ref{cor-cr-4} segue che $x\not\eqb \lam y.xy$. \eot
 \end{proof}
 
 % ----------------------------------------------------------------------
-\subsection{Preliminary remarks on the proof of the Church-Rosser Theorem}
+\subsection{Osservazioni preliminari sulla dimostrazione del teorema di Church-Rosser}
 \label{subsec-prelim-cr}
 
-Consider any binary relation $\red$ on a set, and let $\reds$ be its
-reflexive transitive closure. Consider the following three
-properties of such relations:
+Consideriamo qualsiasi relazione binaria $\red$ su un insieme, e sia $\reds$ la sua
+chiusura riflessiva transitiva. Consideriamo le seguenti tre
+propriet\`a di tali relazioni:
 \[ \mbox{(a)} \ssep \xymatrix@dr{M\ar@{->>}[r]\ar@{->>}[d] & P\ar@{.>>}[d]\\ N\ar@{.>>}[r] & Z}
 \sep
 \mbox{(b)} \ssep \xymatrix@dr{M\ar@{->}[r]\ar@{->}[d] & P\ar@{.>>}[d]\\ N\ar@{.>>}[r] & Z}
 \sep
 \mbox{(c)} \ssep \xymatrix@dr{M\ar@{->}[r]\ar@{->}[d] & P\ar@{.>}[d]\\ N\ar@{.>}[r] & Z}
 \]
-Each of these properties states that for all $M,N,P$, if the solid
-arrows exist, then there exists $Z$ such that the dotted arrows exist.
-The only difference between (a), (b), and (c) is the difference
-between where $\red$ and $\reds$ are used.
+Ognuna di queste propriet\`a afferma che per tutti gli $M,N,P$, se le
+frecce esistono, quindi esiste $Z$ tale che le frecce tratteggiate esistono.
+L'unica differenza tra (a), (b), e (c) su dove
+sono usate $\red$ e $\reds$.
 
-Property (a) is the Church-Rosser property. Property (c) is called the
-diamond property (because the diagram is shaped like a diamond).
+La propriet\`a (a) \`e la propriet\`a di Church-Rosser. La propriet\`a (c) \`e chiamata
+la propriet\`a del diamante (perch\'e il diagramma ha la forma di un diamante).
 
-A naive attempt to prove the Church-Rosser Theorem might proceed as
-follows: First, prove that the relation $\redb$ satisfies property (b)
-(this is relatively easy to prove); then use an inductive argument to
-conclude that it also satisfies property (a). 
+Un tentativo ingenuo di dimostrare il Teorema di Church-Rosser potrebbe procedere
+in tale modo: Prima, dimostriamo che la relazione $\redb$ soddisfa la propriet\`a (b)
+(ci\`o \`e relativamente facile da fare); dopo usiamo un argomento induttivo per
+concludere che soddisfa anche la propriet\`a (a).
 
-Unfortunately, this does not work: the reason is that in general,
-property (b) does not imply property (a)! An example of a relation
-that satisfies property (b) but not property (a) is shown in
-Figure~\ref{fig-b-not-a}. In other words, a proof of property (b) is
-not sufficient in order to prove property (a). 
+Sfortunatamente, ci\`o non funziona: il motivo \`e che in generale,
+la propriet\`a (b) non implica la propriet\`a (a)! Un esempio di una
+relazione che soddisfa la propriet\`a (b) ma non quella (a) si pu\`o vedere nella
+Figura~\ref{fig-b-not-a}. In altre parole, una dimostrazione della propriet\`a (b)
+non \`e sufficiente a dimostrare la propriet\`a (a).
 
 \begin{figure}
 \[ \xymatrix@-1em{
@@ -1331,7 +1331,7 @@ not sufficient in order to prove property (a).
   \vdots &&   \vdots &&   \vdots & 
   }
 \]
-\caption{An example of a relation that satisfies property (b), but not
+\caption{Un esempio di relazione che soddisfa la propriet\`a (b), ma non la
   property (a)}
 \label{fig-b-not-a}
 \end{figure}
@@ -1350,43 +1350,43 @@ not sufficient in order to prove property (a).
   \bullet 
   }
 \]
-\caption{Proof that property (c) implies property (a)}
+\caption{Dimostrazione che la propriet\`a (c) implica la propriet\`a (a)}
 \label{fig-diamond-a}
 \end{figure}
 
-On the other hand, property (c), the diamond property, {\em does}
-imply property (a). This is very easy to prove by induction, and the
-proof is illustrated in Figure~\ref{fig-diamond-a}. But unfortunately,
-$\beta$-reduction does not satisfy property (c), so again we are stuck.
+D'altra parte, la propriet\`a (c), la propriet\`a del diamante, {\em effettivamente} 
+implica la propriet\`a (a). Ci\`o \`e molto facile da dimostrare per induzione, e
+la dimostrazione \`e illustrata nella Figura~\ref{fig-diamond-a}. Ma sfortuntamente, la
+$\beta$-riduzione non soddisfa la propriet\`a (c), quindi siamo nuovamente bloccati.
 
-To summarize, we are faced with the following dilemma:
+Per tirare le somme, siamo di fronte al seguente dubbio:
 \begin{itemize}
-\item $\beta$-reduction satisfies property (b), but property (b) does
-  not imply property (a).
-\item Property (c) implies property (a), but $\beta$-reduction does
-  not satisfy property (c).
+\item La $\beta$-riduzione soddisfa la propriet\`a (b), ma la propriet\`a (b) non
+  implica la propriet\`a (a).
+\item La propriet\`a (c) implica la propriet\`a (a), ma la $\beta$-riduzione non
+  soddisfa la propriet\`a (c).
 \end{itemize}
 
-On the other hand, it seems hopeless to prove property (a) directly.
-In the next section, we will solve this dilemma by defining yet
-another reduction relation $\tri$, with the following properties:
+D'altra parte, sembra impossibile provare la propriet\`a (a) direttamente.
+Nella prossima sezione, risolveremo questo dubbio definendo
+un'altra relazione di riduzione $\tri$, con le seguenti propriet\`a:
 \begin{itemize}
-\item $\tri$ satisfies property (c), and
-\item the transitive closure of $\tri$ is the same as that of $\redb$
+\item $\tri$ soddisfa la propriet\`a (c), e
+\item la chiusura transitiva di $\tri$ \`e la stessa di $\redb$
   (or $\redbe$).
 \end{itemize}
 
 % ----------------------------------------------------------------------
-\subsection{Proof of the Church-Rosser Theorem}
+\subsection{Dimostrazione del Teorema di Church-Rosser}
 \label{subsec-proof-cr}
 
-In this section, we will prove the Church-Rosser Theorem for
-$\beta\eta$-reduction. The proof for $\beta$-reduction (without
-$\eta$) is very similar, and in fact slightly simpler, so we omit it
-here. The proof presented here is due to Tait and Martin-L\"of. We
-begin by defining a new relation $M\tri M'$ on terms, called {\em
- parallel one-step reduction}. We define $\tri$ to be the smallest
-relation satisfying
+In questa sezione, dimostreremo il Teorema di Church-Rosser per la
+$\beta\eta$-riduzione. La dimostrazione per $\beta$-riduzione (senza
+$\eta$) \`e molto simile, e infatti leggermente seplice, quindi
+la omettiamo. La dimostrazione presentata qui \`e grazie a Tait e Martin-L\"of. Iniziamo
+dal definire una nuova relazione $M\tri M'$ sui termini, chiamata {\em
+ riduzione parallela ad un passaggio}. Definiamo $\tri$ come la pi\`u
+piccola relazione che soddisfa
 \[ \begin{array}{lc}
   (1) & \deriv{}{x\tri x} \nl
   (2) & \deriv{P \tri P' \sep N \tri N'}{PN \tri P'N'} \nl
@@ -1400,228 +1400,229 @@ relation satisfying
 
 \begin{lemma}\label{lem-tri-redbes}
   \begin{enumerate}
-  \item[(a)] For all $M,M'$, if $M\redbe M'$ then $M\tri M'$.
-  \item[(b)] For all $M,M'$, if $M\tri M'$ then $M\redbes M'$.
-  \item[(c)] $\redbes$ is the reflexive, transitive closure of $\tri$.
+  \item[(a)] Per tutti gli $M,M'$, se $M\redbe M'$ allora $M\tri M'$.
+  \item[(b)] Per tutti gli $M,M'$, se $M\tri M'$ allora $M\redbes M'$.
+  \item[(c)] $\redbes$ \`e la chiusura riflessiva, transitiva di $\tri$.
   \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-  (a) First note that we have $P\tri P$, for any term $P$. This is
-  easily shown by induction on $P$. We now prove the claim by
-  induction on a derivation of $M\redbe M'$.  Please refer to
-  pages~\pageref{page-def-beta} and {\pageref{page-def-eta}} for
-  the rules that define $\redbe$. We make a case distinction based on
-  the last rule used in the derivation of $M\redbe M'$.
+  (a) Inizialmente notiamo che abbiamo $P\tri P$, per ogni termine $P$. Ci\`o si mostra
+  facilmente per induzione su $P$. Adesso dimostriamo l'affermazione
+  per induzione su una derivazione di $M\redbe M'$.  Riferiamoci alle
+  pagini~\pageref{page-def-beta} e {\pageref{page-def-eta}} per
+  le regole che definiscono $\redbe$. Facciamo una distinzione di casi
+  basata sull'ultima regola usata nella derivazione di $M\redbe M'$.
   \begin{itemize}
-  \item If the last rule was $\nrule{\beta}$, then $M=(\lam x.Q)N$ and
-    $M'=\subst{Q}{N}{x}$, for some $Q$ and $N$. But then $M\tri M'$ by 
-    (4), using the facts $Q\tri Q$ and $N\tri N$. 
-  \item If the last rule was $\nrule{\eta}$, then $M=\lam x.Px$ and
-    $M'=P$, for some $P$ such that $x\not\in\FV{P}$. Then $M\tri M'$
-    follows from (5), using $P\tri P$.
-  \item If the last rule was $\trule{cong$_1$}$, then $M=PN$ and
-    $M'=P'N$, for some $P$, $P'$, and $N$ where $P\redbe P'$. By
-    induction hypothesis, $P\tri P'$. From this and $N\tri N$, it
-    follows immediately that $M\tri M'$ by (2).
-  \item If the last rule was $\trule{cong$_2$}$, we proceed similarly
-    to the last case.
-  \item If the last rule was $\nrule{\xi}$, then $M=\lam x.N$ and
-    $M'=\lam x.N'$ for some $N$ and $N'$ such that $N\redbe N'$. By
-    induction hypothesis, $N\tri N'$, which implies $M\tri M'$ by (3).
+  \item Se l'ultima regola fosse $\nrule{\beta}$, allora $M=(\lam x.Q)N$ e
+    $M'=\subst{Q}{N}{x}$, per alcuni $Q$ e $N$. Ma allora $M\tri M'$ secondo 
+    (4), usando i fatti $Q\tri Q$ e $N\tri N$. 
+  \item Se l'ultima regola fosse $\nrule{\eta}$, allora $M=\lam x.Px$ e
+    $M'=P$, per alcuni $P$ tali che $x\not\in\FV{P}$. Allora $M\tri M'$
+    segue da (5), usando $P\tri P$.
+  \item Se l'ultima regola fosse $\trule{cong$_1$}$, allora $M=PN$ e
+    $M'=P'N$, per alcuni $P$, $P'$, e $N$ dove $P\redbe P'$. Per
+    ipotesi induttiva, $P\tri P'$. Da questo e $N\tri N$, segue
+    immediatamente che $M\tri M'$ per (2).
+  \item Se l'ultima regola fosse $\trule{cong$_2$}$, procediamo
+    in maniera similare all'ultimo caso.
+  \item Se l'ultima regola fosse $\nrule{\xi}$, allora $M=\lam x.N$ e
+    $M'=\lam x.N'$ per alcuni $N$ e $N'$ tali che $N\redbe N'$. Per
+    ipotesi induttiva, $N\tri N'$, che implica $M\tri M'$ per (3).
   \end{itemize}
   
-  (b) We prove this by induction on a derivation of $M\tri M'$. We
-  distinguish several cases, depending on the last rule used in the
-  derivation.
+  (b) Dimostriamo ci\`o per induzione su una derivazione di $M\tri M'$.
+  Distinguiamo diversi casi, in base all'ultima regola usata nella
+  derivazione.
   \begin{itemize}
-  \item If the last rule was (1), then $M=M'=x$, and we are done because
+  \item Se l'ultima regola fosse (1), allora $M=M'=x$, e abbiamo finito perch\'e
     $x\redbes x$.
-  \item If the last rule was (2), then $M=PN$ and $M'=P'N'$, for some
-    $P$, $P'$, $N$, $N'$ with $P\tri P'$ and $N\tri N'$. By induction
-    hypothesis, $P\redbes P'$ and $N\redbes N'$. Since $\redbes$
-    satisfies $\trule{cong}$, it follows that $PN\redbes P'N'$, hence
-    $M\redbes M'$ as desired.
-  \item If the last rule was (3), then $M=\lam x.N$ and $M'=\lam
-    x.N'$, for some $N,N'$ with $N\tri N'$. By induction hypothesis,
-    $N\redbes N'$, hence $M=\lam x.N\redbes \lam x.N'=M'$ by
+  \item Se l'ultima regola fosse (2), allora $M=PN$ e $M'=P'N'$, per alcuni
+    $P$, $P'$, $N$, $N'$ con $P\tri P'$ e $N\tri N'$. Per ipotesi
+    induttiva, $P\redbes P'$ e $N\redbes N'$. Dato che $\redbes$
+    soddisfa $\trule{cong}$, segue che $PN\redbes P'N'$, quindi
+    $M\redbes M'$ come richiesto.
+  \item Se l'ultima regola fosse (3), allora $M=\lam x.N$ e $M'=\lam
+    x.N'$, per alcuni $N,N'$ con $N\tri N'$. Per ipotesi induttiva,
+    $N\redbes N'$, quindi $M=\lam x.N\redbes \lam x.N'=M'$ per
     $\nrule{\xi}$. 
-  \item If the last rule was (4), then $M=(\lam x.Q)N$ and
-    $M'=\subst{Q'}{N'}{x}$, for some $Q,Q',N,N'$ with $Q\tri Q'$ and
-    $N\tri N'$. By induction hypothesis, $Q\redbes Q'$ and $N\redbes
-    N'$. Therefore $M=(\lam x.Q)N\redbes(\lam x.Q')N'\redbe
-    \subst{Q'}{N'}{x}=M'$, as desired.
-  \item If the last rule was (5), then $M=\lam x.Px$ and $M'=P'$, for
-    some $P,P'$ with $P\tri P'$, and $x\not\in\FV{P}$. By induction
-    hypothesis, $P\redbes P'$, hence $M=\lam x.Px\redbe P\redbes
-    P'=M'$, as desired.
+  \item Se l'ultima regola fosse (4), allora $M=(\lam x.Q)N$ e
+    $M'=\subst{Q'}{N'}{x}$, per alcuni $Q,Q',N,N'$ con $Q\tri Q'$ e
+    $N\tri N'$. Per ipotesi induttiva, $Q\redbes Q'$ e $N\redbes
+    N'$. Quindi $M=(\lam x.Q)N\redbes(\lam x.Q')N'\redbe
+    \subst{Q'}{N'}{x}=M'$, come richiesto.
+  \item Se l'ultima regola fosse (5), allora $M=\lam x.Px$ e $M'=P'$, per
+    alcuni $P,P'$ con $P\tri P'$, e $x\not\in\FV{P}$. Per ipotesi
+    induttiva, $P\redbes P'$, quindi $M=\lam x.Px\redbe P\redbes
+    P'=M'$, come richiesto.
   \end{itemize}
   
-  (c) This follows directly from (a) and (b). Let us write $R^*$ for
-  the reflexive transitive closure of a relation $R$. By (a), we have
-  ${\redbe}\seq{\tri}$, hence ${\redbes}={\redbe}^*\seq{\tri}^*$. By
-  (b), we have ${\tri}\seq{\redbes}$, hence
-  ${\tri}^*\seq{\redbes}^*={\redbes}$. It follows that
+  (c) Questo segue direttamente da (a) e (b). Scriviamo $R^*$ per
+  la chiusura riflessiva transitiva di una relazione $R$. Per (a), abbiamo
+  ${\redbe}\seq{\tri}$, quindi ${\redbes}={\redbe}^*\seq{\tri}^*$. Per
+  (b), abbiamo ${\tri}\seq{\redbes}$, quindi
+  ${\tri}^*\seq{\redbes}^*={\redbes}$. Segue che
   ${\tri}^*={\redbes}$.\eot
 \end{proof}
 
-We will soon prove that $\tri$ satisfies the diamond property.  Note
-that together with Lemma~\ref{lem-tri-redbes}(c), this will
-immediately imply that $\redbes$ satisfies the Church-Rosser property.
+Presto dimostreremo che $\tri$ soddisfa la propriet\`a del diamante. Nota
+che insieme al Lemma~\ref{lem-tri-redbes}(c), questo
+implicher\`a immediatamente che $\redbes$ soddisfa la propriet\`a di Church-Rosser.
 
-\begin{lemma}[Substitution]
-If $M \tri M'$ and $U \tri U'$, then
+\begin{lemma}[Sostituzione]
+Se $M \tri M'$ e $U \tri U'$, allora
 $\subst{M}{U}{y} \tri \subst{M'}{U'}{y}$.
 \end{lemma}
 
 \begin{proof}
-  We assume without loss of generality that any bound variables of $M$
-  are different from $y$ and from the free variables of $U$. The claim
-  is now proved by induction on derivations of $M\tri M'$. We
-  distinguish several cases, depending on the last rule used in the
-  derivation:
+  Assumiamo senza perdite di generalit\`a che ogni variabile legata di $M$
+  \`e diversa da $y$ e dalle variabili libere di $U$. L'affermazione
+  \`e ora dimostrata per induzione sulle derivazioni di $M\tri M'$. Distinguiamo
+  diversi casi, in base all'ultima regola usata
+  nella derivazione:
   \begin{itemize}
-  \item If the last rule was (1), then $M=M'=x$, for some variable
-    $x$. If $x=y$, then $\subst{M}{U}{y}=U\tri U'=\subst{M'}{U'}{y}$.
-    If $x\neq y$, then by (1), $\subst{M}{U}{y}=x\tri
+  \item Se l'ultima regola fosse (1), allora $M=M'=x$, per qualche variabile
+    $x$. Se $x=y$, allora $\subst{M}{U}{y}=U\tri U'=\subst{M'}{U'}{y}$.
+    Se $x\neq y$, allora per (1), $\subst{M}{U}{y}=x\tri
     x=\subst{M'}{U'}{y}$.
-  \item If the last rule was (2), then $M=PN$ and $M'=P'N'$, for some
-    $P$, $P'$, $N$, $N'$ with $P\tri P'$ and $N\tri N'$. By induction
-    hypothesis, $\subst{P}{U}{y}\tri \subst{P'}{U'}{y}$ and
-    $\subst{N}{U}{y}\tri \subst{N'}{U'}{y}$, hence by (2),
+  \item Se l'ultima regola fosse (2), allora $M=PN$ e $M'=P'N'$, per qualche
+    $P$, $P'$, $N$, $N'$ con $P\tri P'$ e $N\tri N'$. Per ipotesi
+    induttiva, $\subst{P}{U}{y}\tri \subst{P'}{U'}{y}$ e
+    $\subst{N}{U}{y}\tri \subst{N'}{U'}{y}$, quindi per (2),
     $\subst{M}{U}{y}=\subst{P}{U}{y}\subst{N}{U}{y} \tri 
     \subst{P'}{U'}{y}\subst{N'}{U'}{y} = \subst{M'}{U'}{y}$.
-  \item If the last rule was (3), then $M=\lam x.N$ and $M'=\lam
-    x.N'$, for some $N,N'$ with $N\tri N'$. By induction hypothesis,
-    $\subst{N}{U}{y}\tri \subst{N'}{U'}{y}$, hence by (3)
+  \item Se l'ultima regola fosse (3), allora $M=\lam x.N$ e $M'=\lam
+    x.N'$, per qualche $N,N'$ con $N\tri N'$. Per ipotesi induttiva,
+    $\subst{N}{U}{y}\tri \subst{N'}{U'}{y}$, quindi per (3)
     $\subst{M}{U}{y}=\lam x.\subst{N}{U}{y} \tri \lam
     x.\subst{N'}{U'}{y} = \subst{M'}{U'}{y}$.
-  \item If the last rule was (4), then $M=(\lam x.Q)N$ and
-    $M'=\subst{Q'}{N'}{x}$, for some $Q,Q',N,N'$ with $Q\tri Q'$ and
-    $N\tri N'$.  By induction hypothesis, $\subst{Q}{U}{y}\tri
-    \subst{Q'}{U'}{y}$ and $\subst{N}{U}{y}\tri \subst{N'}{U'}{y}$,
-    hence by (4), $(\lam x.\subst{Q}{U}{y})\subst{N}{U}{y} \tri
+  \item Se l'ultima regola fosse (4), allora $M=(\lam x.Q)N$ e
+    $M'=\subst{Q'}{N'}{x}$, per qualche $Q,Q',N,N'$ con $Q\tri Q'$ e
+    $N\tri N'$.  Per ipotesi induttiva, $\subst{Q}{U}{y}\tri
+    \subst{Q'}{U'}{y}$ e $\subst{N}{U}{y}\tri \subst{N'}{U'}{y}$,
+    quindi per (4), $(\lam x.\subst{Q}{U}{y})\subst{N}{U}{y} \tri
     \subst{\subst{Q'}{U'}{y}}{\subst{N'}{U'}{y}}{x} =
-    \subst{\subst{Q'}{N'}{x}}{U'}{y}$. Thus $\subst{M}{U}{y}
+    \subst{\subst{Q'}{N'}{x}}{U'}{y}$. Quindi $\subst{M}{U}{y}
     \tri \subst{M'}{U'}{y}$.
-  \item If the last rule was (5), then $M=\lam x.Px$ and $M'=P'$, for
-    some $P,P'$ with $P\tri P'$, and $x\not\in\FV{P}$. By induction
-    hypothesis, $\subst{P}{U}{y}\tri \subst{P'}{U'}{y}$, hence by (5),
+  \item Se l'ultima regola fosse (5), allora $M=\lam x.Px$ e $M'=P'$, per
+    qualche $P,P'$ con $P\tri P'$, e $x\not\in\FV{P}$. Per ipotesi
+    induttiva, $\subst{P}{U}{y}\tri \subst{P'}{U'}{y}$, quindi per (5),
     $\subst{M}{U}{y}=\lam x.\subst{P}{U}{y}x \tri
     \subst{P'}{U'}{y}=\subst{M'}{U'}{y}$.\eot
   \end{itemize}
 \end{proof}
   
-A more conceptual way of looking at this proof is the following:
-consider any derivation of $M\tri M'$ from axioms (1)--(5). In this
-derivation, replace any axiom $y\tri y$ by $U\tri U'$, and propagate
-the changes (i.e., replace $y$ by $U$ on the left-hand-side, and by
-$U'$ on the right-hand-side of any $\tri$). The result is a derivation
-of $\subst{M}{U}{y}\tri\subst{M'}{U'}{y}$. (The formal proof that the
-result of this replacement is indeed a valid derivation requires an
-induction, and this is the reason why the proof of the substitution
-lemma is so long).
+Un modo pi\`u concettuale di guardare a questa dimostrazione \`e il seguente:
+consideriamo qualsiasi derivazione di $M\tri M'$ dagli assiomi (1)--(5). In
+questa derivazione, sostituiamo ogni assioma
+ $y\tri y$ con $U\tri U'$, e propaghiamo i
+cambiamenti (ossia sostituiamo $y$ con $U$ al primo membro, e oer
+$U'$ al secondo membro per ogni $\tri$). Il risultato \`e una derivazione
+di $\subst{M}{U}{y}\tri\subst{M'}{U'}{y}$. (La dimostrazione formale che
+il risultato di questa sostituzione \`e effettivamente una derivazione valida richiede
+un induzione, e questo \`e il motivo per cui la dimostrazione del lemma
+della sostituzione \`e cos\`i lungo).
 
-Our next goal is to prove that $\tri$ satisfies the diamond
-property. Before proving this, we first define the {\em maximal
-  parallel one-step reduct} $M^*$ of a term $M$ as follows:
+Il nostro prossimo obbiettivo \`e dimostrare che $\tri$ soddisfa la
+propriet\`a del diamante. Prima di farlo, dobbiamo definire il {\em ridotto
+	massimale parallelo a un passaggio} $M^*$ di un termine $M$ come segue:
 
 \begin{enumerate}
-\item $x^* = x$, for a variable.
-\item $(PN)^* = P^*N^*$, if $PN$ is not a $\beta$-redex. 
+\item $x^* = x$, per una variabile.
+\item $(PN)^* = P^*N^*$, se $PN$ non \`e un $\beta$-redex. 
 \item $((\lam x.Q)N)^* = \subst{Q^*}{N^*}{x}$.
-\item $(\lam x.N)^* = \lam x.N^*$, if $\lam x.N$ is not an 
+\item $(\lam x.N)^* = \lam x.N^*$, se $\lam x.N$ non \`e un 
         $\eta$-redex.
 \item $(\lam x.Px)^* = P^*$, if $x\not\in\FV{P}$.
 \end{enumerate}
 
-Note that $M^*$ depends only on $M$.  The following lemma implies the
-diamond property for $\tri$.
+Nota che $M^*$ dipende soltanto da $M$. Il seguente lemma implica la
+propriet\`a del diamante per $\tri$.
 
-\begin{lemma}[Maximal parallel one-step reductions]
+\begin{lemma}[Riduzioni parallele massimali ad un passaggio]
 \label{lem-max-par}
-  Whenever $M \tri M'$, then $M' \tri M^*$.
+  Quando $M \tri M'$, allora $M' \tri M^*$.
 \end{lemma}
 
 \begin{proof}
-  By induction on the size of $M$. We distinguish five cases,
-  depending on the last rule used in the derivation of $M \tri M'$.
-  As usual, we assume that all bound variables have been renamed to
-  avoid clashes.
+  Per induzione sulla dimensione di $M$. Distinguiamo cinque casi,
+  in base all'ultima regola usata nella derivazione di $M \tri M'$.
+  Come al solito, diamo per assodato che tutte le variabili legate sono state
+  rinominate per evitare collisioni.
   \begin{itemize}
-  \item If the last rule was (1), then $M=M'=x$, also $M^*=x$, and we
-    are done.
-  \item If the last rule was (2), then $M=PN$ and $M'=P'N'$, where
-    $P\tri P'$ and $N\tri N'$. By
-    induction hypothesis $P'\tri P^*$ and $N'\tri N^*$. Two cases:
+  \item Se l'ultima regola fosse (1), allora $M=M'=x$, inoltre $M^*=x$, e abbiamo
+    finito.
+  \item Se l'ultima regola fosse (2), allora $M=PN$ e $M'=P'N'$, dove
+    $P\tri P'$ e $N\tri N'$. Per
+    ipotesi induttiva $P'\tri P^*$ e $N'\tri N^*$. Due casi:
     \begin{itemize}
-    \item If $PN$ is not a $\beta$-redex, then $M^*=P^*N^*$. Thus
-      $M'=P'N'\tri P^*N^*=M^*$ by (2), and we are done.
-    \item If $PN$ is a $\beta$-redex, say $P=\lam x.Q$, then
-      $M^*=\subst{Q^*}{N^*}{x}$. We distinguish two subcases,
-      depending on the last rule used in the derivation of $P\tri P'$:
+    \item Se $PN$ non \`e un $\beta$-redex, allora $M^*=P^*N^*$. Quindi
+      $M'=P'N'\tri P^*N^*=M^*$ per (2), e abbiamo finito.
+    \item Se $PN$ \`e un $\beta$-redex, sia $P=\lam x.Q$, allora
+      $M^*=\subst{Q^*}{N^*}{x}$. Distinguiamo due sottocasi,
+      in base all'ultima regola usata nella derivazione di $P\tri P'$:
       \begin{itemize} 
-      \item If the last rule was (3), then $P'=\lam x.Q'$, where
-        $Q\tri Q'$.  By induction hypothesis $Q' \tri Q^*$, and with
-        $N' \tri N^*$, it follows that $M' = (\lam x.Q')N' \tri
-        \subst{Q^*}{N^*}{x} = M^*$ by (4).
-      \item If the last rule was (5), then $P=\lam x.Rx$ and $P'=R'$,
-        where $x\not\in\FV{R}$ and $R\tri R'$. Consider the term
-        $Q=Rx$.  Since $Rx \tri R'x$, and $Rx$ is a subterm of $M$, by
-        induction hypothesis $R'x \tri (Rx)^*$. By the substitution
-        lemma, $M' = R'N' = \subst{(R'x)}{N'}{x} \tri
+      \item Se l'ultima regola fosse (3), allora $P'=\lam x.Q'$, dove
+        $Q\tri Q'$.  Per ipotesi induttiva $Q' \tri Q^*$, e con
+        $N' \tri N^*$, segue che $M' = (\lam x.Q')N' \tri
+        \subst{Q^*}{N^*}{x} = M^*$ per (4).
+      \item (5), allora $P=\lam x.Rx$ e $P'=R'$,
+        dove $x\not\in\FV{R}$ e $R\tri R'$. Consideriamo il termine
+        $Q=Rx$.  Dato che $Rx \tri R'x$, e $Rx$ \`e un sottotermine di $M$, per
+        ipotesi induttiva $R'x \tri (Rx)^*$. Per il lemma della
+        sostituzione, $M' = R'N' = \subst{(R'x)}{N'}{x} \tri
         \subst{(Rx)^*}{N^*}{x} = M^*$.
       \end{itemize}
     \end{itemize}
-  \item If the last rule was (3), then $M = \lam x.N$ and $M' = \lam
-    x.N'$, where $N\tri N'$. Two cases:
+  \item (3), allora $M = \lam x.N$ e $M' = \lam
+    x.N'$, dove $N\tri N'$. Due casi:
     \begin{itemize}
-    \item If $M$ is not an $\eta$-redex, then $M^*=\lam x.N^*$. By
-      induction hypothesis, $N'\tri N^*$, hence $M'\tri M^*$ by (3).
-    \item If $M$ is an $\eta$-redex, then $N=Px$, where
-      $x\not\in\FV{P}$. In this case, $M^*=P^*$. We distinguish two
-      subcases, depending on the last rule used in the derivation of
+    \item Se $M$ non \`e un $\eta$-redex, allora $M^*=\lam x.N^*$. Per
+      ipotesi induttiva, $N'\tri N^*$, quindi $M'\tri M^*$ per (3).
+    \item Se $M$ \`e un $\eta$-redex, allora $N=Px$, dove
+      $x\not\in\FV{P}$. In questo caso, $M^*=P^*$. Distinguiamo due
+      sottocasi, in base all'ultima regola usata nella derivazione di
       $N\tri N'$:
       \begin{itemize}
-      \item If the last rule was (2), then $N' = P'x$, where $P\tri
-        P'$. By induction hypothesis $P' \tri P^*$.  Hence $M' = \lam
-        x.P'x \tri P^* = M^*$ by (5).
-      \item If the last rule was (4), then $P = \lam y.Q$ and $N' =
-        \subst{Q'}{x}{y}$, where $Q\tri Q'$. Then $M' = \lam
-        x.\subst{Q'}{x}{y} = \lam y.Q'$ (note $x \not\in \FV{Q'}$).
-        But $P \tri \lam y.Q'$, hence by induction hypothesis, $\lam
+      \item (2), allora $N' = P'x$, dove $P\tri
+        P'$. Per ipotesi induttiva $P' \tri P^*$.  Quindi $M' = \lam
+        x.P'x \tri P^* = M^*$ prt (5).
+      \item (4), allora $P = \lam y.Q$ e $N' =
+        \subst{Q'}{x}{y}$, dove $Q\tri Q'$. Allora $M' = \lam
+        x.\subst{Q'}{x}{y} = \lam y.Q'$ (nota $x \not\in \FV{Q'}$).
+        Ma $P \tri \lam y.Q'$, quindi per ipotesi induttiva, $\lam
         y.Q' \tri P^* = M^*$.
       \end{itemize}
     \end{itemize}
-  \item If the last rule was (4), then $M = (\lam x.Q)N$ and $M' =
-    \subst{Q'}{N'}{x}$, where $Q\tri Q'$ and $N\tri N'$. Then $M^* =
-    \subst{Q^*}{N^*}{x}$, and $M' \tri M^*$ by the substitution lemma.
-  \item If the last rule was (5), then $M = \lam x.Px$ and $M' = P'$,
-    where $P\tri P'$ and $x\not\in\FV{P}$. Then $M^*=P^*$. By
-    induction hypothesis, $P'\tri P^*$, hence $M'\tri M^*$.  \eot
+  \item (4), allora $M = (\lam x.Q)N$ e $M' =
+    \subst{Q'}{N'}{x}$, dove $Q\tri Q'$ e $N\tri N'$. Allora $M^* =
+    \subst{Q^*}{N^*}{x}$, e $M' \tri M^*$ per il lemma della sostituzione.
+  \item (5), allora $M = \lam x.Px$ e $M' = P'$,
+    dove $P\tri P'$ e $x\not\in\FV{P}$. Allora $M^*=P^*$. Per
+    ipotesi induttiva, $P'\tri P^*$, quindi $M'\tri M^*$.  \eot
   \end{itemize}
 \end{proof}
 
-The previous lemma immediately implies the diamond property for
+Il lemma precedente implica la propriet\`a del diamante immediatamente per
 $\tri$:
 
-\begin{lemma}[Diamond property for $\tri$]
-  If $M\tri N$ and $M\tri P$, then there exists $Z$ such that $N\tri
-  Z$ and $P\tri Z$. 
+\begin{lemma}[Propriet\`a del diamante per $\tri$]
+  Se $M\tri N$ e $M\tri P$, allora esiste un $Z$ tale che $N\tri
+  Z$ e $P\tri Z$. 
 \end{lemma}
 
 \begin{proof}
-  Take $Z=M^*$.\eot
+  Prendiamo $Z=M^*$.\eot
 \end{proof}
 
-Finally, we have a proof of the Church-Rosser Theorem:
+Infine, abbiamo una dimostrazione del Teorema di Church-Rosser:
 
 \begin{proofof}{Theorem~\ref{thm-church-rosser}}
-  Since $\tri$ satisfies the diamond property, it follows that its
-  reflexive transitive closure $\tri^*$ also satisfies the diamond
-  property, as shown in Figure~\ref{fig-diamond-a}. But $\tri^*$ is the same
-  as $\redbes$ by Lemma~\ref{lem-tri-redbes}(c), and the diamond property for
-  $\redbes$ is just the Church-Rosser property for $\redbe$.\eot
+  Dato che $\tri$ soddisfa la propriet\`a del diamante, segue che la sua
+  chiusura riflessiva transitiva $\tri^*$ soddisfa anch'essa la propriet\`a
+  del diamante, come mostrato in Figura~\ref{fig-diamond-a}. Ma $\tri^*$ \`e lo stesso
+  di $\redbes$ per il Lemma~\ref{lem-tri-redbes}(c), e la propriet\`a del diamante per
+  $\redbes$ \`e semplicemente la propriet\`a di Church-Rosser per $\redbe$.\eot
 \end{proofof}
 
 % ----------------------------------------------------------------------
