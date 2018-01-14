@@ -3646,9 +3646,10 @@ Si noti che le suddette codifiche dei booleani e dei loro if-then-else
  la digitazione garantisce che tutti i termini booleani chiusi alla fine si riducono a $\truet$ o $\falset$.
 
 % ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
 \subsubsection{Numeri naturali}
 
-We can also define a type of Church numerals in System F. We define:
+Possiamo anche definire un tipo di numeri di Church nel Sistema F. Definiamo:
 \[ \begin{array}{ccl}
   \nat &=& \forall\alpha.(\alpha\to\alpha)\to\alpha\to\alpha,\\
   \chnum{0} &=& \Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.x,\\
@@ -3659,37 +3660,37 @@ We can also define a type of Church numerals in System F. We define:
   \ldots
 \end{array}
 \]
-It is then easy to define simple functions, such as successor,
-addition, and multiplication:
+È quindi facile definire funzioni semplici, come ad esempio il successore,
+addizione e moltiplicazione:
 \[ \begin{array}{ccl}
   \succt &=& \lamabs{n}{\nat}.\Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.f(n\alpha f x),\\
   \addt &=&  \lamabs{n}{\nat}.\lamabs{m}{\nat}.\Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.n\alpha f(m\alpha fx), \\
   \multt &=& \lamabs{n}{\nat}.\lamabs{m}{\nat}.\Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.n\alpha (m\alpha f).
 \end{array}
 \]
-Just as for the booleans, these encodings of the Church numerals and
-functions are exactly the same as those of the untyped lambda calculus
-from Section~\ref{ssec-natural-numbers}, if one erases all the types
-and type abstractions.  We will show in
-Proposition~\ref{prop-unique-nat} below that the Church numerals are,
-up to $\beta\eta$-equivalence, the only closed terms of type $\nat$.
+Proprio come per i Booleani, queste codifiche dei numeri di Church
+ e le funzioni sono esattamente le stesse di quelle del calcolo lambda
+ non tipato dalla Sezione~\ref{ssec-natural-numbers}, se si cancellano tutti i tipi
+e le astrazioni di tipo. Mostreremo in 
+Proposizione~\ref{prop-unique-nat} oltre a quello  numeri di church sono,
+secondo $\beta\eta$-equivalenza, gli unici termini chiusi di tipo $\nat$.
 
 % ----------------------------------------------------------------------
-\subsubsection{Pairs}\label{ssec-pairs}
+\subsubsection{Coppie}\label{ssec-pairs}
 
-You will have noticed that we didn't include a cartesian product type
-$A\times B$ in the definition of System F. This is because such a type
-is definable. Specifically, let
+Avrai notato che non abbiamo incluso un tipo di prodotto cartesiano
+$A\times B$ nella definizione di Sistema F. Questo perchè questo tipo
+è definibile. Specificamente, definiamo
 \[ \begin{array}{ccl}
   A\times B &=& \forall\alpha.(A\to B\to\alpha)\to\alpha,\\
   \pair{M,N} &=& \Lamabs{\alpha}.\lamabs{f}{A\to B\to\alpha}.fMN.
 \end{array}
 \]
 
-Note that when $M:A$ and $N:B$, then $\pair{M,N}:A\times B$. Moreover,
-for any pair of types $A,B$, we have projection
-functions $\leftt AB : A\times B\to A$ and $\rightt AB : A\times B\to
-B$, defined by
+Da notare che quando $M:A$ e $N:B$, allora $\pair{M,N}:A\times B$. Inoltre,
+per qualsiasi coppia di tipi $A,B$, abbiamo funzioni di
+proiezione $\leftt AB : A\times B\to A$ e $\rightt AB : A\times B\to
+B$, definiti da
 \[ \begin{array}{ccl}
   \leftt &=& \Lamabs{\alpha}.\Lamabs{\beta}.\lamabs{p}{\alpha\times
     \beta}.p\alpha(\lamabs{x}{\alpha}.\lamabs{y}{\beta}.x),\\
@@ -3697,117 +3698,116 @@ B$, defined by
     \beta}.p\beta(\lamabs{x}{\alpha}.\lamabs{y}{\beta}.y).
 \end{array}
 \]
-This satisfies the usual laws
+Questo soddisfa la solita legge
 \[ \begin{array}{ccl}
   \leftt AB\pair{M,N} &\redbs& M,\\
   \rightt AB\pair{M,N} &\redbs& N.
 \end{array}
 \]
-Once again, these encodings of pairs and projections are exactly the
-same as those we used in the untyped lambda calculus, when one erases
-all the type-related parts of the terms. You will show in
-Exercise~\ref{ex-unique-pair} that every closed term of type $A\times
-B$ is $\beta\eta$-equivalent to a term of the form $\pair{M,N}$.
+Una volta che , un'altra volta,queste codifiche di coppie e proiezioni 
+sono esattamente le stesse di quelle che abbiamo usato nel  lambda 
+calcolo non tipato, quando si cancellano tutte le parti correlate ai tipi 
+dei termini. Saremo capaci di dimostrare
+Esercizio~\ref{ex-unique-pair} che ogni termine chiuso di lambda $A\times
+B$ è $\beta\eta$-equivalente ad un termine nella forma $\pair{M,N}$.
 
 \begin{remark}
-  It is also worth noting that the corresponding $\eta$-laws, such as
+  \'E anche importante notare che $\eta$-leggi, come per esempio
   \[  \pair{\leftt M,\rightt M}=M,
-  \] are {\em not} derivable in System F. These laws hold whenever $M$
-  is a closed term, but not necessarily when $M$ contains free
-  variables.
+  \] sono {\em not} derivabili nel Sistema F. Queste leggi valgono ogni volta che $M$
+  è un termine chiuso, ma non necessariamente quando $M$ contiene variabili
+  libere.
 \end{remark}
 
 \begin{exercise}\label{ex-encodings}
-  Find suitable encodings in System F of the types $1$, $A+B$, and
-  $0$, along with the corresponding terms $\unit$, $\inj1$, $\inj2$,
-  $\caseof{M}{x}{A}{N}{y}{B}{P}$, and $\Box_A{M}$.
+  Trovare delle codifiche adeguate nel Sistema F di tutti i tipi $1$, $A+B$, e
+  $0$, insieme ai termini corrispondenti $\unit$, $\inj1$, $\inj2$,
+  $\caseof{M}{x}{A}{N}{y}{B}{P}$, e $\Box_A{M}$.
 \end{exercise}
 
 % ----------------------------------------------------------------------
-\subsection{Church-Rosser property and strong normalization}
+\subsection{proprietà di Church-Rosser e normalizzazione forte}
 
 \begin{theorem}[Church-Rosser]
-  System F satisfies the Church-Rosser property, both for
-  $\beta$-reduction and for $\beta\eta$-reduction.
+   Il Sistema F soddisfa le proprietà Church-Rosser, tutte e due per
+  $\beta$-riduzione e per $\beta\eta$-riduzione.
 \end{theorem}
 
-\begin{theorem}[Strong normalization]\label{thm-strong-norm-system-f}
-  In System F, all terms are strongly normalizing.
+\begin{theorem}[Normalizzazione forte]\label{thm-strong-norm-system-f}
+  nel Sistema F, tutti i termini sono normalizzanti forti.
 \end{theorem}
 
-The proof of the Church-Rosser property is similar to that of the
-simply-typed lambda calculus, and is left as an exercise. The proof of
-strong normalization is much more complex; it can be found in Chapter
-14 of ``Proofs and Types'' {\cite{GLT89}}.
+La prova della proprietà Church-Rosser è simile a quella del
+lambda calcolo semplicemente tipato, e viene lasciato come esercizio.
+ La dimostrazione di normalizzazione forte è molto più complessa;
+ la si può trovare nel capitolo14 di `` Dimostrazioni e Tipi '' {\cite{GLT89}}.
 
 % ----------------------------------------------------------------------
-\subsection{The Curry-Howard isomorphism}
+\subsection{Isomorfismo di Curry-Howard }
 
-From the point of view of the Curry-Howard isomorphism,
-$\forall\alpha.A$ is the universally quantified logical statement
-``for all $\alpha$, $A$ is true''. Here $\alpha$ ranges over atomic
-propositions. For example, the formula
-$\forall\alpha.\forall\beta.\alpha\to(\beta\to\alpha)$ expresses the
-valid fact that the implication $\alpha\to(\beta\to\alpha)$ is true
-for all propositions $\alpha$ and $\beta$. Since this quantifier
-ranges over {\em propositions}, it is called a {\em second-order
-  quantifier}, and the corresponding logic is {\em second-order
-  propositional logic}. 
+Dal punto di vista dell'isomorfism di Curry-Howard,
+$\forall\alpha.A$ è l'affermazione logica universalmente quantificata
+``per tutti $\alpha$, $A$ è vera''. Qui $\alpha$ spazia sulle proposizioni atomiche.
+ Per esempio, la formula
+$\forall\alpha.\forall\beta.\alpha\to(\beta\to\alpha)$ esprime il
+fatto valido che l'implicazione $\alpha\to(\beta\to\alpha)$ è vera
+per tutte le proposizioni $\alpha$ and $\beta$. Dato che questo quantificatore
+va oltre le {\em proposizioni}, è chiamato{\em quantificatore
+ di secondo ordine}, e la logica corrispondente è {\em proposizione logica di secondo ordine}. 
 
-Under the Curry-Howard isomorphism, the typing rules for System F
-become the following logical rules:
+Sotoo l'isomorfismo di Curry-Howard , le regole per la tipizzazione nel Sistema F
+diventano le seguent regole logiche:
 \begin{itemize}
-\item (Axiom)
+\item (Assioma)
 \[ \trule{ax$_x$}\ \deriv{}{\Gamma,\typ{x}{A}\tj A}
 \]
-\item ($\to$-introduction)
+\item ($\to$-introduzione)
 \[ \trule{$\to$-I$_x$}\ \deriv{\Gamma,\typ{x}{A}\tj B}{\Gamma\tj A\to B}
 \]
-\item ($\to$-elimination)
+\item ($\to$-eliminazione)
 \[ \trule{$\to$-E}\ \deriv{\Gamma\tj A\to B\sep \Gamma\tj A}{\Gamma\tj B}
 \]
-\item ($\forall$-introduction)
+\item ($\forall$-introduzione)
 \[ \trule{$\forall$-I}\ \deriv{\Gamma\tj A\sep \alpha\not\in\FTV{\Gamma}}{\Gamma\tj \forall\alpha.A}
 \]
-\item ($\forall$-elimination)
+\item ($\forall$-eliminazione)
 \[ \trule{$\forall$-E}\ \deriv{\Gamma\tj \forall\alpha.A}{\Gamma\tj A[B/\alpha]}
 \]
 \end{itemize}
-The first three of these rules are familiar from propositional
-logic. 
+Le prime tre di queste regole sono familiari dalla logica proposizionale.
 
-The $\forall$-introduction rule is also known as {\em universal
-  generalization}. It corresponds to a well-known logical reasoning
-principle: If a statement $A$ has been proven for some {\em arbitrary}
-$\alpha$, then it follows that it holds for {\em all} $\alpha$. The
-requirement that $\alpha$ is ``arbitrary'' has been formalized in the
-logic by requiring that $\alpha$ does not appear in any of the
-hypotheses that were used to derive $A$, or in other words, that
-$\alpha$ is not among the free type variables of $\Gamma$.
+La regola $\forall$-introduzione è anche conosciuta come {\em generalizzazione 
+  universale}. Corrisponde a un ragionamento logico ben noto
+principio: se una dichiarazione $A$  è stata dimostrata per alcuni {\em arbitrari}
+$\alpha$, ne consegue che vale per {\em all} $\alpha$.Il
+il requisito che $\alpha$ sia `` arbitrario '' è stato formalizzato nella
+logica richiedendo che $\alpha$ non appaia in nessuna delle
+ipotesi che sono state utilizzate per ricavare $A$, o, in altre parole, che
+$\alpha$ non è tra le variabili libere di $\Gamma$.
 
-The $\forall$-elimination rule is also known as {\em universal
-  specialization}. It is the simple principle that if some statement
-is true for all propositions $\alpha$, then the same statement is true for
-any particular proposition $B$. Note that, unlike the $\forall$-introduction
-rule, this rule does not require a side condition. 
+La regola $\forall$-eliminazione è anche conosciuta come {\em specializzazione 
+  universale}.  È il semplice principio che se qualche affermazione
+è vera per tutte le proposizioni $\alpha$, allora la stessa affermazione è vera per
+qualsiasi proposizione particolare $B$. Da notare che, a differenza della regola $\forall$-introduzione
+, questa regola non richiede una condizione secondaria. 
 
-Finally, we note that the side condition in the $\forall$-introduction
-rule is of course the same as that of the typing rule $\tjLam$ of
-Table~\ref{tab-system-f-typing-rules}. From the point of view of
-logic, the side condition is justified because it asserts that
-$\alpha$ is ``arbitrary'', i.e., no assumptions have been made about
-it. From a lambda calculus view, the side condition also makes sense:
-otherwise, the term $\lamabs{x}{\alpha}.\Lamabs{\alpha}.x$ would be
-well-typed of type $\alpha\to\forall\alpha.\alpha$, which clearly does
-not make any sense: there is no way that an element $x$ of some fixed
-type $\alpha$ could suddenly become an element of an arbitrary type. 
+Infine, notiamo che la condizione secondaria nella regola di $\forall$-introduction
+è ovviamente la stessa della regola di tipizzazione $\tjLam$ della
+Tabella~\ref{tab-system-f-typing-rules}. Dal punto di vista della logica, 
+la condizione secondaria è giustificata perché viene affermato che
+$\alpha$ è ``arbitrario'', per esempio, non sono state fatte ipotesi su di esso. 
+Dal punto di vista del lambda calcolo, anche la condizione accessoria ha senso:
+altrimenti, il termine $\lamabs{x}{\alpha}.\Lamabs{\alpha}.x$ sarebbe
+ben-tipata di tipo $\alpha\to\forall\alpha.\alpha$, che chiaramente non 
+ha alcun senso: non c'è modo che un elemento $x$ di qualche tipo
+fisso $\alpha$ potrebbe diventare improvvisamente un elemento di un tipo arbitrario. 
 
 % ----------------------------------------------------------------------
-\subsection{Supplying the missing logical connectives}
+\subsection{Fornire i connettivi logici mancanti}
 
-It turns out that a logic with only implication $\to$ and a
-second-order universal quantifier $\forall$ is sufficient for
-expressing all the other usual logical connectives, for example:
+Si scopre che una logica con solo l'implicazione  $\to$ ed
+il quantificatore universale del secondo ordine  $\forall$ è sufficiente per
+esprimere tutti gli altri connettivi logici usuali, ad esempio:
 \begin{eqnarray}
   A\cand B &\iff& \forall\alpha.(A\to B\to\alpha)\to\alpha,\label{eqn-A-cand-B}\\
   A\cor B &\iff& \forall\alpha.(A\to\alpha)\to(B\to\alpha)\to\alpha,\label{eqn-A-cor-B}\\
@@ -3818,8 +3818,8 @@ expressing all the other usual logical connectives, for example:
 \end{eqnarray}
 
 \begin{exercise}
-  Using informal intuitionistic reasoning, prove that the left-hand side
-  is logically equivalent to the right-hand side for each of
+   Usando il ragionamento intuizionistico informale, dimostra che il lato sinistro
+   è logicamente equivalente al lato destro per ciascuno di
   {\eqref{eqn-A-cand-B}}--{\eqref{eqn-exists-beta-A}}.
 \end{exercise}
 
