@@ -45,7 +45,7 @@ $f\seq X\times Y$ cos\`i che per ognuno $x\in X$, ne esiste soltanto
 una $y\in Y$ tale che $(x,y)\in f$. Due funzioni $f,g:X\to Y$ si
 definiscono uguali se hanno lo stesso output ad ogni input, ad esempio,
 $f(x)=g(x)$ per ogni $x\in X$. Questa viene chiamata vista {\em estensionale}
-delle funzioni, perché specifica che l'unica cosa osservabile 
+delle funzioni, perch\'e specifica che l'unica cosa osservabile 
 di una funzione \`e come associa gli input e gli output.
 
 A dire il vero, prima del ventesimo secolo, raramente le funzioni venivano
@@ -197,7 +197,7 @@ dell'argomento \`e lo stesso del dominio della funzione. Di conseguenza,
 termini come $f(f)$ sono fuori questione, anche se $f$ \`e la funzione identit\`a.
 \item {\em Lambda-calcolo tipato polimorfo.} Questa \`e una
 situazione intermedia, dove potremmo specificare, ad esempio, che
-un termine ha un tipo della forma $X\to X$ per tutti gli $X$, senza neanche
+un termine ha un tipo della forma $X\to X$ per ogni $X$, senza neanche
 specificare $X$.
 \end{itemize}
 
@@ -234,7 +234,7 @@ essere scritta come un lambda-termine.
 tre i modelli computazionali sono equivalenti l'uno con l'altro, ossia che
 ogni modello definisce la stessa classe di funzioni computabili. Che siano o meno
 equivalenti alla nozione ``intuitiva'' di computabilit\`a \`e
-una domanda che non pu\`o avere risposta, poiché non c'\`e una definizione
+una domanda che non pu\`o avere risposta, poich\'e non c'\`e una definizione
 formale di ``computabilit\`a intuitiva''. L'asserzione che sono
 effettivamente equivalenti in computabilit\`a intuitiva \`e detta la
 {\em Tesi di Church-Turing}.
@@ -337,7 +337,7 @@ la seguente, pi\`u tradizionale definizione matematica:
 \end{definition}
 
 Comparando le due definizioni equivalenti, vediamo che la
-forma di Backus-Naur \`e una notazione conveniente perché: (1) la definizione
+forma di Backus-Naur \`e una notazione conveniente perch\'e: (1) la definizione
 dell'alfabeto pu\`o rimanere implicita, (2) l'uso di distinti meta-simboli
 per diverse classi sintattiche ($x,y,z$ per le variabili e $M,N$ per
 i termini) elimina il bisogno di quantificare esplicitamente sugli insiemi 
@@ -407,7 +407,7 @@ notare che i termini $\lam x.x$ e $\lam y.y$, che differiscono solo nel
 nome della loro variabile legata, sono praticamente gli stessi. Diremo che
 tali termini sono $\alpha$-equivalenti, e scriviamo $M\eqa N$. Nel raro
 caso in cui volessimo dire che due termini sono precisamente uguali, simbolo
-per simbolo, diciamo che $M$ e $N$ sono {\em identici} e scriviamo $M\equiv N$.
+per ismbolo, diciamo che $M$ e $N$ sono {\em identici} e scriviamo $M\equiv N$.
 Riserviamo ``$=$'' come un simbolo generico usato per differenti scopi.
 
 Un'occorrenza di una variabile $x$ dentro un termine della forma $\lam x.N$
@@ -429,7 +429,7 @@ denotate con $\FV{M}$, e sono definite formalmente in questo modo:
 \]
 Questo \`e un esempio di definizione tramite ricorsione sui termini. In
 altre parole, nel definire $\FV{M}$, assumiamo di aver gi\`a definito
-$\FV{N}$ per tutti i sottotermini di $M$. Spesso incontreremo tali
+$\FV{N}$ per ogni sottotermine di $M$. Spesso incontreremo tali
 definizioni ricorsive, insieme a dimostrazioni induttive.
 
 Prima di poter formalmente definire l'$\alpha$-equivalenza, dobbiamo definire
@@ -450,7 +450,7 @@ $y$, che sia libera, legata, o ``binding''. La applicheremo solo in casi dove
 $y$ non \`e gi\`a presente in $M$.
 
 Infine, possiamo finalmente definire formalmente cosa significa che due
-termini sono ``gli stessi prima di rinominare le variabili legate''
+termini sono ``lo stesso prima di rinominare le variabili legate''
 
 \begin{definition}
   Definiamo {\em $\alpha$-equivalenza} come la pi\`u piccola relazione di congruenza 
@@ -597,7 +597,7 @@ altro termine, \`e chiamato un {\em $\beta$-redex}. Diciamo che si
 {\em riduce} a $\subst{M}{N}{x}$, e chiamiamo quest'ultimo termine il {\em
   ridotto}. Riduciamo lambda-termini per trovare un sottotermine che \`e
 un redex, e dopo sostituendo quel redex con il suo ridotto. Ripetiamo
-questi passaggi quante volte desideriamo, o finché non vi sono pi\`u redex
+questi passaggi quante volte desideriamo, o finch\'e non vi sono pi\`u redex
 da ridurre. Un lambda-termine senza nessun $\beta$-redex \`e detto di essere
 nella sua {\em $\beta$-forma normale}.
 
@@ -751,7 +751,7 @@ comporta come una funzione ``if-then-else'' --- in particolare, abbiamo
   \ifthenelset \falset M N &\redbs& N \\
 \end{array}
 \]
-per tutti i lambda-termini $M$, $N$.
+per ogni lambda-termine $M$, $N$.
 
 % ----------------------------------------------------------------------
 \subsection{Numeri naturali}\label{ssec-natural-numbers}
@@ -799,17 +799,17 @@ definizioni di addizione e prodotto:
   \item[(a)] Sviluppa manualmente i lambda-termini
     $\addt\chnum{2}\chnum{3}$ and $\multt\chnum{2}\chnum{3}$.
   \item[(b)] Dimostra che $\addt\chnum{n}\chnum{m}\redbs\chnum{n+m}$,
-    per tutti i numeri naturali $n$, $m$.
+    per ogni numero naturale $n$, $m$.
   \item[(c)] Dimostra che
-    $\multt\chnum{n}\chnum{m}\redbs\chnum{n\cdot m}$, per tutti i numeri
-    naturali $n$, $m$.
+    $\multt\chnum{n}\chnum{m}\redbs\chnum{n\cdot m}$, per ogni numero
+    naturale $n$, $m$.
   \end{enumerate}
 \end{exercise}
 
 \begin{definition}
   Supponiamo $f:\N^k\to \N$ una funzione $k$-aria sui numeri naturali,
   e che $M$ \`e un lambda-termine. Diciamo che $M$ {\em (numeralmente)
-    rappresenta} $f$ se per tutti gli $n_1,\ldots,n_k\in\N$,
+    rappresenta} $f$ se per ogni $n_1,\ldots,n_k\in\N$,
   \[ M\chnum{n_1}\ldots\chnum{n_k} \redbs \chnum{f(n_1,\ldots,n_k)}.
   \]
 \end{definition}
@@ -846,7 +846,7 @@ di questa funzione:
     $ \predt(n)=n-1. $
   \end{enumerate}
   Nota: la parte (d) non \`e facile. Infatti, Church credette per
-  un po' che fosse impossibile, finché il suo studente Kleene trov\`o una soluzione.
+  un po' che fosse impossibile, finch\'e il suo studente Kleene trov\`o una soluzione.
   (Infatti, Kleene disse di aver trovato la soluzione mentre gli tolsero
   il dente del giudizio, quindi il suo trucco per definire la funzione predecessore
   \`e spesso definito ``il trucco del dente del giudizio''.)
@@ -1299,7 +1299,7 @@ propriet\`a di tali relazioni:
 \sep
 \mbox{(c)} \ssep \xymatrix@dr{M\ar@{->}[r]\ar@{->}[d] & P\ar@{.>}[d]\\ N\ar@{.>}[r] & Z}
 \]
-Ognuna di queste propriet\`a afferma che per tutti gli $M,N,P$, se le
+Ognuna di queste propriet\`a afferma che per ogni $M,N,P$, se le
 frecce esistono, quindi esiste $Z$ tale che le frecce tratteggiate esistono.
 L'unica differenza tra (a), (b), e (c) su dove
 sono usate $\red$ e $\reds$.
@@ -1400,8 +1400,8 @@ piccola relazione che soddisfa
 
 \begin{lemma}\label{lem-tri-redbes}
   \begin{enumerate}
-  \item[(a)] Per tutti gli $M,M'$, se $M\redbe M'$ allora $M\tri M'$.
-  \item[(b)] Per tutti gli $M,M'$, se $M\tri M'$ allora $M\redbes M'$.
+  \item[(a)] Per ogni $M,M'$, se $M\redbe M'$ allora $M\tri M'$.
+  \item[(b)] Per ogni $M,M'$, se $M\tri M'$ allora $M\redbes M'$.
   \item[(c)] $\redbes$ \`e la chiusura riflessiva, transitiva di $\tri$.
   \end{enumerate}
 \end{lemma}
@@ -1626,67 +1626,67 @@ Infine, abbiamo una dimostrazione del Teorema di Church-Rosser:
 \end{proofof}
 
 % ----------------------------------------------------------------------
-\subsection{Exercises}
+\subsection{Esercizi}
 
 \begin{exercise}
-  Give a detailed proof that property (c) from
-  Section~\ref{subsec-prelim-cr} implies property (a).
+  Dai una dimostrazione dettagliata che la propriet\`a (c) dalla
+  Sezione~\ref{subsec-prelim-cr} implica la propriet\`a (a).
 \end{exercise}
 
 \begin{exercise}
-  Prove that $M\tri M$, for all terms $M$.
+  Dimostra che $M\tri M$, per ogni termine $M$.
 \end{exercise}
 
 \begin{exercise}
-  Without using Lemma~\ref{lem-max-par}, prove that $M\tri M^*$ for
-  all terms $M$.
+  Senza usare il Lemma~\ref{lem-max-par}, dimostra che $M\tri M^*$ per
+  ogni termine $M$.
 \end{exercise}
 
 \begin{exercise}
-  Let $\Omega=(\lam x.xx)(\lam x.xx)$. Prove that
+  Sia $\Omega=(\lam x.xx)(\lam x.xx)$. Dimostra che
   $\Omega\not\eqbe\Omega\Omega$.
 \end{exercise}
 
 \begin{exercise}
-  What changes have to be made to Section~\ref{subsec-proof-cr} to get
-  a proof of the Church-Rosser Theorem for $\redb$, instead of
+  Che cosa bisogna cambiare nella Sezione~\ref{subsec-proof-cr} per ottenere
+  una dimostrazione del teorema di Church-Rosser per $\redb$, piuttosto che per
   $\redbe$?
 \end{exercise}
 
 \begin{exercise}
-  Recall the properties (a)--(c) of binary relations $\red$ that were
-  discussed in Section~\ref{subsec-prelim-cr}. Consider the following
-  similar property, which is sometimes called the ``strip property'':
+  Ricorda le propriet\`a (a)--(c) delle relazioni binarie $\red$ che sono
+  state discusse nella Sezione~\ref{subsec-prelim-cr}. Considera la seguente
+  propriet\`a similare, che \`e solitamente chiamata ``strip property'':
   \[ \mbox{(d)} \ssep \xymatrix@dr{M\ar@{->}[r]\ar@{->>}[d] & P\ar@{.>>}[d]\\ N\ar@{.>>}[r] & Z.}
   \]
-  Does (d) imply (a)? Does (b) imply (d)? In each case, give either a
-  proof or a counterexample.
+  (d) implica (a)? E (b) implica (d)? In entrambi i casi, dai una
+  dimostrazione o un controesempio.
 \end{exercise}
 
 \begin{exercise}
-  To every lambda term $M$, we may associate a directed graph (with
-  possibly multiple edges and loops) $\sG(M)$ as follows: (i) the
-  vertices are terms $N$ such that $M\redbs N$, i.e., all the terms
-  that $M$ can $\beta$-reduce to; (ii) the edges are given by a
-  single-step $\beta$-reduction. Note that the same term may have two
-  (or more) reductions coming from different redexes; each such
-  reduction is a separate edge. For example, let $I=\lam x.x$. Let
-  $M=I(Ix)$. Then
+  Per ogni lambda-termine $M$, associamo un grafico digrafo (con
+  possibilmente pi\`u nodi e cicli) $\sG(M)$ come segue: (i) i
+  vertici sono termini $N$ tali che $M\redbs N$, ossia tutti i termini
+  a cui $M$ si pu\`o $\beta$-ridurre; (ii) i nodi sono dati da una
+  $\beta$-riduzione a singolo passaggio. Nota che lo stesso termine pu\`o
+  avere due (o pi\`u) riduzioni da diversi redex; ognuna di queste
+  riduzioni \`e un nodo diverso. Ad esempio, sia $I=\lam x.x$. Sia
+  $M=I(Ix)$. Allora
   \[ \sG(M)=\xymatrix{I(Ix)\ar@/^/[r]\ar@/_/[r]&Ix\ar[r]&x}.
   \]
-  Note that there are two separate edges from $I(Ix)$ to $Ix$.  We
-  also sometimes write bullets instead of terms, to get $
-  \xymatrix{\bullet\ar@/^/[r]\ar@/_/[r]&\bullet\ar[r]&\bullet}$.  As
-  another example, let $\Omega=(\lam x.xx)(\lam x.xx)$. Then
+  Nota che ci sono due nodi diversi da $I(Ix)$ a $Ix$.  Inoltre
+  delle volte scriviamo proiettili piuttosto che termini, per ottenere $
+  \xymatrix{\bullet\ar@/^/[r]\ar@/_/[r]&\bullet\ar[r]&\bullet}$.  Come
+  ulteriore esempio, sia $\Omega=(\lam x.xx)(\lam x.xx)$. Allora
   \[ \sG(\Omega) = \xymatrix{\bullet\ar@(ur,dr)[]&}.
   \]
   \begin{enumerate}
-  \item[(a)] Let $M=(\lam x.I(xx))(\lam x.xx)$. Find $\sG(M)$.
-  \item[(b)] For each of the following graphs, find a term $M$ such
-    that $\sG(M)$ is the given graph, or explain why no such term
-    exists. (Note: the ``starting'' vertex need not always be the
-    leftmost vertex in the picture). Warning: some of these terms are
-    tricky to find!
+  \item[(a)] Sia $M=(\lam x.I(xx))(\lam x.xx)$. Trovare $\sG(M)$.
+  \item[(b)] Per ognuno dei seguenti grafi, trovare un termine $M$ tale
+  che $\sG(M)$ sia il grafo dato, o spiega perch\'e non esiste
+  tale termine. (Nota: Il vettore di ``partenza'' non sempre deve essere
+  il vettore pi\`u a sinistra nella foto). Avviso: alcuni di questi termini
+  sono difficoltosi da trovare!
     \begin{enumerate}
     \item[(i)] \[ \xymatrix{\bullet\ar[r]&\bullet\ar@(ur,dr)[]} \]
     \item[(ii)] \[ \xymatrix{\bullet&\bullet\ar@(ur,dr)[]\ar[l]} \]
@@ -1703,112 +1703,113 @@ Infine, abbiamo una dimostrazione del Teorema di Church-Rosser:
 \end{exercise}
 
 % ----------------------------------------------------------------------
-\section{Combinatory algebras}
+\section{Algebra combinatoria}
 
-To give a model of the lambda calculus means to provide a mathematical
-space in which the axioms of lambda calculus are satisfied. This
-usually means that the elements of the space can be understood as
-functions, and that certain functions can be understood as elements. 
+Dare un modello del lambda-calcolo significa fornire uno spazio
+matematico nel quale gli assiomi del lambda-calcolo sono soddisfatti.
+Questo solitamente significa che gli elementi dello spazio possono essere
+intesi come funzioni, e che certe funzioni possono essere intese come elementi.
 
-Na\"ively, one might try to construct a model of lambda calculus by
-finding a set $X$ such that $X$ is in bijective correspondence with
-the set $X^X$ of {\em all} functions from $X$ to $X$. This, however,
-is impossible: for cardinality reason, the equation $X\cong X^X$ has
-no solutions except for a one-element set $X=1$. To see this, first
-note that the empty set $\emptyset$ is not a solution. Also, suppose
-$X$ is a solution with $|X|\geq 2$. Then $|X^X|\geq |2^X|$, but by
-Cantor's argument, $|2^X|>|X|$, hence $X^X$ is of greater cardinality
-than $X$, contradicting $X\cong X^X$.
+Ingenuamente, uno potrebbe provare a costruire un modello del lambda-calcolo
+trovando un insieme $X$ tale che $X$ \`e in corrispondenza biunivoca con
+l'insieme $X^X$ di {\em tutte} le funzioni da $X$ a $X$. Questo, a dire
+il vero, \`e impossibile: per ragioni di cardinalit\`a, l'equazione $X\cong X^X$
+non ha soluzioni eccetto per l'insieme formato da un elemento $X=1$. Per
+comprendere ci\`o, prima bisogna tener presente che l'insieme vuoto $\emptyset$ non
+\`e una soluzione. Inoltre, supponiamo che $X$ \`e una soluzione con $|X|\geq 2$. 
+Allora $|X^X|\geq |2^X|$, ma per l'argomento di Cantor, $|2^X|>|X|$, 
+quindi $X^X$ ha cardinalit\`a maggiore di $X$, contraddicendo $X\cong X^X$.
 
-There are two main strategies for constructing models of the lambda
-calculus, and both involve a restriction on the class of functions to
-make it smaller. The first approach, which will be discussed in this
-section, uses {\em algebra}, and the essential idea is to replace the
-set $X^X$ of all function by a smaller, and suitably defined set of
-{\em polynomials}. The second approach is to equip the set $X$ with
-additional structure (such as topology, ordered structure, etc), and
-to replace $X^X$ by a set of structure-preserving functions (for
-example, continuous functions, monotone functions, etc).
+Ci sono due strategie principali per costruire modelli del lambda-calcolo,
+ed entrambi riguardano una restrizione sulla classe di funzioni per
+renderle pi\`u piccole. Il primo approccio, che sar\`a discusso in questa sezione,
+usa l'{\em algebra}, e il l'idea base \`e quella di sostituire
+l'insieme $X^X$ di tutte le funzioni con uno pi\`u piccolo e opportuno di
+{\em polinomi}. Il secondo approccio\`e di fornire all'insieme $X$ strutture
+aggiuntive (cos\`i come la topologia, struttura ordinata, ecc) e di
+sostituire $X^X$ con un insieme di funzioni ``structure preserving'' (per
+esempio, funzioni continue, monotone, ecc).
 
 % ----------------------------------------------------------------------
-\subsection{Applicative structures}
+\subsection{Strutture applicative}
 
 \begin{definition}
-  An {\em applicative structure} $(\Aa,\app)$ is a set $\Aa$ together
-  with a binary operation ``$\app$''.
+  Una {\em struttura applicativa} $(\Aa,\app)$ \`e un insieme $\Aa$
+  con un'operazione binaria ``$\app$''.
 \end{definition}
 
-Note that there are no further assumptions; in particular, we do {\em
-  not} assume that application is an associative operation. We write
-$ab$ for $a\app b$, and as in the lambda calculus, we follow the
-convention of left associativity, i.e., we write $abc$ for $(ab)c$.
+Nota che non ci sono presupposti aggiuntivi; in particolare {\em non}
+diamo per assodato che l'applicazione \`e un'operazione associativa.
+Scriviamo $ab$ per $a\app b$, e come nel lambda-calcolo, seguiamo la
+convenzione di associativit\`a da sinistra, ossia scriviamo $abc$ per $(ab)c$.
 
 \begin{definition}
-  Let $(\Aa,\app)$ be an applicative structure. A {\em polynomial} in
-  a set of variables $x_1,\ldots,x_n$ and with coefficients in $\Aa$
-  is a formal expression built from variables and elements of $\Aa$ by
-  means of the application operation. In other words, the set of
-  polynomials is given by the following grammar:
+  Sia $(\Aa,\app)$ una struttura applicativa. Un {\em polinomio} in
+  un insieme di variabili $x_1,\ldots,x_n$ e con i coefficienti in $\Aa$
+  \`e un'espressione formale costruita da variabili ed elementi di $\Aa$
+  tramite l'operazione di applicazione. In altre parole, l'insieme di
+  polinomi \`e dato dalla seguente grammatica:
   \[ \begin{array}{lll}
     t,s&\bnf& x\bor a\bor ts,
   \end{array}
   \]
-  where $x$ ranges over variables and $a$ ranges over the elements of
-  $\Aa$. We write $\Aa\s{x_1,\ldots,x_n}$ for the set of polynomials
-  in variables $x_1,\ldots,x_n$ with coefficients in $\Aa$.
+  dove $x$ varia su variabili e $a$ varia sugli elementi di
+  $\Aa$. Scriviamo $\Aa\s{x_1,\ldots,x_n}$ per l'insieme di polinomi
+  nelle variabili $x_1,\ldots,x_n$ con coefficienti in $\Aa$.
 \end{definition}
 
-Here are some examples of polynomials in the variables $x,y,z$,
-where $a,b\in\Aa$:
+Ecco alcuni esempi di polinomi nelle variabili $x,y,z$,
+dove $a,b\in\Aa$:
 \[ x,\sep xy, \sep axx, \sep (x(y(zb)))(ax).
 \]
 
-If $t(x_1,\ldots,x_n)$ is a polynomial in the indicated variables,
-and $b_1,\ldots,b_n$ are elements of $\Aa$, then we can evaluate the
-polynomial at the given elements: the evaluation $t(b_1,\ldots,b_n)$
-the element of $\Aa$ obtained by ``plugging'' $x_i=b_i$ into the
-polynomial, for $i=1,\ldots,n$, and evaluating the resulting
-expression in $\Aa$. Note that in this way, every polynomial $t$ in
-$n$ variables can be understood as a {\em function} from $\Aa^n\to
-\Aa$. This is very similar to the usual polynomials in algebra, which
-can also either be understood as formal expressions or as functions.
+Se $t(x_1,\ldots,x_n)$ \`e un polinomio nelle variabili indicate,
+e $b_1,\ldots,b_n$ sono elementi di $\Aa$, quindi possiamo sviluppare il
+polinomio per gli elementi dati: lo sviluppo $t(b_1,\ldots,b_n)$
+dell'elemento di $\Aa$ ottenuto ``inserendo'' $x_i=b_i$ nel
+polinomio, per $i=1,\ldots,n$, e sviluppando l'espressione
+risultante in $\Aa$. Nota che in questo modo, ogni polinomio $t$ in
+$n$ variabili pu\`o essere inteso come una {\em funzione} da $\Aa^n\to
+\Aa$. Ci\`o \`e molto simile ai polinomi tradizionali in algebra, i quali
+possono anche essere compresi come espressioni formali o come
+funzioni.
 
-If $t(x_1,\ldots,x_n)$ and $s(x_1,\ldots,x_n)$ are two polynomials
-with coefficients in $\Aa$, we say that the equation
-$t(x_1,\ldots,x_n) = s(x_1,\ldots,x_n)$ {\em holds} in $\Aa$ if for
-all $b_1,\ldots,b_n\in\Aa$, $t(b_1,\ldots,b_n) = s(b_1,\ldots,b_n)$.
+Se $t(x_1,\ldots,x_n)$ e $s(x_1,\ldots,x_n)$ sono due polinomi
+con coefficienti in $\Aa$, diciamo che l'equazione
+$t(x_1,\ldots,x_n) = s(x_1,\ldots,x_n)$ {\em \`e valida} in $\Aa$ se per
+tutti i $b_1,\ldots,b_n\in\Aa$, $t(b_1,\ldots,b_n) = s(b_1,\ldots,b_n)$.
 
 % ----------------------------------------------------------------------
-\subsection{Combinatory completeness}
+\subsection{Completezza combinatoria}
 
-\begin{definition}[Combinatory completeness]
-  An applicative structure $(\Aa,\app)$ is {\em combinatorially
-    complete} if for every polynomial $t(x_1,\ldots,x_n)$ of $n\geq 0$
-  variables, there exists some element $a\in\Aa$ such that
+\begin{definition}[Completezza combinatoria]
+  Una struttura applicativa $(\Aa,\app)$ \`e {\em combinatoriamente
+    completo} se per ogni polinomio $t(x_1,\ldots,x_n)$ di $n\geq 0$
+  variabili, esiste un qualche elemento $a\in\Aa$ tale che
   \[ ax_1\ldots x_n = t(x_1,\ldots,x_n)
   \]
-  holds in $\Aa$.
+  \`e valida in $\Aa$.
 \end{definition}
 
-In other words, combinatory completeness means that every polynomial
-{\em function} $t(x_1,\ldots,x_n)$ can be represented (in curried
-form) by some {\em element} of $\Aa$. We are therefore setting up a
-correspondence between functions and elements as discussed in the
-introduction of this section.
+In altre parole, la completezza combinatoria significa che ogni {\em funzione}
+polinomiale $t(x_1,\ldots,x_n)$ pu\`o essere rappresentata (in ``curried
+form'') per qualche {\em elemento} di $\Aa$. Stiamo dunque impostando una
+corrispondenza tra funzioni ed elementi, come discusso
+nell'introduzione di questa sezione.
 
-Note that we do not require the element $a$ to be unique in the
-definition of combinatory completeness. This means that we are dealing
-with an intensional view of functions, where a given function might in
-general have several different names (but see the discussion of
-extensionality in Section~\ref{subsec-extensional-combinatory}).
+Nota che non necessitiamo che l'elemento $a$ sia unico nella
+definizione di completezza combinatoria. Questo significa che stiamo
+lavorando con un aspetto intensionale delle funzioni, dove una funzione data
+potrebbe in generale avere diversi nomi (ma vedi la discussione
+di estensionalit\`a nella Sezione~\ref{subsec-extensional-combinatory}).
 
-The following theorem characterizes combinatory completeness in terms
-of a much simpler algebraic condition.
+Il seguente teorema caratterizza la completezza combinatoria in termini
+di una condizione algebrica molto pi\`u semplice.
 
 \begin{theorem}\label{thm-combinatory-completeness}
-  An applicative structure $(\Aa,\app)$ is combinatorially complete if
-  and only if there exist two elements $s,k\in \Aa$, such that the
-  following equations are satisfied for all $x,y,z\in\Aa$:
+  Una struttura applicativa $(\Aa,\app)$ \`e combinatoriamente completa se
+  e solo se esistono due elementi $s,k\in \Aa$, tali che le
+  le seguenti equazioni sono verificate per ogni $x,y,z\in\Aa$:
   \[ \begin{array}{ll}
     (1) & sxyz = (xz)(yz) \\
     (2) & kxy = x \\
@@ -1817,33 +1818,33 @@ of a much simpler algebraic condition.
 \end{theorem}
 
 \begin{example}\label{exa-combinatory-completeness}
-  Before we prove this theorem, let us look at a few examples.
+  Prima di dimostrare questo teorema, diamo un'occhiata ad alcuni esempi.
   \begin{enumerate}\alphalabels
-  \item The identity function. Can we find an element $i\in\Aa$ such
-    that $ix=x$ for all $x$? Yes, indeed, we can let $i=skk$. We check
-    that for all $x$, $skkx = (kx)(kx) = x$.
-  \item The boolean ``true''. Can we find an element $\truet$ such
-    that for all $x,y$, $\truet xy = x$? Yes, this is easy: $\truet = k$.
-  \item The boolean ``false''. Can we find $\falset$ such that
-    $\falset xy = y$?  Yes, what we need is $\falset x = i$. Therefore
-    a solution is $\falset = ki$.  And indeed, for all $y$, we have
+  \item La funzione identit\`a. Riusciamo a trovare un elemento $i\in\Aa$ tale
+    che $ix=x$ per ogni $x$? In verit\`a, s\`i, possiamo imporre $i=skk$. Controlliamo
+    che per ogni $x$, $skkx = (kx)(kx) = x$.
+  \item Il ``true'' booleano. Possiamo trovare un elemento $\truet$ tale
+    che per ogni $x,y$, $\truet xy = x$? S\`i, e non \`e difficile: $\truet = k$.
+  \item Il ``false'' booleano. Possiamo trovare un $\falset$ tale che
+    $\falset xy = y$?  S\`i, quello di cui abbiamo bisogno \`e $\falset x = i$. Allora
+    una soluzione \`e $\falset = ki$.  Ed effettivamente, per ogni $y$, abbiamo
     $kixy = iy = y$.
-  \item Find a function $f$ such that $fx = xx$ for all $x$. Solution:
-    let $f=sii$. Then $siix = (ix)(ix) = xx$. 
+  \item Trova una funzione $f$ tale che $fx = xx$ per ogni $x$. Soluzione:
+    sia $f=sii$. Allora $siix = (ix)(ix) = xx$. 
   \end{enumerate}
 \end{example}
 
 \begin{proofof}{Theorem~\ref{thm-combinatory-completeness}}
-  The ``only if'' direction is trivial. If $\Aa$ is combinatorially
-  complete, then consider the polynomial $t(x,y,z)=(xz)(yz)$. By
-  combinatory completeness, there exists some $s\in\Aa$ with
-  $sxyz=t(x,y,z)$, and similarly for $k$.
+  Per l'``only if'' non \`e difficile. Se $\Aa$ \`e completo
+  combinatoriamente, allora consideriamo il polinomio $t(x,y,z)=(xz)(yz)$. Per
+  completezza combinatoria, esiste un qualche $s\in\Aa$ con
+  $sxyz=t(x,y,z)$, e in maniera similare per $k$.
   
-  We thus have to prove the ``if'' direction.  Recall that
-  $\Aa\s{x_1,\ldots,x_n}$ is the set of polynomials with variables
-  $x_1,\ldots,x_n$. For each polynomial $t\in\Aa\s{x,y_1,\ldots,y_n}$ in
-  $n+1$ variables, we will define a new polynomial $\lam^*x.t \in
-  \Aa\s{y_1,\ldots,y_n}$ in $n$ variables, as follows by recursion on
+  Adesso dobbiamo dimostrare per ``if''.  Ricordiamo che
+  $\Aa\s{x_1,\ldots,x_n}$ \`e l'insieme di polinomi con variabili
+  $x_1,\ldots,x_n$. Per ogni polinomio $t\in\Aa\s{x,y_1,\ldots,y_n}$ in
+  $n+1$ variabili, definiamo un nuovo polinomio $\lam^*x.t \in
+  \Aa\s{y_1,\ldots,y_n}$ in $n$ variabili, come segue per ricorsione su
   $t$:
   \[ \begin{array}{llll}
     \lam^*x.x &:=& i,\\
@@ -1852,9 +1853,9 @@ of a much simpler algebraic condition.
     \lam^*x.pq &:=& s(\lam^*x.p)(\lam^*x.q). \\
   \end{array}
   \]
-  We claim that for all $t$, the equation $(\lam^* x.t)x = t$ holds
-  in $\Aa$. Indeed, this is easily proved by induction on $t$, using
-  the definition of $\lam^*$:
+  Affermiamo che per ogni $t$, l'equazione $(\lam^* x.t)x = t$ \`e valida
+  in $\Aa$. Effettivamente, ci\`o \`e facilmente dimostrabile per induzione su $t$, 
+  usando la definizione di $\lam^*$:
   \[ \begin{array}{llll}
     (\lam^*x.x)x &=& ix = x,\\
     (\lam^*x.y_i)x &=& ky_ix = y_i,\\
@@ -1862,17 +1863,17 @@ of a much simpler algebraic condition.
     (\lam^*x.pq)x &=& s(\lam^*x.p)(\lam^*x.q)x = ((\lam^*x.p)x)((\lam^*x.q)x) = pq. \\
   \end{array}
   \]
-  Note that the last case uses the induction hypothesis for $p$ and $q$. 
+  Nota che l'ultimo caso usa l'ipotesi induttiva per $p$ e $q$.
   
-  Finally, to prove the theorem, assume that $\Aa$ has elements $s,k$
-  satisfying equations (1) and (2), and consider a polynomial
-  $t\in\Aa\s{x_1,\ldots,x_n}$. We must show that there exists $a\in\Aa$
-  such that $ax_1\ldots x_n = t$ holds in $\Aa$. We let
+  Infine, per dimostrare il teorema, supponiamo che $\Aa$ abbia elementi $s,k$
+  che soddisfano le equazioni (1) e (2), e consideriamo un polinomio
+  $t\in\Aa\s{x_1,\ldots,x_n}$. Dobbiamo mostrare che esiste $a\in\Aa$
+  tale che $ax_1\ldots x_n = t$ \`e valido in $\Aa$. Sia
   \[ a = \lam^*x_1.\ldots.\lam^*x_n.t.
   \]
-  Note that $a$ is a polynomial in $0$ variables, which we may
-  consider as an element of $\Aa$. Then from the previous claim, it
-  follows that
+  Nota che $a$ \`e un polinomio in $0$ variabili, che potremmo
+  considerare come un elemento in $\Aa$. Quindi dell'affermazione precedente,
+  segue che
   \[ \begin{array}{lll}
     ax_1\ldots x_n &=& (\lam^*x_1.\lam^*x_2.\ldots.\lam^*x_n.t)x_1x_2\ldots x_n\\
     &=& (\lam^*x_2.\ldots.\lam^*x_n.t)x_2\ldots x_n\\
@@ -1881,20 +1882,20 @@ of a much simpler algebraic condition.
     &=& t\\
   \end{array}
   \]
-  holds in $\Aa$. \eot
+  \`e valido in $\Aa$. \eot
 \end{proofof}
 
 % ----------------------------------------------------------------------
-\subsection{Combinatory algebras}\label{ssec-comb-alg}
+\subsection{Algebra combinatoria}\label{ssec-comb-alg}
 
-By Theorem~\ref{thm-combinatory-completeness}, combinatory
-completeness is equivalent to the existence of the $s$ and $k$
-operators. We enshrine this in the following definition:
+Per il teorema~\ref{thm-combinatory-completeness}, la completezza
+combinatoria \`e equivalmente all'esistenza degli operatori $s$ e $k$.
+Espandiamo ci\`o nella seguente definizione:
 
-\begin{definition}[Combinatory algebra]
-  A {\em combinatory algebra} $(\Aa,\app,s,k)$ is an applicative
-  structure $(\Aa,\app)$ together with elements $s,k\in\Aa$,
-  satisfying the following two axioms:
+\begin{definition}[Algebra combinatoria]
+  L'{\em algebra combinatoria} $(\Aa,\app,s,k)$ \`e una struttura
+  applicativa $(\Aa,\app)$ insieme agli elementi $s,k\in\Aa$,
+  che soddisfa i seguenti due assiomi:
     \[ \begin{array}{ll}
     (1) & sxyz = (xz)(yz) \\
     (2) & kxy = x \\
@@ -1903,82 +1904,80 @@ operators. We enshrine this in the following definition:
 \end{definition}
 
 \begin{remark}\label{rem-derived-lambda}
-  The operation $\lam^*$, defined in the proof of
-  Theorem~\ref{thm-combinatory-completeness}, is defined on the
-  polynomials of any combinatory algebra. It is called the {\em derived
-    lambda abstractor}, and it satisfies the law of $\beta$-equivalence,
-  i.e., $(\lam^*x.t)b = t[b/x]$, for all $b\in\Aa$.
+  L'operazione $\lam^*$, definita nella dimostrazione del
+  Teorema~\ref{thm-combinatory-completeness}, \`e definita nei
+  polinomi di qualsiasi algebra combinatoria. \`E chiamata {\em astrattore
+    lambda derivato}, e soddisfa la legge di $\beta$-equivalenza,
+  ossia $(\lam^*x.t)b = t[b/x]$, per ogni $b\in\Aa$.
 \end{remark}
 
-Finding actual examples of combinatory algebras is not so easy. Here
-are some examples:
+Trovare veri e propri esempi di algebra combinatoria non \`e cos\`i semplice.
+Ecco alcuni esempi:
 
 \begin{example}
-  The one-element set $\Aa=\s{*}$, with $*\app *=*$, $s=*$, and $k=*$,
-  is a combinatory algebra. It is called the {\em trivial} combinatory
-  algebra. 
+  L'insieme formato da un solo elemento $\Aa=\s{*}$, con $*\app *=*$, $s=*$, e $k=*$,
+  \`e algebra combinatoria. \`E chiamata algebra combinatoria {\em banale}. 
 \end{example}
 
 \begin{example}
-  Recall that $\Lambda$ is the set of lambda terms. Let
-  $\Aa=\Lambda/{\eqb}$, the set of lambda terms modulo
-  $\beta$-equivalence. Define $M\app N=MN$, $S=\lam xyz.(xz)(yz)$,
-  and $K=\lam xy.x$. Then $(\Lambda,\app,S,K)$ is a combinatory
-  algebra. Also note that, by Corollary~\ref{cor-beta-not-eta}, this
-  algebra is non-trivial, i.e., it has more than one element.
+  Ricordiamo che $\Lambda$ \`e l'insieme dei lambda-termini. Sia
+  $\Aa=\Lambda/{\eqb}$, l'insieme dei lambda-termini modulo
+  $\beta$-equivalenza. Definiamo $M\app N=MN$, $S=\lam xyz.(xz)(yz)$,
+  e $K=\lam xy.x$. Allora $(\Lambda,\app,S,K)$ \`e un'algebra combinatoria.
+  Inoltre notiamo che, per Corollario~\ref{cor-beta-not-eta}, questa
+  algebra is non-banale, ossia ha pi\`u di un elemento.
   
-  Similar examples are obtained by replacing $\eqb$ by $\eqbe$, and/or
-  replacing $\Lambda$ by the set $\Lambda_0$ of closed terms.
+  Eesempi simili sono ottenuti sostituendo $\eqb$ con $\eqbe$, e/o
+  sostituendo $\Lambda$ con l'insieme $\Lambda_0$ dei termini chiusi.
 \end{example}
 
 \begin{example}\label{exa-sk-term-alg}
-  We construct a combinatory algebra of $SK$-terms as follows.  Let
-  $V$ be a given set of variables. The set $\CTerm$ of {\em terms}
-  of combinatory logic is given by the grammar:
+  Costruiamo un algebra combinatoria di $SK$ elementi come segue.  Sia
+  $V$ un dato insieme di variabili. L'insieme $\CTerm$ di {\em termini}
+  di logica combinatoria \`e dato dalla grammatica:
   \[   \begin{array}{lll}
     A,B &\bnf& x\bor \S\bor \K\bor AB,
   \end{array}
   \]
-  where $x$ ranges over the elements of $V$.
+  dove $x$ varia sugli elementi di $V$.
   
-  On $\CTerm$, we define combinatory equivalence $\eqc$ as the
-  smallest equivalence relation satisfying $\S ABC \eqc (AC)(BC)$, $\K
-  AB \eqc A$, and the rules $\trule{cong$_1$}$ and $\trule{cong$_2$}$
-  (see page~\pageref{page-def-beta}). Then the set $\CTerm/{\eqc}$ is a
-  combinatory algebra (called the {\em free} combinatory algebra
-  generated by $V$, or the {\em term algebra}). You will prove in
-  Exercise~\ref{exe-combinatory-cr} that it is non-trivial.
+  In $\CTerm$, definiamo l'equivalenza combinatoria $\eqc$ come la
+  pi\`u piccola relazione di equivalenza che soddisfa $\S ABC \eqc (AC)(BC)$, $\K
+  AB \eqc A$, e le regole $\trule{cong$_1$}$ e $\trule{cong$_2$}$
+  (vedi pagina~\pageref{page-def-beta}). Quindi l'insieme $\CTerm/{\eqc}$ \`e
+  un'algebra combinatoria (chiamata l'algebra combinatoria {\em libera}
+  generata da $V$, o {\em algebra a termini}). Dimostrerai
+  nell'Esercizio~\ref{exe-combinatory-cr} che \`e non banale.
 \end{example}
 
 \void{
-Note that all of the above examples of combinatory algebras are either
-trivial or syntactic.  It is not easy to find a true ``mathematical''
-example of a combinatory algebra. We will see how to find such models
-later.
+Nota che tutti gli esempi soprastanti di algebra combinatoria sono o
+banali o sintattici. Non \`e facile trovare un vero esempio ``matematico''
+di algebra combinatoria. Vedremo come trovare tali modelli pi\`u tardi.
 }
 
 \begin{exercise}\label{exe-combinatory-cr}
-  On the set $\CTerm$ of combinatory terms, define a notion of {\em
-    single-step reduction} by the following laws:
+  Nell'insieme $\CTerm$ di elementi combinatori, definisci la nozione di {\em
+    riduzione a singoli passaggi} tramite le seguenti leggi:
   \[ \begin{array}{l}
     \S ABC \redc (AC)(BC), \\
     \K AB \redc A,\\
   \end{array}
   \]
-  together with the usual rules $\trule{cong$_1$}$ and
-  $\trule{cong$_2$}$ (see page~\pageref{page-def-beta}). As in lambda
-  calculus, we call a term a {\em normal form} if it cannot be
-  reduced. Prove that the reduction $\redc$ satisfies the
-  Church-Rosser property. (Hint: similarly to the lambda calculus,
-  first define a suitable parallel one-step reduction $\tri$ whose
-  reflexive transitive closure is that of $\redc$. Then show that it
-  satisfies the diamond property.)
+  insieme alle solite regole $\trule{cong$_1$}$ e
+  $\trule{cong$_2$}$ (vedi pagina~\pageref{page-def-beta}). Come nel
+  lambda-calcolo, definiamo un termine in {\em forma normale} se non pu\`o essere
+  ridotto. Dimostra che la riduzione $\redc$ soddisfa la propriet\`a
+  di Church-Rosser. (Suggerimento: similarmente al lambda-calcolo,
+  prima definisci una riduzione ad un passaggio parallela $\tri$ la
+  quale chiusura riflessiva transitiva \`e quella di $\redc$. Dopo mostra
+  che soddisfa la propriet\`a del diamante.)
 \end{exercise}
 
 \begin{corollary}\label{cor-sk-nf}
-  It immediately follows from the Church-Rosser Theorem for
-  combinatory logic (Exercise~\ref{exe-combinatory-cr}) that two
-  normal forms are $\eqc$-equivalent if and only if they are equal.
+  Segue immediatamente dal Teorema di Church-Rosser per la
+  logica combinatoria (Esercizio~\ref{exe-combinatory-cr}) che due
+  forme normali sono $\eqc$-equivalenti se e solo se sono uguali.
 \end{corollary}
 
 % ----------------------------------------------------------------------
@@ -3032,8 +3031,8 @@ $\beta\eta$-normal form (not necessarily unique) in a finite sequence
 of $\eta$-reductions.
 
 \begin{exercise}
-  Dimostrare il teorema di Church-Rosser per le $\beta$-riduzioni nel
-  $\lam^{\to,\times,1}$-calcolo. suggerimento: usa lo stesso metodo che abbiamo usato nel caso non tipato.
+	Dimostrare il teorema di Church-Rosser per le $\beta$-riduzioni nel
+	$\lam^{\to,\times,1}$-calcolo. suggerimento: usa lo stesso metodo che abbiamo usato nel caso non tipato.
 \end{exercise}
 
 Un'altra soluzione \`e quella di omettere il tipo $1$ e il termine $\unit$ dal
@@ -3041,9 +3040,9 @@ linguaggio. In questo caso, la propriet\`a di Church-Rosser vale anche per
 $\beta\eta$-riduzioni.
 
 \begin{exercise}
-  Dimostrare il teorema di Church-Rosser per le $\beta$-riduzioni nel
-  $\lam^{\to,\times}$-calculus, i.e., il lambda calcolo tipato semplice 
- senza $1$ e $\unit$.
+	Dimostrare il teorema di Church-Rosser per le $\beta$-riduzioni nel
+	$\lam^{\to,\times}$-calculus, i.e., il lambda calcolo tipato semplice 
+	senza $1$ e $\unit$.
 \end{exercise}
 
 % ----------------------------------------------------------------------
@@ -3072,14 +3071,14 @@ Ad esempio,si considera $\eta$-riduzione  $\pair{\proj1 M,\proj2 M} \to M$.
 Questo si traduce come:
 \[
 \trule{$\cand$-I}\deriv{\trule{$\cand$-E$_1$}\deriv{\ideriv{\Gamma}{A\cand
-      B}}{A}\sep\trule{$\cand$-E$_2$}\deriv{\ideriv{\Gamma}{A\cand
-      B}}{B}}{A\cand B}
+			B}}{A}\sep\trule{$\cand$-E$_2$}\deriv{\ideriv{\Gamma}{A\cand
+			B}}{B}}{A\cand B}
 \ssep\to\ssep \ideriv{\Gamma}{A\cand B}
 \]
 Ancora una volta, questo \`e un passo di semplificazione ovvio, ma ha una condizione secondaria: 
 la sottoderivazione sinistra e destra devono essere le stesse! 
 Questa condizione laterale corrisponde al fatto che nel redex $\pair{\proj1
-M,\proj2 M}$, i due sottotitoli chiamati $M$ devono essere uguali.
+	M,\proj2 M}$, i due sottotitoli chiamati $M$ devono essere uguali.
 \`E un'altra caratteristica delle $\eta$-riduzioni che spesso vengono accompagnate 
 da condizioni secondarie.
 
@@ -3090,11 +3089,11 @@ La riduzione $M\to\unit$ si traduce nel seguente modo:
 In altre parole, qualiasi derivazione di $\ctrue$ pu\`o essere rimpiazzata dalla canonica di tale derivazione.
 Pi\`u interessante \`e il caso della regola $(\beta_{\to})$. In questo caso, abbiamo
 $(\lamabs{x}{A}.M)N \to \subst{M}{N}{x}$, che pu\`o essere tradotta tramite
-  l'Isomorfismo di Curry-Howardas nel seguente modo:
+l'Isomorfismo di Curry-Howardas nel seguente modo:
 \[
 \trule{$\to$-E}\ \deriv{\trule{$\to$-I}\ 
-  \deriv{\ideriv{\Gamma,[\typ{x}{A}]}{B}}{A\to B} x
-  \sep\ideriv{\Gamma}{A}}{B}
+	\deriv{\ideriv{\Gamma,[\typ{x}{A}]}{B}}{A\to B} x
+	\sep\ideriv{\Gamma}{A}}{B}
 \ssep\to \ssep 
 \ideriv{\Gamma,\ideriv{\Gamma}{A}}{B}.
 \]
@@ -3114,7 +3113,7 @@ Infine, considerare la regola $(\eta_{\to})$  $\lamabs{x}{A}.Mx \to M$,
 dove $x\not\in\FV{M}$. Questo si traduce come derivazione nel seguente modo:
 \[
 \trule{$\to$-I}\ \deriv{\trule{$\to$-E}\ \deriv{\ideriv{\Gamma}{A\to
-      B}\sep\trule{ax}\ \deriv{[\typ{x}{A}]}{A} x}{B}}{A\to B} x
+			B}\sep\trule{ax}\ \deriv{[\typ{x}{A}]}{A} x}{B}}{A\to B} x
 \ssep\to\ssep \ideriv{\Gamma}{A\to B}
 \]
 
@@ -3141,38 +3140,38 @@ Sezione~\ref{subsec-proplogic}, aggiungiamo le seguenti proposizioni:
 \]
 Qui, $A\cor B$ sta per disgiunzione o ``or'', e $\cfalse$
 sta per falsit\`a, che possiamo anche pensare come una disgiunzione 
-nullaria(0 ariet\`a). Il simbolo $\cfalse$ è anche conosciuto come
+nullaria(0 ariet\`a). Il simbolo $\cfalse$ \`e anche conosciuto come
 ``estremit\`a'', ``assurdit\`a'', o ``contraddizione''.  Le regole per
- costruire derivazioni sono estese dai seguenti casi:
+costruire derivazioni sono estese dai seguenti casi:
 \begin{enumerate}
-\resumeenumerate
-\item ($\cor$-introduzione)
-\[ \trule{$\cor$-I$_1$}\ \deriv{\Gamma\tj A}{\Gamma\tj A\cor B}
-\sep
-\trule{$\cor$-I$_2$}\ \deriv{\Gamma\tj B}{\Gamma\tj A\cor B}
-\]
-In altre parole,se abbiamo provato che $A$ o abbiamo dimostrato che $B$,allora
-possiamo concludere che $A\cor B$.
-\item ($\cor$-eliminazione)
-\[ \trule{$\cor$-E$_{x,y}$}\ \deriv{\Gamma\tj A\cor B
-  \sep \Gamma,\typ{x}{A}\tj C
-  \sep \Gamma,\typ{y}{B}\tj C}{\Gamma\tj C}
-\]
-Questo \`e conosciuto come ``principio delle distinzioni dei casi''. Se sappiamo
-$A\cor B$, e desideriamo dimostrare qualche formula $C$, allora dovremmo procedere
-su casi. Nel primo caso, assumiamo $A$ \`e valido e dimostra $C$. Nel
-secondo caso, assumiamo $B$ \`e valido e dimostra $C$. In tutti i casi, 
-dimostriamo $C$, che quindi è valida indipendentemente. 
-
-Notare che la regola $\cor$-eliminazione differisce da tutte le altre regole che
-abbiamo considerato fino ad ora, perch\`e richiede qualche formula arbitraria $C$
-che non \`e direttamente collegata con la formula principale che viene eliminata $A\cor B$.
-\item ($\cfalse$-eliminazione)
-\[ \trule{$\cfalse$-E}\ \deriv{\Gamma\tj\cfalse}{\Gamma\tj C},
-\]
-per una formula arbitraria $C$. Questa regola formalizza il familiare
-principio ``ex falsum quodlibet'', che significa che la falsit\'a 
-implica qualsiasi cosa.
+	\resumeenumerate
+	\item ($\cor$-introduzione)
+	\[ \trule{$\cor$-I$_1$}\ \deriv{\Gamma\tj A}{\Gamma\tj A\cor B}
+	\sep
+	\trule{$\cor$-I$_2$}\ \deriv{\Gamma\tj B}{\Gamma\tj A\cor B}
+	\]
+	In altre parole,se abbiamo provato che $A$ o abbiamo dimostrato che $B$,allora
+	possiamo concludere che $A\cor B$.
+	\item ($\cor$-eliminazione)
+	\[ \trule{$\cor$-E$_{x,y}$}\ \deriv{\Gamma\tj A\cor B
+		\sep \Gamma,\typ{x}{A}\tj C
+		\sep \Gamma,\typ{y}{B}\tj C}{\Gamma\tj C}
+	\]
+	Questo \`e conosciuto come ``principio delle distinzioni dei casi''. Se sappiamo
+	$A\cor B$, e desideriamo dimostrare qualche formula $C$, allora dovremmo procedere
+	su casi. Nel primo caso, assumiamo $A$ \`e valido e dimostra $C$. Nel
+	secondo caso, assumiamo $B$ \`e valido e dimostra $C$. In tutti i casi, 
+	dimostriamo $C$, che quindi \`e valida indipendentemente. 
+	
+	Notare che la regola $\cor$-eliminazione differisce da tutte le altre regole che
+	abbiamo considerato fino ad ora, perch\`e richiede qualche formula arbitraria $C$
+	che non \`e direttamente collegata con la formula principale che viene eliminata $A\cor B$.
+	\item ($\cfalse$-eliminazione)
+	\[ \trule{$\cfalse$-E}\ \deriv{\Gamma\tj\cfalse}{\Gamma\tj C},
+	\]
+	per una formula arbitraria $C$. Questa regola formalizza il familiare
+	principio ``ex falsum quodlibet'', che significa che la falsit\'a 
+	implica qualsiasi cosa.
 \end{enumerate}
 
 Non esiste regola $\cfalse$-introduzione . Questo \`e simmetrico al fatto 
@@ -3193,7 +3192,7 @@ degli insiemi: un elemento di $A+B$ pu\`o essere o un'elemento di $A$ o un eleme
 di $B$, assieme con un indicazione di quale dei casi si stia parlando. In
 particolare, se consideriamo un elemento di $A+A$, possiamo ancora dire se
 si trova nel componente destro o sinistro, anche se i due
-tipi sono gli stessi.Nei linguaggi di programmazione, questo è qualche volta conosciuto
+tipi sono gli stessi.Nei linguaggi di programmazione, questo \`e qualche volta conosciuto
 come un tipo ``unione'' o ``variante'' . Noi lo chiameremo tipo ``somma''.
 Il tipo  $0$ \`e semplicemente il tipo vuoto,corrispondente all'insieme vuoto
 nella teoria degli insiemi.
@@ -3211,31 +3210,31 @@ termini; l'unica scelta che rimane \`e come chiamarli!
 
 Aggiungiamo quattro termini al lambda calcolo:
 \[ \begin{array}{lll}
-  \mbox{Raw terms:}\ssep M,N,P &\bnf&\ldots\bor \inj1 M\bor \inj2 M \\
-  && \bor
-  \caseof{M}{x}{A}{N}{y}{B}{P} \bor \Box_A M
+\mbox{Raw terms:}\ssep M,N,P &\bnf&\ldots\bor \inj1 M\bor \inj2 M \\
+&& \bor
+\caseof{M}{x}{A}{N}{y}{B}{P} \bor \Box_A M
 \end{array}
 \]
 Le regole di tipo per questi nuovi termini sono mostrate nella
 Tabella~\ref{tab-sum-typing-rules}.
 % ......................................................................
 \begin{table*}[tbp]
-\[ \begin{array}{rc}
-        \tjinja
-&       \deriv{\Gamma\tj M:A}{\Gamma\tj \inj1 M:A+B}
-\nl     \tjinjb
-&       \deriv{\Gamma\tj M:B}{\Gamma\tj \inj2 M:A+B}
-\nl     \tjcase
-&       \deriv{\Gamma\tj M: A+B\sep\Gamma,\typ{x}{A}\tj N: C
-  \sep\Gamma,\typ{y}{B}\tj P: C}
-                {\Gamma\tj (\caseof{M}{x}{A}{N}{y}{B}{P}): C}
-\nl     \tjbox
-&       \deriv{\Gamma\tj M: 0}
-                {\Gamma\tj\Box_A M:A}
-\end{array}
-\]
-\caption{Typing rules for sums}
-\label{tab-sum-typing-rules}
+	\[ \begin{array}{rc}
+	\tjinja
+	&       \deriv{\Gamma\tj M:A}{\Gamma\tj \inj1 M:A+B}
+	\nl     \tjinjb
+	&       \deriv{\Gamma\tj M:B}{\Gamma\tj \inj2 M:A+B}
+	\nl     \tjcase
+	&       \deriv{\Gamma\tj M: A+B\sep\Gamma,\typ{x}{A}\tj N: C
+		\sep\Gamma,\typ{y}{B}\tj P: C}
+	{\Gamma\tj (\caseof{M}{x}{A}{N}{y}{B}{P}): C}
+	\nl     \tjbox
+	&       \deriv{\Gamma\tj M: 0}
+	{\Gamma\tj\Box_A M:A}
+	\end{array}
+	\]
+	\caption{Typing rules for sums}
+	\label{tab-sum-typing-rules}
 \end{table*}
 % ......................................................................
 comparando queste regole con \trule{$\cor$-I$_1$},
@@ -3278,20 +3277,20 @@ negazione; semplicemente usiamo le regole esistenti per $\to$ e $\cfalse$.
 Nella logica intuizionista, non esiste una derivazione di $A\cor\neg A$, per il 
 generale $A$. O in modo equivalente, nel lambda calcolo tipato semplice, 
 non esiste un termine chiuso di tipo $A+(A\to 0)$. Non siamo ancora
- in una posizione per dimostrare questo formalmente, ma informalmente, 
-l'argomento segue questo ragionamento: Se il tipo $A$ \`e vuoto, non può esserci
- alcun termine chiuso di tipo $A$ (altrimenti $A$ avrebbe quel termine come 
-elemento). Dall'altra parte, se il tipo $A$ non \`e vuoto, allora non può essere 
+in una posizione per dimostrare questo formalmente, ma informalmente, 
+l'argomento segue questo ragionamento: Se il tipo $A$ \`e vuoto, non pu\`o esserci
+alcun termine chiuso di tipo $A$ (altrimenti $A$ avrebbe quel termine come 
+elemento). Dall'altra parte, se il tipo $A$ non \`e vuoto, allora non pu\`o essere 
 un termine chiuso di tipo $A\to 0$ (o altrimenti, se abbiamo applicato questo 
 termine a qualche elemento di $A$, otterremmo un elemento di $0$). Ma se
- dovessimo scrivere un termine {\ em generico} di tipo $A+(A\to 0)$, quindi 
+dovessimo scrivere un termine {\ em generico} di tipo $A+(A\to 0)$, quindi 
 questo termine dovrebbe funzionare a prescindere da $A$. Quindi, il termine 
 dovrebbe decidere se utilizzare il componente sinistro o destro indipendentemente 
 da $A$. Ma per qualsiasi termine del genere, possiamo ottenere una contraddizione
- scegliendo $A$ vuoto o non vuoto.
+scegliendo $A$ vuoto o non vuoto.
 
 Strettamente correlato \`e il fatto che nella logica intuizionista, non abbiamo
- un principio di dimostrazione per contraddizione. La regola `` dimostrazione per contraddizione '' \`e la seguente:
+un principio di dimostrazione per contraddizione. La regola `` dimostrazione per contraddizione '' \`e la seguente:
 \[ \trule{contra$_x$}\ \deriv{\Gamma,\typ{x}{\neg A}\tj\cfalse}{\Gamma\tj A}.
 \]
 Questa \`e {\em not} una regola di logica proposizionale intuizionista, ma possiamo 
@@ -3306,65 +3305,65 @@ d'altra parte, non \`e un'istanza di \trule{$\to$-I}.
 Se ammettiamo la regola \trule{contra}, allora $A\cor\neg A$ pu\'o essere
 derivata. In seguito vi \`e la derivazione:
 {\footnotesize
-\[ \trule{$\to$-E}\ \deriv{\raisebox{-6ex}{$\squishr{\trule{ax$_y$}~}\deriv{}{\typ{y}{\neg(A\cor\neg A)}\tj\neg(A\cor\neg A)}$}\hspace{-24ex}
-  \squishr{\trule{$\to$-E}~}\deriv{\squishr{\trule{ax$_y$}~}\deriv{}{\typ{y}{\neg(A\cor\neg A)},\typ{x}{A}\tj\neg(A\cor\neg A)}
-    \sep \trule{$\cor$-I$_1$~}\deriv{\squishr{\trule{ax$_x$}~}\deriv{}{\typ{y}{\neg(A\cor\neg A)},\typ{x}{A}\tj A}}{\typ{y}{\neg(A\cor\neg A)},\typ{x}{A}\tj A\cor\neg A}}{
-   \trule{$\cor$-I$_2$~}\deriv{ 
-  \squishr{\trule{$\to$-I$_x$}~}\deriv{\typ{y}{\neg(A\cor\neg A)},\typ{x}{A}\tj \cfalse}{\typ{y}{\neg(A\cor\neg A)}\tj \neg A}
-  }{\typ{y}{\neg(A\cor\neg A)}\tj A\cor \neg A}\hspace{-18ex}
-  }}{\trule{contra$_y$~}\deriv{\typ{y}{\neg(A\cor\neg A)}\tj\cfalse}{\tj A\cor\neg A}}
-\]}
+	\[ \trule{$\to$-E}\ \deriv{\raisebox{-6ex}{$\squishr{\trule{ax$_y$}~}\deriv{}{\typ{y}{\neg(A\cor\neg A)}\tj\neg(A\cor\neg A)}$}\hspace{-24ex}
+		\squishr{\trule{$\to$-E}~}\deriv{\squishr{\trule{ax$_y$}~}\deriv{}{\typ{y}{\neg(A\cor\neg A)},\typ{x}{A}\tj\neg(A\cor\neg A)}
+			\sep \trule{$\cor$-I$_1$~}\deriv{\squishr{\trule{ax$_x$}~}\deriv{}{\typ{y}{\neg(A\cor\neg A)},\typ{x}{A}\tj A}}{\typ{y}{\neg(A\cor\neg A)},\typ{x}{A}\tj A\cor\neg A}}{
+			\trule{$\cor$-I$_2$~}\deriv{ 
+				\squishr{\trule{$\to$-I$_x$}~}\deriv{\typ{y}{\neg(A\cor\neg A)},\typ{x}{A}\tj \cfalse}{\typ{y}{\neg(A\cor\neg A)}\tj \neg A}
+			}{\typ{y}{\neg(A\cor\neg A)}\tj A\cor \neg A}\hspace{-18ex}
+	}}{\trule{contra$_y$~}\deriv{\typ{y}{\neg(A\cor\neg A)}\tj\cfalse}{\tj A\cor\neg A}}
+	\]}
 Al contrario, se abbiamo aggiunto $A\cor\neg A$ come assioma alla logica intuizionista, allora questo implica gi\`a la regola  \trule{contra} . Vale a dire, da qualsiasi derivazione di $\Gamma,\typ{x}{\neg A}\tj\cfalse$, possiamo ottenere una derivazione di $\Gamma\tj A$ usando $A\cor\neg A$ come assioma. Quindi, possiamo{\em simulare} la regola \trule{contra}, in presenza di
 $A\cor\neg A$.
 \[ \trule{$\cor$-E$_{x,y}$}\ \deriv{\deriv{\trule{excluded middle}}{\Gamma\tj A\cor \neg A} \sep
- \trule{$\cfalse$-E}\ \deriv{ \Gamma,\typ{x}{\neg A}\tj\cfalse}{\Gamma,\typ{x}{\neg A}\tj A}
-\sep \trule{ax$_y$}\ \deriv{}{\Gamma,\typ{y}{A}\tj A}}{\Gamma\tj A}
+	\trule{$\cfalse$-E}\ \deriv{ \Gamma,\typ{x}{\neg A}\tj\cfalse}{\Gamma,\typ{x}{\neg A}\tj A}
+	\sep \trule{ax$_y$}\ \deriv{}{\Gamma,\typ{y}{A}\tj A}}{\Gamma\tj A}
 \]
 In questo senso, possiamo dire che la regola $\trule{contra}$ e l'assioma
 $A\cor\neg A$ sono equivalenti, in presenza degli altri assiomi e delle regole della logica intuizionista.
 
-Si scopre che il sistema di logica intuizionista più 
+Si scopre che il sistema di logica intuizionista pi\`u 
 \trule{contra} \`e equivalente alla logica classica come la conosciamo. \`e in questo senso che possiamo dire che la logica intuizionista \`e "la logica classica senza dimostrazoni per contraddizione".
 
 \begin{exercise}
-  La formula $((A\to B)\to A)\to A$ \`e chiamata "Legge di Peirce". \`e valida nella logica classica, 
-ma non nella logica intuizionista. Fornisci una prova della legge di Peirce in deduzione naturale, usando la regola 
-  \trule{contra}.
+	La formula $((A\to B)\to A)\to A$ \`e chiamata "Legge di Peirce". \`e valida nella logica classica, 
+	ma non nella logica intuizionista. Fornisci una prova della legge di Peirce in deduzione naturale, usando la regola 
+	\trule{contra}.
 \end{exercise}
 
 Al contrario, la legge di Peirce, se aggiunta alla logica intuizionista per tutti i
 $A$ e $B$, implica \trule{contra}. Qu\'i di seguito la dimostrazione. Ricorda che 
 $\neg A$ \'e una abbreviazione di $A\to\cfalse$.
 \[ \trule{$\to$-E}~
-   \deriv{
-   \deriv{\trule{Peirce's law for $B=\cfalse$}}
-         {\Gamma\tj((A\to\cfalse)\to A)\to A}
-   \sep
-   \trule{$\to$-I$_x$}~
-   \deriv{
-   \squishr{\trule{$\cfalse$-E}~}
-   \deriv{\Gamma,\typ{x}{A\to\cfalse}\tj\cfalse}
-         {\Gamma,\typ{x}{A\to\cfalse}\tj A}
-   }
-   {\Gamma\tj(A\to\cfalse)\to A}
-   }
-   {\Gamma\tj A}
+\deriv{
+	\deriv{\trule{Peirce's law for $B=\cfalse$}}
+	{\Gamma\tj((A\to\cfalse)\to A)\to A}
+	\sep
+	\trule{$\to$-I$_x$}~
+	\deriv{
+		\squishr{\trule{$\cfalse$-E}~}
+		\deriv{\Gamma,\typ{x}{A\to\cfalse}\tj\cfalse}
+		{\Gamma,\typ{x}{A\to\cfalse}\tj A}
+	}
+	{\Gamma\tj(A\to\cfalse)\to A}
+}
+{\Gamma\tj A}
 \]
 
- 
+
 
 Riassumiamo i risultati di
 questa sezione in termini di uno slogan:
 \[ \begin{array}{ll}
-  &  \mbox{intuitionistic logic + \trule{contra}} \\
-  =& \mbox{intuitionistic logic + ``$A\cor\neg A$''} \\
-  =& \mbox{intuitionistic logic + Peirce's law} \\
-  =& \mbox{classical logic.}
+&  \mbox{intuitionistic logic + \trule{contra}} \\
+=& \mbox{intuitionistic logic + ``$A\cor\neg A$''} \\
+=& \mbox{intuitionistic logic + Peirce's law} \\
+=& \mbox{classical logic.}
 \end{array}
 \]
 
 La teoria delle dimostrazioni della logica intuizionista \`e un argomento molto interessante
-di per sé, e un intero corso potrebbe essere insegnato solo su questo
+di per s\'e, e un intero corso potrebbe essere insegnato solo su questo
 argomento.
 
 % ----------------------------------------------------------------------
@@ -3373,12 +3372,12 @@ argomento.
 Per estendere l'isomorfismo di Curry-Howard alla logica classica, secondo le 
 osservazioni della sezione precedente, \`e sufficiente aggiungere
 al calcolo lambda un termine che rappresenta la legge di Peirce. Tutto
- quello che dobbiamo fare \`e aggiungere un termine $\fC:((A\to B)\to A)\to A$, per tutti i tipi $A$
+quello che dobbiamo fare \`e aggiungere un termine $\fC:((A\to B)\to A)\to A$, per tutti i tipi $A$
 e $B$. 
 
 Tale termine \`e noto come {\em Felleisen's $\fC$}, e ha un'interpretazione
- specifica in termini di linguaggi di programmazione. Pu\`o essere inteso come
- un operatore di controllo (simile a "goto", "break" o gestione delle eccezioni in alcuni linguaggi di programmazione procedurale).
+specifica in termini di linguaggi di programmazione. Pu\`o essere inteso come
+un operatore di controllo (simile a "goto", "break" o gestione delle eccezioni in alcuni linguaggi di programmazione procedurale).
 
 Nello specifico, l'interpretazione di Felleisen richiede un termine della forma
 \[ M = \fC(\lam k^{A\to B}.N) : A
@@ -3386,11 +3385,11 @@ Nello specifico, l'interpretazione di Felleisen richiede un termine della forma
 da valutare come segue. Per valutare $M$, valutare prima $N$.  Nota
 che sia $M$ che $N$ hanno tipo $A$. If $N$ restituisce un risultato, 
 questo diventa immediatamente il risultato di $M$ D'altra parte, se durante la valutazione di 
- $N$, la funzione $k$ viene mai chiamata con qualche argomento
- $x:A$, allora l'ulteriore valutazione di $N$ viene interrotta,
+$N$, la funzione $k$ viene mai chiamata con qualche argomento
+$x:A$, allora l'ulteriore valutazione di $N$ viene interrotta,
 e $x$ diventa immediatamente il risultato di $M$.
 
-C'\`e molto di più nella programmazione con continuazioni di quanto possa essere spiegato 
+C'\`e molto di pi\`u nella programmazione con continuazioni di quanto possa essere spiegato 
 in questi appunti. Per un'interessante applicazione di continuazioni alla compilazione, vedi 
 ad es. {\cite{App92}} dalla  bibliografia Sezione~\ref{ssec-bibliography}). La spiegazione 
 sopra di cosa significa "valutare" il termine $M$ sorvola diversi dettagli. In particolare, non 
@@ -3404,39 +3403,39 @@ piuttosto complicato e va oltre lo scopo di queste note.
 \subsection{Definizioni}
 
 Come abbiamo visto, il calcolo con termini lambda significa ridurre i lambda
- termini alla forma normale. Secondo il teorema di Church-Rosser, una tale 
+termini alla forma normale. Secondo il teorema di Church-Rosser, una tale 
 forma normale \`e garantita come unica se esiste. Ma finora, abbiamo prestato poca
- attenzione alla domanda se esistono forme normali per un dato termine e, in tal caso,
- come dovremmo ridurre il termine per trovare una forma normale.
+attenzione alla domanda se esistono forme normali per un dato termine e, in tal caso,
+come dovremmo ridurre il termine per trovare una forma normale.
 
 \begin{definition}
-  Data una nozione di termine e una relazione di riduzione, diciamo che un termine 
-  $M$ is {\em debolmente normalizzante} se esiste una sequenza finita di riduzioni
-  $M\red M_1\red\ldots\red M_n$ tale che $M_n$ \`e una forma normale.
-  Diciamo che $M$ \`e {\em fortemente normalizzante} se non esiste un'infinit\`a
-  di riduzioni che partono da $M$, o in altre parole, se {\em every} sequenza di riduzioni a partire da
-  $M$ \`e finita. 
+	Data una nozione di termine e una relazione di riduzione, diciamo che un termine 
+	$M$ is {\em debolmente normalizzante} se esiste una sequenza finita di riduzioni
+	$M\red M_1\red\ldots\red M_n$ tale che $M_n$ \`e una forma normale.
+	Diciamo che $M$ \`e {\em fortemente normalizzante} se non esiste un'infinit\`a
+	di riduzioni che partono da $M$, o in altre parole, se {\em every} sequenza di riduzioni a partire da
+	$M$ \`e finita. 
 \end{definition}
 
 Ricordiamo la seguente conseguenza del teorema di Church-Rosser, che 
 abbiamo dichiarato come Corollario~\ref{cor-cr-3}: se $M$ ha una forma normale $N$,
 allora $M\reds N$. Ne consegue che un termine $M$sta debolmente normalizzando
- se e solo se ha una forma normale. Ci\'o non implica che ogni possibile modo di 
+se e solo se ha una forma normale. Ci\'o non implica che ogni possibile modo di 
 ridurre $M$ porti a una forma normale. Un termine si sta fortemente normalizzando
- se e solo se ogni modo di ridurlo porta a una forma normale in una certa quantit\'a di passi.
+se e solo se ogni modo di ridurlo porta a una forma normale in una certa quantit\'a di passi.
 
 Prendiamo ad esempio i seguenti termini nel lambda calcolo non tipato:
 \begin{enumerate}
-\item Il termine $\Omega=(\lam x.xx)(\lam x.xx)$ non \'e n\'e debolmente n\'e
-   fortemente normalizzante. Non ha una forma normale.
-\item Il temine $(\lam x.y)\Omega$ sta debolmente normalizzando, ma non \'e
-   fortemente normalizzante. Si riduce alla forma normale
-\item Il termine $(\lam x.y)((\lam x.x)(\lam x.x))$ \'e fortemente
-   normalizzante. Mentre ci sono diversi modi per ridurre questo
-   termine, portano tutti a una forma normale in passaggi finiti.
-\item Il termine $\lam x.x$ sta fortemente normalizzando, dal momento che non ha
-   riduzioni, tanto meno una sequenza di riduzione infinita.Più
-   generalmente, ogni forma normale \'e fortemente normalizzante.
+	\item Il termine $\Omega=(\lam x.xx)(\lam x.xx)$ non \'e n\'e debolmente n\'e
+	fortemente normalizzante. Non ha una forma normale.
+	\item Il temine $(\lam x.y)\Omega$ sta debolmente normalizzando, ma non \'e
+	fortemente normalizzante. Si riduce alla forma normale
+	\item Il termine $(\lam x.y)((\lam x.x)(\lam x.x))$ \'e fortemente
+	normalizzante. Mentre ci sono diversi modi per ridurre questo
+	termine, portano tutti a una forma normale in passaggi finiti.
+	\item Il termine $\lam x.x$ sta fortemente normalizzando, dal momento che non ha
+	riduzioni, tanto meno una sequenza di riduzione infinita.Pi\`u
+	generalmente, ogni forma normale \'e fortemente normalizzante.
 \end{enumerate}
 
 Vediamo immediatamente che una forte normalizzazione implica debolmente
@@ -3452,18 +3451,18 @@ il termine non \'e tipabile nel lambda calcolo semplicemente tipato. Questa non 
 una coincidenza, come viene dimostrato nel seguente teorema.
 
 \begin{theorem}[Teorema normalizzazione debole]\label{thm-weak-norm}
-  Nel  lambda calcolo semplicemente tipato, tutti i termini sono debolmente
-   normalizzanti.
+	Nel  lambda calcolo semplicemente tipato, tutti i termini sono debolmente
+	normalizzanti.
 \end{theorem}
 
 \begin{theorem}[Teorema normalizzazione forte]\label{thm-strong-norm}
-  Nel  lambda calcolo semplicemente tipato, tutti i termini sono fortemente
-   normalizzanti.
+	Nel  lambda calcolo semplicemente tipato, tutti i termini sono fortemente
+	normalizzanti.
 \end{theorem}
 
 Chiaramente, il  teorema di normalizzazione forte implica il 
 teorema di normalizzazione debole. Tuttavia, il  teorema di normalizzazione debole \'e molto
-più facile da dimostrare, che \'e la ragione per cui abbiamo dimostrato entrambi questi teoremi in
+pi\`u facile da dimostrare, che \'e la ragione per cui abbiamo dimostrato entrambi questi teoremi in
 classe(?). In particolare, la dimostrazione del teorema di normalizzazione debole 
 fornisce una misura esplicita della complessit\'a di un termine, in termini di
 numero di riduzioni di un certo grado nel termine. Non c'\'e
@@ -3495,25 +3494,25 @@ Reynolds nei primi anni '70.
 \subsection{Sintassi del Sistema F}
 
 La differenza principale tra Sistema F e lambda calcolo semplicemente
- tipizzato \'e che il Sistema F ha un nuovo tipo di funzione che prende un
- {\em tipo}, piuttosto che un {\em term}, come argomento. Possiamo anche 
+tipizzato \'e che il Sistema F ha un nuovo tipo di funzione che prende un
+{\em tipo}, piuttosto che un {\em term}, come argomento. Possiamo anche 
 pensare a questo tipo di funzione come come una famiglia di termini che \'e 
 indicizzata da un tipo.
 
 Siano $\alpha,\beta,\gamma$ su un insieme numerabile di {\em tipo
-  variabile}. I tipi di sistema F sono dati dalla grammatica
+	variabile}. I tipi di sistema F sono dati dalla grammatica
 \[ \mbox{Types:}\ssep A,B \bnf \alpha \bor A\to B\bor \forall\alpha.A
 \]
 Un tipo di modulo $A\to B$ \'e chiamato un  {\em tipo di funzione} e un 
 tipo della forma $\forall\alpha.A$ \'e chiamato {\em universal type}.La 
 variabile di tipo $\alpha$ \'e associata in $\forall\alpha.A$, e identifichiamo
- i tipi fino alla ridenominazione delle variabili associate; in tal modo
+i tipi fino alla ridenominazione delle variabili associate; in tal modo
 ,$\forall\alpha.\alpha\to\alpha$ e $\forall\beta.\beta\to\beta$ sono lo stesso tipo.
- Scriviamo $\FTV{A}$ per il set di variabili di tipo libero di un tipo $A$, definito induttivamente da:
+Scriviamo $\FTV{A}$ per il set di variabili di tipo libero di un tipo $A$, definito induttivamente da:
 \begin{itemize}
-\item $\FTV{\alpha} = \s{\alpha}$,
-\item $\FTV{A\to B} = \FTV{A}\cup\FTV{B}$,
-\item $\FTV{\forall\alpha.A} = \FTV{A}\setminus\s{\alpha}$.
+	\item $\FTV{\alpha} = \s{\alpha}$,
+	\item $\FTV{A\to B} = \FTV{A}\cup\FTV{B}$,
+	\item $\FTV{\forall\alpha.A} = \FTV{A}\setminus\s{\alpha}$.
 \end{itemize}
 Scriviamo anche $A[B/\alpha]$per il risultato della sostituzione di tutte le
 occorrenze gratuite di $\alpha$ da $B$ in $A$.Proprio come la sostituzione di
@@ -3530,31 +3529,31 @@ Di questi, variabili $x$, applicazioni $MN$, e lambda astrazioni
 $\lamabs{x}{A}.M$ sono esattamente come nel lambda
 calcolo semplicemente tipato. I nuovi termini sono {\em applicazione di tipo} $MA$, che \'e
 l'applicazione $M$ ad un tipo $A$, e {\em astrazione di tipo}
- $\Lamabs{\alpha}.M$, che denota la funzione di tipo
+$\Lamabs{\alpha}.M$, che denota la funzione di tipo
 che mappa un tipo $\alpha$ ad un  termine $M$. le regole di tipo nel Sistema F
 sono mostrate nella Tabella~\ref{tab-system-f-typing-rules}.
 % ......................................................................
 \begin{table*}[tbp]
-\[
-\begin{array}{rc}
-        \tjvar
-&       \deriv{}{\Gamma,\typ{x}{ A}\tj x: A}
-\nl     \tjapp
-&       \deriv{\Gamma\tj M: A\to B\sep\Gamma\tj N: A}
-                {\Gamma\tj MN: B}
-\nl     \tjlam
-&       \deriv{\Gamma,\typ{x}{ A}\tj M: B}
-                {\Gamma\tj\lamabs{x}{A}.M: A\to B}
-\nl     \tjApp
-&       \deriv{\Gamma\tj M: \forall\alpha.A}
-                {\Gamma\tj MB: A[B/\alpha]}
-\nl     \tjLam
-&       \deriv{\Gamma \tj M: A\sep \alpha\not\in\FTV{\Gamma}}
-                {\Gamma\tj\Lamabs{\alpha}.M: \forall\alpha.A}
-\end{array}
-\]
-\caption{Typing rules for Sistema F}
-\label{tab-system-f-typing-rules}
+	\[
+	\begin{array}{rc}
+	\tjvar
+	&       \deriv{}{\Gamma,\typ{x}{ A}\tj x: A}
+	\nl     \tjapp
+	&       \deriv{\Gamma\tj M: A\to B\sep\Gamma\tj N: A}
+	{\Gamma\tj MN: B}
+	\nl     \tjlam
+	&       \deriv{\Gamma,\typ{x}{ A}\tj M: B}
+	{\Gamma\tj\lamabs{x}{A}.M: A\to B}
+	\nl     \tjApp
+	&       \deriv{\Gamma\tj M: \forall\alpha.A}
+	{\Gamma\tj MB: A[B/\alpha]}
+	\nl     \tjLam
+	&       \deriv{\Gamma \tj M: A\sep \alpha\not\in\FTV{\Gamma}}
+	{\Gamma\tj\Lamabs{\alpha}.M: \forall\alpha.A}
+	\end{array}
+	\]
+	\caption{Typing rules for Sistema F}
+	\label{tab-system-f-typing-rules}
 \end{table*}
 % ......................................................................
 
@@ -3568,28 +3567,28 @@ sostituzione capture-free di $B$ per $\alpha$ in $M$.
 
 Nel Sistema F, ci sono due regole per $\beta$-reduction.  La prima \'e la 
 regola familiare per l'applicazione di una funzione a un termine. La seconda
- \'e una regola analoga per l'applicazione della funzione di tipo ad un tipo
+\'e una regola analoga per l'applicazione della funzione di tipo ad un tipo
 \[ \begin{array}{lllll}
-  (\beta_{\to}) & (\lamabs{x}{A}.M)N & \to & \subst{M}{N}{x}, \\
-  (\beta_{\forall}) & (\Lamabs{\alpha}.M)A & \to & \subst{M}{A}{\alpha},
+(\beta_{\to}) & (\lamabs{x}{A}.M)N & \to & \subst{M}{N}{x}, \\
+(\beta_{\forall}) & (\Lamabs{\alpha}.M)A & \to & \subst{M}{A}{\alpha},
 \end{array}
 \]
 Similarmente, ci sono due regole per $\eta$-reduction.
 \[ \begin{array}{lllll}
-  (\eta_{\to}) & \lamabs{x}{A}.Mx & \to & M, & \mbox{if $x\not\in\FV{M}$,} \\
-  (\eta_{\forall}) & \Lamabs{\alpha}.M\alpha & \to & M, & \mbox{if $\alpha\not\in\FTV{M}$.}
+(\eta_{\to}) & \lamabs{x}{A}.Mx & \to & M, & \mbox{if $x\not\in\FV{M}$,} \\
+(\eta_{\forall}) & \Lamabs{\alpha}.M\alpha & \to & M, & \mbox{if $\alpha\not\in\FTV{M}$.}
 \end{array}
 \]
 La congruenza e $\xi$-rules sono proprio come ci si aspettava:
 \[ \deriv{M\to M'}{MN\to M'N}
-   \sep
-   \deriv{N\to N'}{MN\to MN'}
-   \sep
-   \deriv{M\to M'}{\lamabs{x}{A}{M}\to\lamabs{x}{A}{M'}}
+\sep
+\deriv{N\to N'}{MN\to MN'}
+\sep
+\deriv{M\to M'}{\lamabs{x}{A}{M}\to\lamabs{x}{A}{M'}}
 \]
 \[ \deriv{M\to M'}{MA\to M'A}
-   \sep
-   \deriv{M\to M'}{\Lamabs{\alpha}{M}\to\Lamabs{\alpha}{M'}}
+\sep
+\deriv{M\to M'}{\Lamabs{\alpha}{M}\to\Lamabs{\alpha}{M'}}
 \]
 
 % ----------------------------------------------------------------------
@@ -3603,47 +3602,47 @@ ed operazioni possono essere codificati nel Sistema F.
 
 Definire il tipo del Sistema F $\bool$, ed i termini $\truet,\falset:\bool$, come segue:
 \[ \begin{array}{ccl}
-  \bool &=& \forall\alpha.\alpha\to\alpha\to\alpha,\\
-  \truet &=& \Lamabs{\alpha}.\lamabs{x}{\alpha}.\lamabs{y}{\alpha}.x,\\
-  \falset &=& \Lamabs{\alpha}.\lamabs{x}{\alpha}.\lamabs{y}{\alpha}.y.\\
+\bool &=& \forall\alpha.\alpha\to\alpha\to\alpha,\\
+\truet &=& \Lamabs{\alpha}.\lamabs{x}{\alpha}.\lamabs{y}{\alpha}.x,\\
+\falset &=& \Lamabs{\alpha}.\lamabs{x}{\alpha}.\lamabs{y}{\alpha}.y.\\
 \end{array}
 \]
 \'E facile vedere dalle regole di tipo $\tj\truet:\bool$ e
 $\tj\falset:\bool$ sono dei giudizi di tipo validi. Possiamo definire una operazione
 if-then-else 
 \[ \begin{array}{l}
-  \ifthenelset : \forall\beta.\bool\to\beta\to\beta\to\beta,
-  \\  \ifthenelset = \Lamabs{\beta}.\lamabs{z}{\bool}.z\beta.
+\ifthenelset : \forall\beta.\bool\to\beta\to\beta\to\beta,
+\\  \ifthenelset = \Lamabs{\beta}.\lamabs{z}{\bool}.z\beta.
 \end{array}
 \]
 \'e quindi facile vedere che, per qualsiasi tipo $B$ e qualsiasi coppia di termini
 $M,N:B$, abbiamo
 \[ \begin{array}{rcl}
-  \ifthenelset B\, \truet\, MN &\redbs& M,\\
-  \ifthenelset B\, \falset\, MN &\redbs& N.
+\ifthenelset B\, \truet\, MN &\redbs& M,\\
+\ifthenelset B\, \falset\, MN &\redbs& N.
 \end{array}
 \]
 Una volta che abbiamo if-then-else, it is easy to define other boolean
 operations, for example
 \[ \begin{array}{ccl}
-  \andt &=& \lamabs{a}{\bool}.\lamabs{b}{\bool}.\ifthenelset\bool a\,b\,\falset,\\
-  \ort &=& \lamabs{a}{\bool}.\lamabs{b}{\bool}.\ifthenelset\bool a\,\truet\,b,\\
-  \nott &=& \lamabs{a}{\bool}.\ifthenelset\bool a\,\falset\,\truet.
+\andt &=& \lamabs{a}{\bool}.\lamabs{b}{\bool}.\ifthenelset\bool a\,b\,\falset,\\
+\ort &=& \lamabs{a}{\bool}.\lamabs{b}{\bool}.\ifthenelset\bool a\,\truet\,b,\\
+\nott &=& \lamabs{a}{\bool}.\ifthenelset\bool a\,\falset\,\truet.
 \end{array}
 \]
-Più tardi, nella Proposition~\ref{prop-unique-bool}, dimostreremo fino a
+Pi\`u tardi, nella Proposition~\ref{prop-unique-bool}, dimostreremo fino a
 $\beta\eta$ equalit\'a, $\truet$ e $\falset$ sono i {\em soli}
 terimini chiusi di tipo $\bool$. Questo, insieme all'operazione if-then-else,
 Giustifica l'averli chiamati come tipo dei Booleani.
 
 Si noti che le suddette codifiche dei booleani e dei loro if-then-else
- l'operazione nel sistema F \'e esattamente la stessa della corrispondente
- codifica nel  lambda calcolo non tipato da Sezione~\ref{ssec-Booleani}
+l'operazione nel sistema F \'e esattamente la stessa della corrispondente
+codifica nel  lambda calcolo non tipato da Sezione~\ref{ssec-Booleani}
 , a condizione che si cancellino tutti i tipi e le  astrazioni di tipi. Tuttavia, c'\'e
- una differenza importante: nel lambda calcolo non tipizzato, i booleani erano solo
- due termini in mezzo a molti, e non c'era alcuna garanzia che l'argomento di una
- funzione booleana  (come $\andt$ e $\ort$) era in realt\'a un booleano. Nel Sistema F,
- la digitazione garantisce che tutti i termini booleani chiusi alla fine si riducono a $\truet$ o $\falset$.
+una differenza importante: nel lambda calcolo non tipizzato, i booleani erano solo
+due termini in mezzo a molti, e non c'era alcuna garanzia che l'argomento di una
+funzione booleana  (come $\andt$ e $\ort$) era in realt\'a un booleano. Nel Sistema F,
+la digitazione garantisce che tutti i termini booleani chiusi alla fine si riducono a $\truet$ o $\falset$.
 
 % ----------------------------------------------------------------------
 % ----------------------------------------------------------------------
@@ -3651,26 +3650,26 @@ Si noti che le suddette codifiche dei booleani e dei loro if-then-else
 
 Possiamo anche definire un tipo di numeri di Church nel Sistema F. Definiamo:
 \[ \begin{array}{ccl}
-  \nat &=& \forall\alpha.(\alpha\to\alpha)\to\alpha\to\alpha,\\
-  \chnum{0} &=& \Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.x,\\
-  \chnum{1} &=& \Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.fx,\\
-  \chnum{2} &=& \Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.f(fx),\\
-  \chnum{3} &=&
-  \Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.f(f(fx)),\\
-  \ldots
+\nat &=& \forall\alpha.(\alpha\to\alpha)\to\alpha\to\alpha,\\
+\chnum{0} &=& \Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.x,\\
+\chnum{1} &=& \Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.fx,\\
+\chnum{2} &=& \Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.f(fx),\\
+\chnum{3} &=&
+\Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.f(f(fx)),\\
+\ldots
 \end{array}
 \]
-È quindi facile definire funzioni semplici, come ad esempio il successore,
+\`e quindi facile definire funzioni semplici, come ad esempio il successore,
 addizione e moltiplicazione:
 \[ \begin{array}{ccl}
-  \succt &=& \lamabs{n}{\nat}.\Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.f(n\alpha f x),\\
-  \addt &=&  \lamabs{n}{\nat}.\lamabs{m}{\nat}.\Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.n\alpha f(m\alpha fx), \\
-  \multt &=& \lamabs{n}{\nat}.\lamabs{m}{\nat}.\Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.n\alpha (m\alpha f).
+\succt &=& \lamabs{n}{\nat}.\Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.f(n\alpha f x),\\
+\addt &=&  \lamabs{n}{\nat}.\lamabs{m}{\nat}.\Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.\lamabs{x}{\alpha}.n\alpha f(m\alpha fx), \\
+\multt &=& \lamabs{n}{\nat}.\lamabs{m}{\nat}.\Lamabs{\alpha}.\lamabs{f}{\alpha\to\alpha}.n\alpha (m\alpha f).
 \end{array}
 \]
 Proprio come per i Booleani, queste codifiche dei numeri di Church
- e le funzioni sono esattamente le stesse di quelle del calcolo lambda
- non tipato dalla Sezione~\ref{ssec-natural-numbers}, se si cancellano tutti i tipi
+e le funzioni sono esattamente le stesse di quelle del calcolo lambda
+non tipato dalla Sezione~\ref{ssec-natural-numbers}, se si cancellano tutti i tipi
 e le astrazioni di tipo. Mostreremo in 
 Proposizione~\ref{prop-unique-nat} oltre a quello  numeri di church sono,
 secondo $\beta\eta$-equivalenza, gli unici termini chiusi di tipo $\nat$.
@@ -3679,11 +3678,11 @@ secondo $\beta\eta$-equivalenza, gli unici termini chiusi di tipo $\nat$.
 \subsubsection{Coppie}\label{ssec-pairs}
 
 Avrai notato che non abbiamo incluso un tipo di prodotto cartesiano
-$A\times B$ nella definizione di Sistema F. Questo perchè questo tipo
-è definibile. Specificamente, definiamo
+$A\times B$ nella definizione di Sistema F. Questo perch\`e questo tipo
+\`e definibile. Specificamente, definiamo
 \[ \begin{array}{ccl}
-  A\times B &=& \forall\alpha.(A\to B\to\alpha)\to\alpha,\\
-  \pair{M,N} &=& \Lamabs{\alpha}.\lamabs{f}{A\to B\to\alpha}.fMN.
+A\times B &=& \forall\alpha.(A\to B\to\alpha)\to\alpha,\\
+\pair{M,N} &=& \Lamabs{\alpha}.\lamabs{f}{A\to B\to\alpha}.fMN.
 \end{array}
 \]
 
@@ -3692,16 +3691,16 @@ per qualsiasi coppia di tipi $A,B$, abbiamo funzioni di
 proiezione $\leftt AB : A\times B\to A$ e $\rightt AB : A\times B\to
 B$, definiti da
 \[ \begin{array}{ccl}
-  \leftt &=& \Lamabs{\alpha}.\Lamabs{\beta}.\lamabs{p}{\alpha\times
-    \beta}.p\alpha(\lamabs{x}{\alpha}.\lamabs{y}{\beta}.x),\\
-  \rightt &=& \Lamabs{\alpha}.\Lamabs{\beta}.\lamabs{p}{\alpha\times
-    \beta}.p\beta(\lamabs{x}{\alpha}.\lamabs{y}{\beta}.y).
+\leftt &=& \Lamabs{\alpha}.\Lamabs{\beta}.\lamabs{p}{\alpha\times
+	\beta}.p\alpha(\lamabs{x}{\alpha}.\lamabs{y}{\beta}.x),\\
+\rightt &=& \Lamabs{\alpha}.\Lamabs{\beta}.\lamabs{p}{\alpha\times
+	\beta}.p\beta(\lamabs{x}{\alpha}.\lamabs{y}{\beta}.y).
 \end{array}
 \]
 Questo soddisfa la solita legge
 \[ \begin{array}{ccl}
-  \leftt AB\pair{M,N} &\redbs& M,\\
-  \rightt AB\pair{M,N} &\redbs& N.
+\leftt AB\pair{M,N} &\redbs& M,\\
+\rightt AB\pair{M,N} &\redbs& N.
 \end{array}
 \]
 Per un'altra volta,queste codifiche di coppie e proiezioni 
@@ -3709,118 +3708,118 @@ sono esattamente le stesse di quelle che abbiamo usato nel  lambda
 calcolo non tipato, quando si cancellano tutte le parti correlate ai tipi 
 dei termini. Saremo capaci di dimostrare
 Esercizio~\ref{ex-unique-pair} che ogni termine chiuso di lambda $A\times
-B$ è $\beta\eta$-equivalente ad un termine nella forma $\pair{M,N}$.
+B$ \`e $\beta\eta$-equivalente ad un termine nella forma $\pair{M,N}$.
 
 \begin{remark}
-  \'E anche importante notare che $\eta$-leggi, come per esempio
-  \[  \pair{\leftt M,\rightt M}=M,
-  \] sono {\em not} derivabili nel Sistema F. Queste leggi valgono ogni volta che $M$
-  \'e un termine chiuso, ma non necessariamente quando $M$ contiene variabili
-  libere.
+	\'E anche importante notare che $\eta$-leggi, come per esempio
+	\[  \pair{\leftt M,\rightt M}=M,
+	\] sono {\em not} derivabili nel Sistema F. Queste leggi valgono ogni volta che $M$
+	\'e un termine chiuso, ma non necessariamente quando $M$ contiene variabili
+	libere.
 \end{remark}
 
 \begin{exercise}\label{ex-encodings}
-  Trovare delle codifiche adeguate nel Sistema F di tutti i tipi $1$, $A+B$, e
-  $0$, insieme ai termini corrispondenti $\unit$, $\inj1$, $\inj2$,
-  $\caseof{M}{x}{A}{N}{y}{B}{P}$, e $\Box_A{M}$.
+	Trovare delle codifiche adeguate nel Sistema F di tutti i tipi $1$, $A+B$, e
+	$0$, insieme ai termini corrispondenti $\unit$, $\inj1$, $\inj2$,
+	$\caseof{M}{x}{A}{N}{y}{B}{P}$, e $\Box_A{M}$.
 \end{exercise}
 
 % ----------------------------------------------------------------------
-\subsection{proprietà di Church-Rosser e normalizzazione forte}
+\subsection{propriet\`a di Church-Rosser e normalizzazione forte}
 
 \begin{theorem}[Church-Rosser]
-   Il Sistema F soddisfa le proprietà Church-Rosser, tutte e due per
-  $\beta$-riduzione e per $\beta\eta$-riduzione.
+	Il Sistema F soddisfa le propriet\`a Church-Rosser, tutte e due per
+	$\beta$-riduzione e per $\beta\eta$-riduzione.
 \end{theorem}
 
 \begin{theorem}[Normalizzazione forte]\label{thm-strong-norm-system-f}
-  nel Sistema F, tutti i termini sono normalizzanti forti.
+	nel Sistema F, tutti i termini sono normalizzanti forti.
 \end{theorem}
 
-La prova della proprietà Church-Rosser è simile a quella del
+La prova della propriet\`a Church-Rosser \`e simile a quella del
 lambda calcolo semplicemente tipato, e viene lasciato come esercizio.
- La dimostrazione di normalizzazione forte è molto più complessa;
- la si può trovare nel capitolo14 di `` Dimostrazioni e Tipi '' {\cite{GLT89}}.
+La dimostrazione di normalizzazione forte \`e molto pi\`u complessa;
+la si pu\`o trovare nel capitolo14 di `` Dimostrazioni e Tipi '' {\cite{GLT89}}.
 
 % ----------------------------------------------------------------------
 \subsection{Isomorfismo di Curry-Howard }
 
 Dal punto di vista dell'isomorfism di Curry-Howard,
-$\forall\alpha.A$ è l'affermazione logica universalmente quantificata
-``per tutti $\alpha$, $A$ è vera''. Qui $\alpha$ spazia sulle proposizioni atomiche.
- Per esempio, la formula
+$\forall\alpha.A$ \`e l'affermazione logica universalmente quantificata
+``per tutti $\alpha$, $A$ \`e vera''. Qui $\alpha$ spazia sulle proposizioni atomiche.
+Per esempio, la formula
 $\forall\alpha.\forall\beta.\alpha\to(\beta\to\alpha)$ esprime il
-fatto valido che l'implicazione $\alpha\to(\beta\to\alpha)$ è vera
+fatto valido che l'implicazione $\alpha\to(\beta\to\alpha)$ \`e vera
 per tutte le proposizioni $\alpha$ and $\beta$. Dato che questo quantificatore
-va oltre le {\em proposizioni}, è chiamato{\em quantificatore
- di secondo ordine}, e la logica corrispondente è {\em proposizione logica di secondo ordine}. 
+va oltre le {\em proposizioni}, \`e chiamato{\em quantificatore
+	di secondo ordine}, e la logica corrispondente \`e {\em proposizione logica di secondo ordine}. 
 
 Sotoo l'isomorfismo di Curry-Howard , le regole per la tipizzazione nel Sistema F
 diventano le seguent regole logiche:
 \begin{itemize}
-\item (Assioma)
-\[ \trule{ax$_x$}\ \deriv{}{\Gamma,\typ{x}{A}\tj A}
-\]
-\item ($\to$-introduzione)
-\[ \trule{$\to$-I$_x$}\ \deriv{\Gamma,\typ{x}{A}\tj B}{\Gamma\tj A\to B}
-\]
-\item ($\to$-eliminazione)
-\[ \trule{$\to$-E}\ \deriv{\Gamma\tj A\to B\sep \Gamma\tj A}{\Gamma\tj B}
-\]
-\item ($\forall$-introduzione)
-\[ \trule{$\forall$-I}\ \deriv{\Gamma\tj A\sep \alpha\not\in\FTV{\Gamma}}{\Gamma\tj \forall\alpha.A}
-\]
-\item ($\forall$-eliminazione)
-\[ \trule{$\forall$-E}\ \deriv{\Gamma\tj \forall\alpha.A}{\Gamma\tj A[B/\alpha]}
-\]
+	\item (Assioma)
+	\[ \trule{ax$_x$}\ \deriv{}{\Gamma,\typ{x}{A}\tj A}
+	\]
+	\item ($\to$-introduzione)
+	\[ \trule{$\to$-I$_x$}\ \deriv{\Gamma,\typ{x}{A}\tj B}{\Gamma\tj A\to B}
+	\]
+	\item ($\to$-eliminazione)
+	\[ \trule{$\to$-E}\ \deriv{\Gamma\tj A\to B\sep \Gamma\tj A}{\Gamma\tj B}
+	\]
+	\item ($\forall$-introduzione)
+	\[ \trule{$\forall$-I}\ \deriv{\Gamma\tj A\sep \alpha\not\in\FTV{\Gamma}}{\Gamma\tj \forall\alpha.A}
+	\]
+	\item ($\forall$-eliminazione)
+	\[ \trule{$\forall$-E}\ \deriv{\Gamma\tj \forall\alpha.A}{\Gamma\tj A[B/\alpha]}
+	\]
 \end{itemize}
 Le prime tre di queste regole sono familiari dalla logica proposizionale.
 
-La regola $\forall$-introduzione è anche conosciuta come {\em generalizzazione 
-  universale}. Corrisponde a un ragionamento logico ben noto
-principio: se una dichiarazione $A$  è stata dimostrata per alcuni {\em arbitrari}
+La regola $\forall$-introduzione \`e anche conosciuta come {\em generalizzazione 
+	universale}. Corrisponde a un ragionamento logico ben noto
+principio: se una dichiarazione $A$  \`e stata dimostrata per alcuni {\em arbitrari}
 $\alpha$, ne consegue che vale per {\em all} $\alpha$.Il
-il requisito che $\alpha$ sia `` arbitrario '' è stato formalizzato nella
+il requisito che $\alpha$ sia `` arbitrario '' \`e stato formalizzato nella
 logica richiedendo che $\alpha$ non appaia in nessuna delle
 ipotesi che sono state utilizzate per ricavare $A$, o, in altre parole, che
-$\alpha$ non è tra le variabili libere di $\Gamma$.
+$\alpha$ non \`e tra le variabili libere di $\Gamma$.
 
-La regola $\forall$-eliminazione è anche conosciuta come {\em specializzazione 
-  universale}.  È il semplice principio che se qualche affermazione
-è vera per tutte le proposizioni $\alpha$, allora la stessa affermazione è vera per
+La regola $\forall$-eliminazione \`e anche conosciuta come {\em specializzazione 
+	universale}.  \`e il semplice principio che se qualche affermazione
+\`e vera per tutte le proposizioni $\alpha$, allora la stessa affermazione \`e vera per
 qualsiasi proposizione particolare $B$. Da notare che, a differenza della regola $\forall$-introduzione
 , questa regola non richiede una condizione secondaria. 
 
 Infine, notiamo che la condizione secondaria nella regola di $\forall$-introduction
-è ovviamente la stessa della regola di tipizzazione $\tjLam$ della
+\`e ovviamente la stessa della regola di tipizzazione $\tjLam$ della
 Tabella~\ref{tab-system-f-typing-rules}. Dal punto di vista della logica, 
-la condizione secondaria è giustificata perché viene affermato che
-$\alpha$ è ``arbitrario'', per esempio, non sono state fatte ipotesi su di esso. 
+la condizione secondaria \`e giustificata perch\'e viene affermato che
+$\alpha$ \`e ``arbitrario'', per esempio, non sono state fatte ipotesi su di esso. 
 Dal punto di vista del lambda calcolo, anche la condizione accessoria ha senso:
 altrimenti, il termine $\lamabs{x}{\alpha}.\Lamabs{\alpha}.x$ sarebbe
 ben-tipata di tipo $\alpha\to\forall\alpha.\alpha$, che chiaramente non 
-ha alcun senso: non c'è modo che un elemento $x$ di qualche tipo
+ha alcun senso: non c'\`e modo che un elemento $x$ di qualche tipo
 fisso $\alpha$ potrebbe diventare improvvisamente un elemento di un tipo arbitrario. 
 
 % ----------------------------------------------------------------------
 \subsection{Fornire i connettivi logici mancanti}
 
 Si scopre che una logica con solo l'implicazione  $\to$ ed
-il quantificatore universale del secondo ordine  $\forall$ è sufficiente per
+il quantificatore universale del secondo ordine  $\forall$ \`e sufficiente per
 esprimere tutti gli altri connettivi logici usuali, ad esempio:
 \begin{eqnarray}
-  A\cand B &\iff& \forall\alpha.(A\to B\to\alpha)\to\alpha,\label{eqn-A-cand-B}\\
-  A\cor B &\iff& \forall\alpha.(A\to\alpha)\to(B\to\alpha)\to\alpha,\label{eqn-A-cor-B}\\
-  \cnot A &\iff& \forall\alpha.A\to \alpha,\\
-  \ctrue &\iff& \forall\alpha.\alpha\to\alpha,\\
-  \cfalse &\iff& \forall\alpha.\alpha,\\
-  \exists\beta.A &\iff& \forall\alpha.(\forall\beta.(A\to\alpha))\to\alpha.\label{eqn-exists-beta-A}
+A\cand B &\iff& \forall\alpha.(A\to B\to\alpha)\to\alpha,\label{eqn-A-cand-B}\\
+A\cor B &\iff& \forall\alpha.(A\to\alpha)\to(B\to\alpha)\to\alpha,\label{eqn-A-cor-B}\\
+\cnot A &\iff& \forall\alpha.A\to \alpha,\\
+\ctrue &\iff& \forall\alpha.\alpha\to\alpha,\\
+\cfalse &\iff& \forall\alpha.\alpha,\\
+\exists\beta.A &\iff& \forall\alpha.(\forall\beta.(A\to\alpha))\to\alpha.\label{eqn-exists-beta-A}
 \end{eqnarray}
 
 \begin{exercise}
-   Usando il ragionamento intuizionistico informale, dimostra che il lato sinistro
-   è logicamente equivalente al lato destro per ciascuno di
-  {\eqref{eqn-A-cand-B}}--{\eqref{eqn-exists-beta-A}}.
+	Usando il ragionamento intuizionistico informale, dimostra che il lato sinistro
+	\`e logicamente equivalente al lato destro per ciascuno di
+	{\eqref{eqn-A-cand-B}}--{\eqref{eqn-exists-beta-A}}.
 \end{exercise}
 
 \begin{remark}
