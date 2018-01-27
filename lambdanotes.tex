@@ -54,7 +54,7 @@ regole''. In questa prospettiva, dare una funzione significa dare una regola di
 come la funzione dev'essere calcolata. Spesso, tale regola pu\`o essere data da
 una formula, ad esempio, la tipica $f(x)=x^2$ o $g(x)=\sin(e^x)$
 del calcolo differenziale e integrale. Cos\`i come prima, due funzioni
-sono {em estensionalmente} uguali se hanno lo stesso comportamento di input-output;
+sono {\em estensionalmente} uguali se hanno lo stesso comportamento di input-output;
 ma adesso possiamo anche parlare di un'altra nozione di uguaglianza: due funzioni sono
 {\em intensionalmente} uguali se sono date da (essenzialmente) la
 stessa formula.
@@ -89,14 +89,14 @@ per cui una funzione \`e definita.
 Il lambda-calcolo \`e una teoria che indica le {\em funzioni come formule}. \`E un
 sistema per manipolare funzioni come {\em espressioni}.
 
-Iniziamo dal guardare un'altro noto linguaggio che tratta espressioni, ossia l'aritmetica. 
+Iniziamo dal guardare un altro noto linguaggio che tratta espressioni, ossia l'aritmetica. 
 Le espressioni aritmetiche sono fatte da variabili ($x,y,z\ldots$), 
 numeri ($1,2,3,\ldots$), e operatori (``$+$'', ``$-$'', ``$\times$'' ecc.). 
 Un espressione come $x+y$ sta per il {\em risultato} di un'addizione
 (piuttosto che come {\em istruzione} per aggiungere, o come {\em affermazione} 
 che qualcosa viene aggiunto). Il grande vantaggio di questo linguaggio 
 \`e che le espressioni possono essere nidificate senza alcun bisogno 
-di mentionare esplicitamente i risultati intermedi. Quindi
+di menzionare esplicitamente i risultati intermedi. Quindi
 per esempio, scriviamo
 \[   A = (x+y)\times z^2,   
 \]
@@ -159,7 +159,7 @@ di una funzione in anticipo. L'esempio pi\`u semplice \`e la funzione identit\`a
 $f = \lam x.x$, che pu\`o avere qualsiasi insieme $X$ come suo dominio e codominio,
 finch\'e questi sono uguali. Diciamo che
 $f$ \`e del {\em tipo} $X\to X$. Un altro esempio \`e la funzione $g = \lam f.\lam
-x.f(f(x))$ che abbiamo visto sopra. Possiamo controllare che $g$ si assegna 
+x.f(f(x))$ che abbiamo visto sopra. Possiamo controllare che $g$ assegna 
 qualsiasi funzione $f:X\to X$ ad una funzione $g(f):X\to X$. In questo caso, diciamo
 che $g$ \`e del tipo
 \[          (X\to X)\to(X\to X).
@@ -190,7 +190,7 @@ d\`a massima flessibilit\`a. \`E anche molto poco sicuro, poich\'e potremmo anda
 situazioni dove proviamo ad applicare una funzione ad un argomento che
 non comprende.
 \item {\em Lambda-calcolo tipato semplice.} Nel lambda-calcolo tipato semplice,
-dobbiamo sempre specificato i tipo di ogni espressione.
+dobbiamo sempre specificare il tipo di ogni espressione.
 Ci\`o \`e molto simile alla situazione nella teoria degli insiemi. Non permettiamo
 mai l'applicazione di una funzione ad un argomento a meno che il tipo
 dell'argomento \`e lo stesso del dominio della funzione. Di conseguenza,
@@ -269,7 +269,7 @@ filosofica tra i matematici sulla definizione di dimostrazione. I noti
 {\em costruttivisti}, cos\`i come Brouwer e Heyting, credevano che per dimostrare
 l'esistenza di un oggetto matematico, bisogna essere in grado di costruirlo
 esplicitamente. {\em I logici matematici classici}, come Hilbert, credevano che
-\`e sufficiente derivare una contraddizione dal presupposto che non esiste.
+fosse sufficiente derivare una contraddizione dal presupposto che non esiste.
 
 Ironicamente, uno degli esempi pi\`u conosciuti di dimostrazione che
 non \`e costruttiva \`e la dimostrazione di Brouwer del suo teorema del punto fisso,
@@ -347,7 +347,7 @@ definizioni sintattiche nello stile BNF.
 Di seguito vi sono alcuni esempi di lambda-termini:
 \[ (\lam x.x) \sep ((\lam x.(xx))(\lam y.(yy))) \sep (\lam f.(\lam x.(f(fx))))
 \]
-Nota che nella definire i lambda-termini, abbiamo messo abbastanza
+Nota che nel definire i lambda-termini, abbiamo messo abbastanza
 parentesi obbligatorie per assicurarci che ogni termine $M\in\Lambda$ possa essere
 scomposto in sottotermini. Questo significa che ogni termine $M\in\Lambda$
 \`e precisamente una delle forme $x$, $(MN)$, $(\lam x.M)$. Termini di
@@ -372,7 +372,7 @@ le seguenti convenzioni nella scrittura dei lambda-termini:
   si estende il pi\`u a destra possibile. In particolare, $\lam
     x.MN$ significa $\lam x.(MN)$, e non $(\lam x.M)N$. 
   \item Pi\`u astrazioni-lambda possono essere contratte; quindi $\lam
-    xyz.M$ si abbrevia in $\lam x.\lam y.\lam z.M$.
+    xyz.M$  \`e la forma abbreviata di $\lam x.\lam y.\lam z.M$.
   \end{itemize}
 \end{convention}  
 
@@ -407,7 +407,7 @@ notare che i termini $\lam x.x$ e $\lam y.y$, che differiscono solo nel
 nome della loro variabile legata, sono praticamente gli stessi. Diremo che
 tali termini sono $\alpha$-equivalenti, e scriviamo $M\eqa N$. Nel raro
 caso in cui volessimo dire che due termini sono precisamente uguali, simbolo
-per ismbolo, diciamo che $M$ e $N$ sono {\em identici} e scriviamo $M\equiv N$.
+per simbolo, diciamo che $M$ e $N$ sono {\em identici} e scriviamo $M\equiv N$.
 Riserviamo ``$=$'' come un simbolo generico usato per differenti scopi.
 
 Un'occorrenza di una variabile $x$ dentro un termine della forma $\lam x.N$
@@ -417,7 +417,7 @@ una variabile che non \`e legata \`e detta {\em libera}. Quindi,
 ad esempio, nel termine
 \[   M \equiv (\lam x.xy)(\lam y.yz), \]
 $x$ \`e legata, mentre $z$ \`e libera. La variabile $y$ ha sia un'occorrenza libera
-che una legata. L'insieme delle variabili libere di $M$ \`e
+che una legata. L'insieme delle variabili libere di $M$ \`e $\s{y,z}$. 
 
 Pi\`u generalmente, l'insieme delle variabili libere del termine $M$ sono
 denotate con $\FV{M}$, e sono definite formalmente in questo modo:
@@ -438,10 +438,10 @@ variabili, e $M$ \`e un termine, scriviamo $\ren{M}{y}{x}$ come risultato della
 ridenominazione di $x$ a $y$ in $M$. Rinominare \`e formalmente definito come segue:
 \[ \begin{array}{llll}
   \ren{x}{y}{x} &\equiv& y, \\
-  \ren{z}{y}{x} &\equiv& z, & \mbox{if $x\neq z$,} \\
+  \ren{z}{y}{x} &\equiv& z, & \mbox{se $x\neq z$,} \\
   \ren{(MN)}{y}{x} &\equiv& (\ren{M}{y}{x})(\ren{N}{y}{x}), \\
   \ren{(\lam x.M)}{y}{x} &\equiv& \lam y.(\ren{M}{y}{x}), \\
-  \ren{(\lam z.M)}{y}{x} &\equiv& \lam z.(\ren{M}{y}{x}), & \mbox{if
+  \ren{(\lam z.M)}{y}{x} &\equiv& \lam z.(\ren{M}{y}{x}), & \mbox{se
   $x\neq z$.}
 \end{array}
 \]
@@ -494,7 +494,7 @@ che soddisfano le sei regole nella Tabella~\ref{tab-alpha}.
 $\alpha$-equivalente ad un altro termine in cui i nomi di tutte le
 variabili legate sono diverse tra loro e da qualsiasi variabile libera.
 Quindi, quando manipoliamo i lambda-termini in teoria e in pratica,
-possiamo supporre (e daremo per assodato) {\wloss} che le variabili legate
+possiamo supporre (e daremo per assodato) senza perdita di generalit\`a che le variabili legate
 sono state rinominate per essere distinte. Questa convenzione \`e chiamata 
 {\em Convenzione di Barendregt sulle variabili}.
 
@@ -523,7 +523,7 @@ $\subst{M}{N}{x}$ come il risultato della sostituzione di $x$ con $N$
 in $M$. La definizione di sostituzione \`e complicata da due condizioni:
 \begin{enumerate}
 \item[1.] Possiamo solo sostituire variabili {\em libere}, poich\'e i nomi
-delle variabili legali sono considerati irrilevanti, e non
+delle variabili legate sono considerati irrilevanti, e non
 dovrebbero influenzare il risultato di una sostituzione. Quindi, $\subst{x(\lam
     xy.x)}{N}{x}$ \`e $N(\lam xy.x)$, e non $N(\lam xy.N)$.
 \item[2.] Dobbiamo evitare l'accidentale ``cattura'' di variabili
@@ -545,14 +545,14 @@ Facendolo ingenuamente, otterremmo
 \end{enumerate}
 
 Dunque, l'operazione di sostituzione ci costringe delle volte a rinominare
-una variabile legata. In questo caso, \`e meglio scegliere una variable da
+una variabile legata. In questo caso, \`e meglio scegliere una variabile da
 $\Vars$ che non \`e ancora stata usata come nuovo nome della variabile
 legata. Una variabile che \`e attualmente inutilizzata \`e chiamata {\em fresca}.
 Il motivo per cui abbiamo stipulato che l'insieme $\Vars$ \`e infinito era per
-star certi della disponibilit\`a di una variabile fresca quando ne necessitiamo una.
+stare certi della disponibilit\`a di una variabile fresca quando ne necessitiamo una.
 
 \begin{definition}
-  The {\em sostituzione}(``capture-avoiding'')  di $N$ per occorrenze
+  La {\em sostituzione} (``capture-avoiding'')  di $N$ per occorrenze
   libere di $x$ in $M$, in simboli $\subst{M}{N}{x}$, \`e definita
   come segue:
   \[  \begin{array}{l@{~}l@{~}ll}
@@ -568,7 +568,7 @@ star certi della disponibilit\`a di una variabile fresca quando ne necessitiamo 
   \]
 \end{definition}
 
-Questa definizione ha un difetto tecnico, nell'ultima proposizione, non
+Questa definizione ha un difetto tecnico: nell'ultima proposizione, non
 abbiamo specificato quale variabile fresca prendere, e quindi, tecnicamente,
 la sostituzione non \`e ben definita. Un modo per risolvere questo problema
 \`e di dichiarare tutti i lambda-termini identificabili in termini di
@@ -655,7 +655,7 @@ lambda-termine che non raggiunge una forma normale.
 L'idea di $\beta$-riduzione pu\`o essere definita formalmente cos\`i come segue:
 
 \begin{definition}\label{page-def-beta}
-  Definiamo la {\em single-step $\beta$-riduzione} come la pi\`u piccola
+  Definiamo la {\em $\beta$-riduzione ad un passaggio} come la pi\`u piccola
   relazione $\redb$ su termini che soddisfa:
   \[ \begin{array}{lc}
     \nrule{\beta} &
@@ -670,17 +670,17 @@ L'idea di $\beta$-riduzione pu\`o essere definita formalmente cos\`i come segue:
   \]
 \end{definition}
 
-Di conseguenza, $M\redb M'$ iff $M'$ \`e ottenuta da $M$ 
+Di conseguenza, $M\redb M'$ se e solo se $M'$ \`e ottenuta da $M$ 
 riducendo un {\em solo} $\beta$-redex di $M$.
 
 \begin{definition}
   Scriviamo $M\redbs M'$ se $M$ si riduce a $M'$ in zero o pi\`u passi.
   Formalmente, $\redbs$ \`e definita come la chiusura riflessiva
-transitida di $\redb$, cio\`e la pi\`u piccola relazione riflessiva
+transitiva di $\redb$, cio\`e la pi\`u piccola relazione riflessiva
 transitiva contenente $\redb$.
 \end{definition}
   
-Infine, la %\beta$-equivalenza \`e ottenuta ammettendo passaggi di
+Infine, la $\beta$-equivalenza \`e ottenuta ammettendo passaggi di
 riduzione cos\`i come passaggi inversi di riduzione, cio\`e rendendo $\redb$
 simmetrico:
 
@@ -741,7 +741,7 @@ ab.ab\falset$. \`E uno dei possibili modi di codificare la funzione
 
 \begin{exercise}
   Trova i lambda-termini $\ort$ e $\nott$ che codificano le funzioni
-  booleane ``or'' e ``not'' Riesci a trovare pi\`u di un termine?
+  booleane ``or'' e ``not''. Riesci a trovare pi\`u di un termine?
 \end{exercise}
 
 Inoltre, definiamo il termine $\ifthenelset=\lam x.x$. Questo termine si 
@@ -756,10 +756,10 @@ per ogni lambda-termine $M$, $N$.
 % ----------------------------------------------------------------------
 \subsection{Numeri naturali}\label{ssec-natural-numbers}
 
-Se $f$ e $x$ sono lambda-termini, e $n\geq 0$ un numero naturale, scrivere
+Se $f$ e $x$ sono lambda-termini, e $n\geq 0$ un numero naturale, possiamo scrivere
 $f^nx$ per il termine $f(f(\ldots(fx)\ldots))$, dove $f$ \`e presente $n$
 volte.  Per ogni numero naturale $n$, definiamo un lambda-termine
-$\chnum{n}$, chiamato il {\em $n$th numero di Church}, come $\chnum{n}=\lam
+$\chnum{n}$, chiamato il {\em $n$-esimo numero di Church}, come $\chnum{n}=\lam
 fx.f^nx$. Ecco i primi numeri di Church:
 \[ \begin{array}{rcl}
   \chnum{0} &=& \lam fx.x \\
@@ -769,7 +769,7 @@ fx.f^nx$. Ecco i primi numeri di Church:
   \ldots
 \end{array}
 \]
-Questo modo particolare di codificare i numeri naturali \`e dato ad Alonzo
+Questo modo particolare di codificare i numeri naturali \`e grazie ad Alonzo
 Church, che fu anche l'inventore del lambda-calcolo.
 Nota che $\chnum{0}$ \`e effettivamente lo stesso termine di $\falset$; 
 quindi, quando interpretiamo un lambda-termine, dovremmo sapere dal principio 
@@ -872,7 +872,7 @@ Sia $f$ una funzione. Diciamo che $x$ \`e un {\em punto fisso} di $f$
 se $f(x)=x$. Nell'aritmetica e nel calcolo differenziale e integrale, alcune
 funzioni hanno punti fissi, mentre altre no. Ad esempio, $f(x)=x^2$ ha
 due punti fissi, $0$ e $1$, mentre $f(x)=x+1$ non ha punti fissi.
-Alcune funzionei hanno infiniti punti fissi, ad esempio $f(x)=x$.
+Alcune funzioni hanno infiniti punti fissi, ad esempio $f(x)=x$.
 
 Applichiamo la nozione di punti fissi al lambda-calcolo. Se $F$ e
 $N$ sono lambda-termini, diciamo che $N$ \`e un punto fisso di $F$ se $FN\eqb
@@ -1017,7 +1017,7 @@ $\factt \chnum{n}\redbs \chnum{n!}$, per ogni $n$.
     F\eqb F(\Thetat F)$, ma anche $\Thetat F\redbs F(\Thetat F)$. Usiamo
     questo fatto nello sviluppare $\factt\chnum{2}$. C'\`e una propriet\`a analoga per $\Y$? 
     E questa influenza il risultato dello sviluppo di $\factt\chnum{2}$?
-  \item[(c)] Puoi trovare un'altro combinatore di punto fisso, oltre
+  \item[(c)] Puoi trovare un altro combinatore di punto fisso, oltre
   a quello di Curry e a quello di Turing?
   \end{enumerate}
 \end{exercise}
@@ -1048,7 +1048,7 @@ I termini $\leftt$ e $\rightt$ sono chiamati {\em proiezione} destra e
 {\bf Tuple.} La codificazione di coppie si estende facilmente a $n$-tuple
 arbitrarie. Se $M_1,\ldots,M_n$ sono lambda-termini, definiamo l'$n$-tupla
 $\tuple{M_1,\ldots,M_n}$ come il lambda-termine $\lam z.zM_1\ldots M_n$,
-e definiamo la $i$th proiezione $\pi^n_i=\lam p.p(\lam x_1\ldots
+e definiamo la $i$-esima proiezione $\pi^n_i=\lam p.p(\lam x_1\ldots
 x_n.x_i)$. Quindi
 \[ \begin{array}{rcl}
   \pi^n_i\tuple{M_1,\ldots,M_n} &\redbs& M_i, \mbox{for all $1\leq i\leq n$.}
@@ -1099,12 +1099,9 @@ tutti i numeri alle foglie di un dato albero.
 r.\addt(\nm{addtree}l)(\nm{addtree}r)).
 \]
 
-una funzione
 \begin{exercise}
-  Scrivi un lambda-termine che calcola la lunghezza di una lista.
   \begin{enumerate}
-  \item[(a)] Write a lambda term that calculates the length of a
-    list.
+  \item[(a)] Scrivi un lambda-termine che calcola la lunghezza di una lista.
   \item[(b)] Scrivi un lambda-termine che calcola la profondit\`a (ossia il
   livello di nidificazione) di un albero. Potrebbe servirti definire una
     funzione $\nm{max}$ che calcola il massimo di due numeri.
@@ -1145,7 +1142,7 @@ la seguente regola equivalente, pi\`u semplice:
 \end{array}
 \]
 Nota che possiamo applicare la regola di estensionalit\`a in particolare al
-caso dove $M'=\lam x.Mx$, dove $x$ is non \`e libera in $M$. Come abbiamo
+caso dove $M'=\lam x.Mx$, dove $x$ non \`e libera in $M$. Come abbiamo
 sottolineato sopra, $Mx\eqb M'x$, e quindi l'estensionalit\`a implica che
 $M=\lam x.Mx$. Quest'ultima equazione \`e chiamata $\eta$-law (legge eta):
 \[ \begin{array}{lc}
@@ -1171,7 +1168,7 @@ che soddisfa $\trule{cong$_1$}$, $\trule{cong$_2$}$, $\nrule{\xi}$, e
 il seguente assioma (che \`e lo stesso dell'$\eta$-law, diretto
 da destra verso sinistra):
 \[ \begin{array}{lc}\label{page-def-eta}
-  \nrule{\eta} & \lam x.Mx\rede M, \mbox{ where $x\not\in\FV{M}$}.
+  \nrule{\eta} & \lam x.Mx\rede M, \mbox{ dove $x\not\in\FV{M}$}.
 \end{array}
 \]
 L'$\eta$-riduzione ad un solo passaggio $\redbe$ \`e definita come l'unione
@@ -1221,7 +1218,7 @@ evidenziamo alcune delle sue conseguenze:
   N$, applichiamo il teorema di Church-Rosser a $M_{n-1}$, $Z'$, e $N$
   per ottenere un termine $Z$ tale che $Z'\redbs Z$ e $N\redbs Z$. Dato che
   $M\redbs Z'\redbs Z$, abbiamo finito. La dimostrazione nel caso di
-  $\beta\eta$-reduction \`e identica.\eot
+  $\beta\eta$-riduzione \`e identica.\eot
 \end{proof}
 
 \begin{figure}
@@ -1277,7 +1274,7 @@ evidenziamo alcune delle sue conseguenze:
 
 \begin{corollary}\label{cor-beta-not-eta}
   I termini $x$ e $\lam y.xy$ non sono $\beta$-equivalenti. In
-  particulare, la regola $\eta$ non segue dalla regola $\beta$.
+  particolare, la regola $\eta$ non segue dalla regola $\beta$.
 \end{corollary}
 
 \begin{proof}
@@ -1382,7 +1379,7 @@ un'altra relazione di riduzione $\tri$, con le seguenti propriet\`a:
 
 In questa sezione, dimostreremo il Teorema di Church-Rosser per la
 $\beta\eta$-riduzione. La dimostrazione per $\beta$-riduzione (senza
-$\eta$) \`e molto simile, e infatti leggermente seplice, quindi
+$\eta$) \`e molto simile, e infatti leggermente semplice, quindi
 la omettiamo. La dimostrazione presentata qui \`e grazie a Tait e Martin-L\"of. Iniziamo
 dal definire una nuova relazione $M\tri M'$ sui termini, chiamata {\em
  riduzione parallela ad un passaggio}. Definiamo $\tri$ come la pi\`u
@@ -1393,7 +1390,7 @@ piccola relazione che soddisfa
   (3) & \deriv{N \tri N'}{\lam x.N \tri \lam x.N'} \nl
   (4) & \deriv{Q \tri Q' \sep N \tri N'}{(\lam x.Q)N \tri \subst{Q'}{N'}{x}}
   \nl
-  (5) & \deriv{P \tri P',\mbox{ where $x\not\in\FV{P}$}}{\lam x.Px
+  (5) & \deriv{P \tri P',\mbox{ dove $x\not\in\FV{P}$}}{\lam x.Px
     \tri P'}.
 \end{array}
 \]
@@ -1533,7 +1530,7 @@ propriet\`a del diamante. Prima di farlo, dobbiamo definire il {\em ridotto
 \item $((\lam x.Q)N)^* = \subst{Q^*}{N^*}{x}$.
 \item $(\lam x.N)^* = \lam x.N^*$, se $\lam x.N$ non \`e un 
         $\eta$-redex.
-\item $(\lam x.Px)^* = P^*$, if $x\not\in\FV{P}$.
+\item $(\lam x.Px)^* = P^*$, se $x\not\in\FV{P}$.
 \end{enumerate}
 
 Nota che $M^*$ dipende soltanto da $M$. Il seguente lemma implica la
@@ -1725,7 +1722,7 @@ ed entrambi riguardano una restrizione sulla classe di funzioni per
 renderle pi\`u piccole. Il primo approccio, che sar\`a discusso in questa sezione,
 usa l'{\em algebra}, e il l'idea base \`e quella di sostituire
 l'insieme $X^X$ di tutte le funzioni con uno pi\`u piccolo e opportuno di
-{\em polinomi}. Il secondo approccio\`e di fornire all'insieme $X$ strutture
+{\em polinomi}. Il secondo approccio \`e di fornire all'insieme $X$ strutture
 aggiuntive (cos\`i come la topologia, struttura ordinata, ecc) e di
 sostituire $X^X$ con un insieme di funzioni ``structure preserving'' (per
 esempio, funzioni continue, monotone, ecc).
@@ -1784,7 +1781,7 @@ tutti i $b_1,\ldots,b_n\in\Aa$, $t(b_1,\ldots,b_n) = s(b_1,\ldots,b_n)$.
 
 \begin{definition}[Completezza combinatoria]
   Una struttura applicativa $(\Aa,\app)$ \`e {\em combinatoriamente
-    completo} se per ogni polinomio $t(x_1,\ldots,x_n)$ di $n\geq 0$
+    completa} se per ogni polinomio $t(x_1,\ldots,x_n)$ di $n\geq 0$
   variabili, esiste un qualche elemento $a\in\Aa$ tale che
   \[ ax_1\ldots x_n = t(x_1,\ldots,x_n)
   \]
@@ -1925,9 +1922,9 @@ Ecco alcuni esempi:
   $\beta$-equivalenza. Definiamo $M\app N=MN$, $S=\lam xyz.(xz)(yz)$,
   e $K=\lam xy.x$. Allora $(\Lambda,\app,S,K)$ \`e un'algebra combinatoria.
   Inoltre notiamo che, per Corollario~\ref{cor-beta-not-eta}, questa
-  algebra is non-banale, ossia ha pi\`u di un elemento.
+  algebra  \`e non-banale, ossia ha pi\`u di un elemento.
   
-  Eesempi simili sono ottenuti sostituendo $\eqb$ con $\eqbe$, e/o
+  Esempi simili sono ottenuti sostituendo $\eqb$ con $\eqbe$, e/o
   sostituendo $\Lambda$ con l'insieme $\Lambda_0$ dei termini chiusi.
 \end{example}
 
