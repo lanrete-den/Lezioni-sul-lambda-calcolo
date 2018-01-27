@@ -19,19 +19,19 @@
 
 \theoremstyle{plain}
 \newtheorem{n-lemma}{Lemma}[section]
-\newtheorem{n-theorem}[n-lemma]{Theorem}
-\newtheorem{n-proposition}[n-lemma]{Proposition}
-\newtheorem{n-corollary}[n-lemma]{Corollary}
-\newtheorem*{un-theorem}{Theorem}
+\newtheorem{n-theorem}[n-lemma]{Teorema}
+\newtheorem{n-proposition}[n-lemma]{Proposizione}
+\newtheorem{n-corollary}[n-lemma]{Corollario}
+\newtheorem*{un-theorem}{Teorema}
 
 \theoremstyle{definition}
-\newtheorem{n-exercise}{Exercise}
-\newtheorem*{un-definition}{Definition}
-\newtheorem*{un-convention}{Convention}
+\newtheorem{n-exercise}{Esercizio}
+\newtheorem*{un-definition}{Definizione}
+\newtheorem*{un-convention}{Convenzione}
 
 \theoremstyle{remark}
-\newtheorem{n-example}[n-lemma]{Example}
-\newtheorem{n-remark}[n-lemma]{Remark}
+\newtheorem{n-example}[n-lemma]{Esempio}
+\newtheorem{n-remark}[n-lemma]{Nota}
 
 % defaults numbered/unnumbered
 \newenvironment{theorem}{\begin{n-theorem}}{\end{n-theorem}}
@@ -46,7 +46,7 @@
 
 % proofs
 \newenvironment{proofof}[1]             % loose proofs
-        {\begin{trivlist}\item[]{\it Proof of #1:\hspace{.5em}}}
+        {\begin{trivlist}\item[]{\it Dimostrazione di #1:\hspace{.5em}}}
         {\end{trivlist}}
 
 \renewcommand{\qed}{}                   % turn off automatic AMS-style \qed
@@ -274,5 +274,5 @@
 \newcommand{\deriv}[2]{\mbox{$\frac{\derivstrut\mbox{$#1$}}{\mbox{\derivstrut$#2$}}$}}
 \newcommand{\ideriv}[2]{\mbox{$\begin{array}[b]{c}#1\\\vdots\\#2\end{array}$}}
 \newcommand{\squishr}[1]{\makebox[0in][r]{#1}}
-\newcommand{\wloss}{without loss of generality}
+\newcommand{\wloss}{senza perdita di generalit\`a}
 \newcommand{\void}[1]{}
